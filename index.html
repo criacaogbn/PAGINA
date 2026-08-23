@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GBN3D | Glauber Barbarrossa</title>
+  <meta name="description" content="GBN3D — Glauber Barbarrossa: modelagem e escultura 3D, personagens, objetos e emblemas. Portfólio de trabalhos em modelagem 3D.">
+  <link rel="icon" type="image/png" href="logo/logocircularpng2.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      background-color: #0d0d0d;
+      color: #ffffff;
+      line-height: 1.5;
+      padding: 0 4%;
+    }
+
+    /* Header reestruturado como no Anexo 2 */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid #1a1a1a;
+    }
+
+    .brand-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .brand-logo {
+      width: 70px;
+      height: 70px;
+      object-fit: contain;
+      background-color: #000000;
+      padding: 4px;
+      border-radius: 4px;
+    }
+
+    .brand-name {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: #ffffff;
+      text-transform: uppercase;
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: #a0a0a0;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      transition: color 0.3s;
+    }
+
+    nav a:hover, nav a.active {
+      color: #ffffff;
+    }
+
+    /* Hero Section ajustado */
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      padding: 4rem 0 3rem 0;
+      gap: 3rem;
+    }
+
+    .hero-text h1 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.5px;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      color: #ffffff;
+    }
+
+    .hero-text h1 span {
+      color: #888888;
+      font-weight: 700;
+    }
+
+    .btn-explore {
+      display: inline-block;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border-bottom: 2px solid #ffffff;
+      padding-bottom: 4px;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      display: block;
+    }
+
+    /* Galeria & Filtros */
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 3rem 0 1.5rem 0;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .filter-buttons {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .filter-btn {
+      background: #141414;
+      border: 1px solid #222;
+      color: #888;
+      padding: 0.5rem 1.2rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      background: #ffffff;
+      color: #000000;
+      border-color: #ffffff;
+    }
+
+    .folder-loader-box {
+      background: #111111;
+      border: 1px dashed #262626;
+      padding: 0.8rem 1.2rem;
+      border-radius: 6px;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .folder-loader-box p {
+      font-size: 0.8rem;
+      color: #777777;
+    }
+
+    .folder-loader-box code {
+      color: #e5a93c;
+    }
+
+    .folder-loader-box input {
+      display: none;
+    }
+
+    .folder-btn {
+      background: #1f1f1f;
+      color: #fff;
+      border: 1px solid #333;
+      padding: 0.4rem 0.8rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .card {
+      background-color: #141414;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid #1f1f1f;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+    }
+
+    .card-img-wrapper {
+      width: 100%;
+      height: 220px;
+      background-color: #1a1a1a;
+    }
+
+    .card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card-info {
+      padding: 0.8rem;
+    }
+
+    .card-category {
+      font-size: 0.65rem;
+      color: #666;
+      text-transform: uppercase;
+    }
+
+    .card-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    /* Lightbox Modal */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox-content {
+      max-width: 85%;
+      max-height: 80vh;
+      border-radius: 6px;
+      object-fit: contain;
+    }
+
+    .lightbox-caption {
+      margin-top: 1rem;
+      text-align: center;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 2rem;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      width: 95%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+
+    .lightbox-btn {
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      padding: 0.8rem 1.2rem;
+      border-radius: 50%;
+      cursor: pointer;
+      pointer-events: auto;
+    }
+
+    /* About Section */
+    .about {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      margin: 5rem 0;
+      padding: 2rem;
+      background-color: #111;
+      border-radius: 8px;
+      border: 1px solid #1f1f1f;
+    }
+
+    .about-avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 6px;
+      object-fit: cover;
+    }
+
+    .about-text {
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2.5rem 0;
+      border-top: 1px solid #1f1f1f;
+      font-size: 0.8rem;
+      color: #666;
+    }
+
+    .footer-links a {
+      color: #aaa;
+      text-decoration: none;
+      margin-right: 1.5rem;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+    }
+
+    @media (max-width: 768px) {
+      header { flex-direction: column; gap: 1rem; }
+      .hero { grid-template-columns: 1fr; }
+      .about { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand-container">
+      <img src="logo/logocircularpng2.png" class="brand-logo" alt="GBN3D Logo" onerror="this.style.display='none'">
+      <div class="brand-name">GBN3D</div>
+    </div>
+    <nav>
+      <a href="#" class="active">Home</a>
+      <a href="#portfolio">Portfólio</a>
+      <a href="galeria.html">Acervo</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>GLAUBER BARBARROSSA <span>| APENAS UM MODELADOR. CRIANDO ESCULTURAS E ASSETS EM 3D.</span></h1>
+      <a href="#portfolio" class="btn-explore">Explorar Projetos</a>
+    </div>
+    <div class="hero-image">
+      <img src="imagens/guerreira_ks01.177.jpg" alt="Render Principal">
+    </div>
+  </section>
+
+  <section id="portfolio">
+    <div class="section-header">
+      <h2 class="section-title">PORTFÓLIO</h2>
+      <div class="filter-buttons">
+        <button class="filter-btn active" onclick="filterGallery('todos', event)">Todos</button>
+        <button class="filter-btn" onclick="filterGallery('personagem', event)">Personagens</button>
+        <button class="filter-btn" onclick="filterGallery('objeto', event)">Objetos</button>
+        <button class="filter-btn" onclick="filterGallery('emblema', event)">Emblemas</button>
+      </div>
+    </div>
+
+    <div class="folder-loader-box">
+      <p>Caminho do seu projeto: <code>imagens/</code></p>
+      <label for="folderInput" class="folder-btn">Carregar Imagens da Pasta</label>
+      <input type="file" id="folderInput" webkitdirectory directory multiple onchange="loadLocalImages(event)">
+    </div>
+
+    <div class="grid" id="galleryGrid"></div>
+  </section>
+  <section class="about" id="sobre">
+    <img src="imagens/img_hermes01.jpg" class="about-avatar" alt="Glauber Barbarrossa">
+    <div class="about-text">
+      Apenas um modelador 3D transformando ideias, personagens e conceitos em arquivos e esculturas digitais na <strong>GBN Modelagem 3D (GBN3D)</strong>.
+    </div>
+  </section>
+
+  <footer id="contato">
+    <div class="footer-links">
+      <a href="#">LinkedIn</a>
+      <a href="#">ArtStation</a>
+      <a href="#">Email</a>
+    </div>
+    <div>© 2026 GBN Modelagem 3D. Todos os direitos reservados.</div>
+  </footer>
+
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" onclick="closeLightbox()" aria-label="Fechar (Esc)">&times;</span>
+    <div class="lightbox-nav">
+      <button class="lightbox-btn" onclick="prevImage()" aria-label="Imagem anterior (seta à esquerda)">&#10094;</button>
+      <button class="lightbox-btn" onclick="nextImage()" aria-label="Próxima imagem (seta à direita)">&#10095;</button>
+    </div>
+    <img class="lightbox-content" id="lightboxImg" src="" alt="Zoom Render">
+    <div class="lightbox-caption">
+      <div class="card-category" id="lightboxCat"></div>
+      <div class="card-title" id="lightboxTitle"></div>
+    </div>
+  </div>
+
+  <script>
+    let projects = [
+      { id: 1, title: 'Guerreira Ártemis', category: 'personagem', src: 'imagens/guerreira_ks01.177.jpg' },
+      { id: 2, title: 'Mascotes Serasa', category: 'personagem', src: 'imagens/img03.147.jpg' },
+      { id: 3, title: 'Sabiás ZBrush', category: 'personagem', src: 'imagens/pux_sabia06.jpg' },
+      { id: 4, title: 'Cão Frenchie', category: 'personagem', src: 'imagens/dogimg1.jpg' },
+      { id: 5, title: 'Escultura Gabriela', category: 'personagem', src: 'imagens/escultura_Gabriela_r01.225.jpg' },
+      { id: 6, title: 'Garrafa Crânio', category: 'objeto', src: 'imagens/garrafacranio_ks_01.247.jpg' },
+      { id: 7, title: 'Chaveiro 3D', category: 'objeto', src: 'imagens/cena_chav01.268.jpg' },
+      { id: 8, title: 'Vaso de Cristal', category: 'objeto', src: 'imagens/vazoimg01.243.jpg' },
+      { id: 9, title: 'Bowl Velarisceira', category: 'objeto', src: 'imagens/cena_velariseira01.bip.242.jpg' },
+      { id: 10, title: 'Emblema Hermès', category: 'emblema', src: 'imagens/img_hermes01.jpg' },
+      { id: 11, title: 'Fênix Bolívia', category: 'emblema', src: 'imagens/img_fenix01.jpg' }
+    ];
+
+    let currentImageIndex = 0;
+    let filteredProjects = [...projects];
+
+    function renderGallery(items) {
+      const grid = document.getElementById('galleryGrid');
+      grid.innerHTML = '';
+
+      if (items.length === 0) {
+        grid.innerHTML = '<p style="color: #666; grid-column: 1/-1;">Nenhuma imagem encontrada.</p>';
+        return;
+      }
+
+      items.forEach((item, index) => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.onclick = () => openLightbox(index);
+
+        card.innerHTML = `
+          <div class="card-img-wrapper">
+            <img src="${item.src}" class="card-img" alt="${item.title}" loading="lazy">
+          </div>
+          <div class="card-info">
+            <div class="card-category">${item.category}</div>
+            <div class="card-title">${item.title}</div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function filterGallery(category, evt) {
+      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+      if (evt && evt.currentTarget) evt.currentTarget.classList.add('active');
+
+      if (category === 'todos') {
+        filteredProjects = [...projects];
+      } else {
+        filteredProjects = projects.filter(p => p.category.toLowerCase() === category.toLowerCase());
+      }
+      renderGallery(filteredProjects);
+    }
+
+    function loadLocalImages(event) {
+      const files = event.target.files;
+      if (!files.length) return;
+
+      projects = [];
+      let count = 1;
+
+      for (let file of files) {
+        if (file.type.startsWith('image/')) {
+          const fileUrl = URL.createObjectURL(file);
+          const nameWithoutExt = file.name.substring(0, file.name.lastIndexOf('.')) || file.name;
+
+          projects.push({
+            id: count++,
+            title: nameWithoutExt.replace(/[-_]/g, ' '),
+            category: 'Geral',
+            src: fileUrl
+          });
+        }
+      }
+
+      filteredProjects = [...projects];
+      renderGallery(filteredProjects);
+    }
+
+    function openLightbox(index) {
+      currentImageIndex = index;
+      const item = filteredProjects[currentImageIndex];
+      document.getElementById('lightboxImg').src = item.src;
+      document.getElementById('lightboxTitle').innerText = item.title;
+      document.getElementById('lightboxCat').innerText = item.category;
+      document.getElementById('lightbox').classList.add('active');
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+      document.getElementById('lightboxImg').src = '';
+    }
+
+    function nextImage() {
+      currentImageIndex = (currentImageIndex + 1) % filteredProjects.length;
+      openLightbox(currentImageIndex);
+    }
+
+    function prevImage() {
+      currentImageIndex = (currentImageIndex - 1 + filteredProjects.length) % filteredProjects.length;
+      openLightbox(currentImageIndex);
+    }
+
+    // Fechar ao clicar fora da imagem
+    document.getElementById('lightbox').addEventListener('click', function (e) {
+      if (e.target === this) closeLightbox();
+    });
+
+    // Navegação por teclado: Esc fecha, setas navegam
+    document.addEventListener('keydown', function (e) {
+      const lb = document.getElementById('lightbox');
+      if (!lb.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      else if (e.key === 'ArrowRight') nextImage();
+      else if (e.key === 'ArrowLeft') prevImage();
+    });
+
+    renderGallery(projects);
+  </script>
+</body>
+</html>
+  </style>
+</head>

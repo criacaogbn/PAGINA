@@ -1,0 +1,1062 @@
+[
+    {
+        "path": "01 (2).jpg",
+        "type": "file",
+        "md5": "31d53cf0b4f1eb93c1bbac3118439d6c"
+    },
+    {
+        "path": "01 (3).jpg",
+        "type": "file",
+        "md5": "3cc219e14c4c914ce4c8613a30808502"
+    },
+    {
+        "path": "01.jpg",
+        "type": "file",
+        "md5": "548c0a3676bdff8bb98b274968b40c66"
+    },
+    {
+        "path": "01bpr.jpg",
+        "type": "file",
+        "md5": "6251b0cdb99286b5bfc8293c98c0948c"
+    },
+    {
+        "path": "02 (2).jpg",
+        "type": "file",
+        "md5": "f507293cb2aec3593a4e343b41cb87a1"
+    },
+    {
+        "path": "02.jpg",
+        "type": "file",
+        "md5": "8d1e323dbda45d7d0ba710f8ea1f2ef1"
+    },
+    {
+        "path": "03 (2).jpg",
+        "type": "file",
+        "md5": "6bfc8a50f83ad9b28a050acda7537c67"
+    },
+    {
+        "path": "03 (3).jpg",
+        "type": "file",
+        "md5": "3a2007f185a4749fcce6dce55da748b9"
+    },
+    {
+        "path": "03.jpg",
+        "type": "file",
+        "md5": "49333e419d249880e0f8e1747f2e728a"
+    },
+    {
+        "path": "04.jpg",
+        "type": "file",
+        "md5": "b0c10e0a8e24750f1b92595fdefe20d3"
+    },
+    {
+        "path": "05 (2).jpg",
+        "type": "file",
+        "md5": "9af2243904f35ec4a3faa1f7fceb25b6"
+    },
+    {
+        "path": "05.jpg",
+        "type": "file",
+        "md5": "c348f4fc3eef5a198ac5f70abbb49024"
+    },
+    {
+        "path": "05a.jpg",
+        "type": "file",
+        "md5": "697e4313805e98cdaadf8603b8072d06"
+    },
+    {
+        "path": "05a2.jpg",
+        "type": "file",
+        "md5": "172fab2babf45914cb32620310e81c5e"
+    },
+    {
+        "path": "07.jpg",
+        "type": "file",
+        "md5": "bd84bc840cbe4f10e2bb5d0e4ccd7d77"
+    },
+    {
+        "path": "08.jpg",
+        "type": "file",
+        "md5": "e0bf4935e6619c2613d8ee89df8e1be5"
+    },
+    {
+        "path": "088.jpg",
+        "type": "file",
+        "md5": "11c8e399e8fba6141250df685ab83586"
+    },
+    {
+        "path": "22.jpg",
+        "type": "file",
+        "md5": "a0e58b5ee91c9cb290150f294469c218"
+    },
+    {
+        "path": "404.html",
+        "type": "file",
+        "md5": "cfeeec1600ab3c83dd5d323a9e72e2c2"
+    },
+    {
+        "path": "433645cc-519e-401f-8197-6970e0c0aaf6.jpg",
+        "type": "file",
+        "md5": "0bb6e2b6a77c6e99b6660c9710c5e37f"
+    },
+    {
+        "path": "assets",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "assets/css",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/assets/css/editor.css",
+        "type": "file",
+        "md5": "4202808df745f2ac7ab250606fa0d272"
+    },
+    {
+        "path": "/assets/css/main.css",
+        "type": "file",
+        "md5": "4e1c6244455e2a19ec7b294b7b1c2331"
+    },
+    {
+        "path": "/assets/css/style.css",
+        "type": "file",
+        "md5": "0666edcc50087c281cfff83e4798a20b"
+    },
+    {
+        "path": "assets/dynamic",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "assets/js",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/assets/js/scripts.js",
+        "type": "file",
+        "md5": "c8f24385262425ace55bdac985c878df"
+    },
+    {
+        "path": "/assets/js/scripts.min.js",
+        "type": "file",
+        "md5": "dafec4f87fead6718cb125f0b0fc8441"
+    },
+    {
+        "path": "/assets/js/svg-fix.js",
+        "type": "file",
+        "md5": "9b7d020c55e2b4f77ab40c97f88f9ff4"
+    },
+    {
+        "path": "/assets/js/svg-map.js",
+        "type": "file",
+        "md5": "ff4392540fcf4c3d3f5e03806e112816"
+    },
+    {
+        "path": "assets/svg",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/assets/svg/svg-map.svg",
+        "type": "file",
+        "md5": "cf04dfd5c3cc64e0be44692fe7d976a6"
+    },
+    {
+        "path": "authors",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "cena_chav01.268.jpg",
+        "type": "file",
+        "md5": "a078e44d4b5bdb0c3316a2e6491331c9"
+    },
+    {
+        "path": "cena_chav02.269.jpg",
+        "type": "file",
+        "md5": "4c766dd08c23c360880e9988f44940a2"
+    },
+    {
+        "path": "cena_chav03.270.jpg",
+        "type": "file",
+        "md5": "a3eff34320d2b6aba37f73d8bca6bea0"
+    },
+    {
+        "path": "cena_velariseira01.bip.242.jpg",
+        "type": "file",
+        "md5": "302d8a37fd589c6f48184d203ec21308"
+    },
+    {
+        "path": "cena_velariseira06.238.jpg",
+        "type": "file",
+        "md5": "be42d553b4dbc83971ebf5ea5920544d"
+    },
+    {
+        "path": "dogimg1.jpg",
+        "type": "file",
+        "md5": "dcfa3ce59bc63cd66803396b2d814a2b"
+    },
+    {
+        "path": "escultura_Gabriela_r01.225.jpg",
+        "type": "file",
+        "md5": "0b9b3efc6072de9d3eef8b58014030fd"
+    },
+    {
+        "path": "escultura_Gabriela_r02.215.jpg",
+        "type": "file",
+        "md5": "7eb706da8ddcc81d0b2fce52ec7dfb71"
+    },
+    {
+        "path": "feed.json",
+        "type": "file",
+        "md5": "848b378b12bfb4eb2094b59d694d19d0"
+    },
+    {
+        "path": "feed.xml",
+        "type": "file",
+        "md5": "e2433e3cebcc06b7ec4ec1d1da97b87e"
+    },
+    {
+        "path": "garrafacranio_ks_01.247.jpg",
+        "type": "file",
+        "md5": "4d3eedc0dcb3496c9c7aad580f744884"
+    },
+    {
+        "path": "garrafacranio_ks_02.248.jpg",
+        "type": "file",
+        "md5": "11223aa08c97016b62a27a1f365fb1fa"
+    },
+    {
+        "path": "garrafacranio_ks_03.249.jpg",
+        "type": "file",
+        "md5": "d8656a0dae4a7f3bad0a0c14ad48685f"
+    },
+    {
+        "path": "garrafacranio_ks_04.250.jpg",
+        "type": "file",
+        "md5": "948b1b9c28e33bbb25e246ba0598b983"
+    },
+    {
+        "path": "garrafacranio_ks_06.252.jpg",
+        "type": "file",
+        "md5": "16ca064f9803bc910b84abbf47534a7c"
+    },
+    {
+        "path": "guerreira_ks01.177.jpg",
+        "type": "file",
+        "md5": "4b6bf58afd4889e975e5d0045c79d633"
+    },
+    {
+        "path": "guerreira_remod01b.179.jpg",
+        "type": "file",
+        "md5": "97c7575a4f91fda0801fb13b27b1543a"
+    },
+    {
+        "path": "img01.jpg",
+        "type": "file",
+        "md5": "6a4d0531f21fcfe6bbd8b233e13a8905"
+    },
+    {
+        "path": "img02.jpg",
+        "type": "file",
+        "md5": "22c0b2eca396a818395a8028964484a3"
+    },
+    {
+        "path": "img03.147.jpg",
+        "type": "file",
+        "md5": "1b9ce95c177ac339515bd54b1ae9d7d8"
+    },
+    {
+        "path": "img03.jpg",
+        "type": "file",
+        "md5": "6ab5ce3a0a69fa0f84b11b4e4979e648"
+    },
+    {
+        "path": "img04.151.jpg",
+        "type": "file",
+        "md5": "42cfaf93aa06bac261039a2799567262"
+    },
+    {
+        "path": "img04.jpg",
+        "type": "file",
+        "md5": "4dcc290b3dab17a8bb1551597ca62c10"
+    },
+    {
+        "path": "img04a.152.jpg",
+        "type": "file",
+        "md5": "2d38ec4895f30e9253301d8876106c69"
+    },
+    {
+        "path": "img06.154.jpg",
+        "type": "file",
+        "md5": "d857741157ca3d9d404c6c5936ed88f3"
+    },
+    {
+        "path": "img07.jpg",
+        "type": "file",
+        "md5": "d50df28c1fd3dae8c8cabe6236eebb3b"
+    },
+    {
+        "path": "img_fenix01.jpg",
+        "type": "file",
+        "md5": "e5363f1dc2fb199666bfa5528890f090"
+    },
+    {
+        "path": "img_hermes01.jpg",
+        "type": "file",
+        "md5": "65ea203e75e63d4eaf89242fd8238af9"
+    },
+    {
+        "path": "img_hermes02.jpg",
+        "type": "file",
+        "md5": "1b26cedbca51b2aae6e57f2ffa1e6203"
+    },
+    {
+        "path": "img_hermes03.jpg",
+        "type": "file",
+        "md5": "ac11c2f8e4fd0b5f50dbfa408c50c333"
+    },
+    {
+        "path": "index.html",
+        "type": "file",
+        "md5": "0de3a1a6775038f839ba9e58e24ce482"
+    },
+    {
+        "path": "ks_img_01.253.jpg",
+        "type": "file",
+        "md5": "6276e699950bf57bb984bd515bc7a1d5"
+    },
+    {
+        "path": "ks_img_02.254.jpg",
+        "type": "file",
+        "md5": "d2f4166f3b70786f279e06a0a8b74a20"
+    },
+    {
+        "path": "ks_img_03.255.jpg",
+        "type": "file",
+        "md5": "83fa0571b14c14bb8da38423ffa70727"
+    },
+    {
+        "path": "media",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "media/authors",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "media/authors/1",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/media/authors/1/1689879704997.jpg",
+        "type": "file",
+        "md5": "88340e505a692d3ac55b9fd2991cce58"
+    },
+    {
+        "path": "media/authors/1/responsive",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/media/authors/1/responsive/1689879704997-2xl.jpg",
+        "type": "file",
+        "md5": "8c936832fba4a5269aaa28c79be4fc56"
+    },
+    {
+        "path": "/media/authors/1/responsive/1689879704997-lg.jpg",
+        "type": "file",
+        "md5": "93e4e73d2a8dbfaf4cf1771e8d5d0a36"
+    },
+    {
+        "path": "/media/authors/1/responsive/1689879704997-md.jpg",
+        "type": "file",
+        "md5": "1d7c2297d348a513756cb6ab14a9a689"
+    },
+    {
+        "path": "/media/authors/1/responsive/1689879704997-sm.jpg",
+        "type": "file",
+        "md5": "9561b7b7c07a9dad88f676af08213ef9"
+    },
+    {
+        "path": "/media/authors/1/responsive/1689879704997-xl.jpg",
+        "type": "file",
+        "md5": "af012d34bd80afd1a99694b6d1958bab"
+    },
+    {
+        "path": "/media/authors/1/responsive/1689879704997-xs.jpg",
+        "type": "file",
+        "md5": "62f857380bfd060a881a1c01393bf9cf"
+    },
+    {
+        "path": "media/files",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/media/files/01 (2).jpg",
+        "type": "file",
+        "md5": "31d53cf0b4f1eb93c1bbac3118439d6c"
+    },
+    {
+        "path": "/media/files/01 (3).jpg",
+        "type": "file",
+        "md5": "3cc219e14c4c914ce4c8613a30808502"
+    },
+    {
+        "path": "/media/files/01.jpg",
+        "type": "file",
+        "md5": "548c0a3676bdff8bb98b274968b40c66"
+    },
+    {
+        "path": "/media/files/01bpr.jpg",
+        "type": "file",
+        "md5": "6251b0cdb99286b5bfc8293c98c0948c"
+    },
+    {
+        "path": "/media/files/02 (2).jpg",
+        "type": "file",
+        "md5": "f507293cb2aec3593a4e343b41cb87a1"
+    },
+    {
+        "path": "/media/files/02.jpg",
+        "type": "file",
+        "md5": "8d1e323dbda45d7d0ba710f8ea1f2ef1"
+    },
+    {
+        "path": "/media/files/03 (2).jpg",
+        "type": "file",
+        "md5": "6bfc8a50f83ad9b28a050acda7537c67"
+    },
+    {
+        "path": "/media/files/03 (3).jpg",
+        "type": "file",
+        "md5": "3a2007f185a4749fcce6dce55da748b9"
+    },
+    {
+        "path": "/media/files/03.jpg",
+        "type": "file",
+        "md5": "49333e419d249880e0f8e1747f2e728a"
+    },
+    {
+        "path": "/media/files/04.jpg",
+        "type": "file",
+        "md5": "b0c10e0a8e24750f1b92595fdefe20d3"
+    },
+    {
+        "path": "/media/files/05 (2).jpg",
+        "type": "file",
+        "md5": "9af2243904f35ec4a3faa1f7fceb25b6"
+    },
+    {
+        "path": "/media/files/05.jpg",
+        "type": "file",
+        "md5": "c348f4fc3eef5a198ac5f70abbb49024"
+    },
+    {
+        "path": "/media/files/05a.jpg",
+        "type": "file",
+        "md5": "697e4313805e98cdaadf8603b8072d06"
+    },
+    {
+        "path": "/media/files/05a2.jpg",
+        "type": "file",
+        "md5": "172fab2babf45914cb32620310e81c5e"
+    },
+    {
+        "path": "/media/files/07.jpg",
+        "type": "file",
+        "md5": "bd84bc840cbe4f10e2bb5d0e4ccd7d77"
+    },
+    {
+        "path": "/media/files/08.jpg",
+        "type": "file",
+        "md5": "e0bf4935e6619c2613d8ee89df8e1be5"
+    },
+    {
+        "path": "/media/files/088.jpg",
+        "type": "file",
+        "md5": "11c8e399e8fba6141250df685ab83586"
+    },
+    {
+        "path": "/media/files/22.jpg",
+        "type": "file",
+        "md5": "a0e58b5ee91c9cb290150f294469c218"
+    },
+    {
+        "path": "/media/files/433645cc-519e-401f-8197-6970e0c0aaf6.jpg",
+        "type": "file",
+        "md5": "0bb6e2b6a77c6e99b6660c9710c5e37f"
+    },
+    {
+        "path": "/media/files/cena_chav01.268.jpg",
+        "type": "file",
+        "md5": "a078e44d4b5bdb0c3316a2e6491331c9"
+    },
+    {
+        "path": "/media/files/cena_chav02.269.jpg",
+        "type": "file",
+        "md5": "4c766dd08c23c360880e9988f44940a2"
+    },
+    {
+        "path": "/media/files/cena_chav03.270.jpg",
+        "type": "file",
+        "md5": "a3eff34320d2b6aba37f73d8bca6bea0"
+    },
+    {
+        "path": "/media/files/cena_velariseira01.bip.242.jpg",
+        "type": "file",
+        "md5": "302d8a37fd589c6f48184d203ec21308"
+    },
+    {
+        "path": "/media/files/cena_velariseira06.238.jpg",
+        "type": "file",
+        "md5": "be42d553b4dbc83971ebf5ea5920544d"
+    },
+    {
+        "path": "/media/files/dogimg1.jpg",
+        "type": "file",
+        "md5": "dcfa3ce59bc63cd66803396b2d814a2b"
+    },
+    {
+        "path": "/media/files/escultura_Gabriela_r01.225.jpg",
+        "type": "file",
+        "md5": "0b9b3efc6072de9d3eef8b58014030fd"
+    },
+    {
+        "path": "/media/files/escultura_Gabriela_r02.215.jpg",
+        "type": "file",
+        "md5": "7eb706da8ddcc81d0b2fce52ec7dfb71"
+    },
+    {
+        "path": "/media/files/garrafacranio_ks_01.247.jpg",
+        "type": "file",
+        "md5": "4d3eedc0dcb3496c9c7aad580f744884"
+    },
+    {
+        "path": "/media/files/garrafacranio_ks_02.248.jpg",
+        "type": "file",
+        "md5": "11223aa08c97016b62a27a1f365fb1fa"
+    },
+    {
+        "path": "/media/files/garrafacranio_ks_03.249.jpg",
+        "type": "file",
+        "md5": "d8656a0dae4a7f3bad0a0c14ad48685f"
+    },
+    {
+        "path": "/media/files/garrafacranio_ks_04.250.jpg",
+        "type": "file",
+        "md5": "948b1b9c28e33bbb25e246ba0598b983"
+    },
+    {
+        "path": "/media/files/garrafacranio_ks_06.252.jpg",
+        "type": "file",
+        "md5": "16ca064f9803bc910b84abbf47534a7c"
+    },
+    {
+        "path": "/media/files/guerreira_ks01.177.jpg",
+        "type": "file",
+        "md5": "4b6bf58afd4889e975e5d0045c79d633"
+    },
+    {
+        "path": "/media/files/guerreira_remod01b.179.jpg",
+        "type": "file",
+        "md5": "97c7575a4f91fda0801fb13b27b1543a"
+    },
+    {
+        "path": "/media/files/img01.jpg",
+        "type": "file",
+        "md5": "6a4d0531f21fcfe6bbd8b233e13a8905"
+    },
+    {
+        "path": "/media/files/img02.jpg",
+        "type": "file",
+        "md5": "22c0b2eca396a818395a8028964484a3"
+    },
+    {
+        "path": "/media/files/img03.147.jpg",
+        "type": "file",
+        "md5": "1b9ce95c177ac339515bd54b1ae9d7d8"
+    },
+    {
+        "path": "/media/files/img03.jpg",
+        "type": "file",
+        "md5": "6ab5ce3a0a69fa0f84b11b4e4979e648"
+    },
+    {
+        "path": "/media/files/img04.151.jpg",
+        "type": "file",
+        "md5": "42cfaf93aa06bac261039a2799567262"
+    },
+    {
+        "path": "/media/files/img04.jpg",
+        "type": "file",
+        "md5": "4dcc290b3dab17a8bb1551597ca62c10"
+    },
+    {
+        "path": "/media/files/img04a.152.jpg",
+        "type": "file",
+        "md5": "2d38ec4895f30e9253301d8876106c69"
+    },
+    {
+        "path": "/media/files/img06.154.jpg",
+        "type": "file",
+        "md5": "d857741157ca3d9d404c6c5936ed88f3"
+    },
+    {
+        "path": "/media/files/img07.jpg",
+        "type": "file",
+        "md5": "d50df28c1fd3dae8c8cabe6236eebb3b"
+    },
+    {
+        "path": "/media/files/img_fenix01.jpg",
+        "type": "file",
+        "md5": "e5363f1dc2fb199666bfa5528890f090"
+    },
+    {
+        "path": "/media/files/img_hermes01.jpg",
+        "type": "file",
+        "md5": "65ea203e75e63d4eaf89242fd8238af9"
+    },
+    {
+        "path": "/media/files/img_hermes02.jpg",
+        "type": "file",
+        "md5": "1b26cedbca51b2aae6e57f2ffa1e6203"
+    },
+    {
+        "path": "/media/files/img_hermes03.jpg",
+        "type": "file",
+        "md5": "ac11c2f8e4fd0b5f50dbfa408c50c333"
+    },
+    {
+        "path": "/media/files/ks_img_01.253.jpg",
+        "type": "file",
+        "md5": "6276e699950bf57bb984bd515bc7a1d5"
+    },
+    {
+        "path": "/media/files/ks_img_02.254.jpg",
+        "type": "file",
+        "md5": "d2f4166f3b70786f279e06a0a8b74a20"
+    },
+    {
+        "path": "/media/files/ks_img_03.255.jpg",
+        "type": "file",
+        "md5": "83fa0571b14c14bb8da38423ffa70727"
+    },
+    {
+        "path": "/media/files/OK01.jpg",
+        "type": "file",
+        "md5": "77bf7b337a39ca95b076c3512b237834"
+    },
+    {
+        "path": "/media/files/OK02.jpg",
+        "type": "file",
+        "md5": "24f497962f3d99e95109e509f81a71fd"
+    },
+    {
+        "path": "/media/files/OK05.jpg",
+        "type": "file",
+        "md5": "cfac2410d3d4d86aac1224b938fe0a6b"
+    },
+    {
+        "path": "/media/files/OK06.jpg",
+        "type": "file",
+        "md5": "8920e8628817ddcf3b18d246b0e29b28"
+    },
+    {
+        "path": "/media/files/OK07.jpg",
+        "type": "file",
+        "md5": "a00ed34d749e1057408733ec943b8e8e"
+    },
+    {
+        "path": "/media/files/OK08.jpg",
+        "type": "file",
+        "md5": "9b75816bb3c2622cf2048c8b7515e159"
+    },
+    {
+        "path": "/media/files/pc04.212.jpg",
+        "type": "file",
+        "md5": "dc1a6b17909a06a2fbfc0e86622a033e"
+    },
+    {
+        "path": "/media/files/pc04.213.jpg",
+        "type": "file",
+        "md5": "52b538a9b246d87e07cf8f56fe82cef4"
+    },
+    {
+        "path": "/media/files/pc04.214.jpg",
+        "type": "file",
+        "md5": "f9ad4e3def03c162a61e1fdfa4c34e55"
+    },
+    {
+        "path": "/media/files/print01.jpg",
+        "type": "file",
+        "md5": "4aecc7c57a37ad34aaf1d7ea58e20c2e"
+    },
+    {
+        "path": "/media/files/print02.jpg",
+        "type": "file",
+        "md5": "05795dc67b403b03b34b36f62a4c32ee"
+    },
+    {
+        "path": "/media/files/print03.jpg",
+        "type": "file",
+        "md5": "3ad9fc5619313edac9d8636e278b7d58"
+    },
+    {
+        "path": "/media/files/psimg01.jpg",
+        "type": "file",
+        "md5": "c0e1cf8700363c0a10ef4d6bc6ffce18"
+    },
+    {
+        "path": "/media/files/pux_sabia06.jpg",
+        "type": "file",
+        "md5": "79fdfca572e3b29c48012d8129591e3c"
+    },
+    {
+        "path": "/media/files/pux_sabia07.jpg",
+        "type": "file",
+        "md5": "2947c6d52fea865bb5a4ce69d645cb6d"
+    },
+    {
+        "path": "/media/files/pux_sabia08.jpg",
+        "type": "file",
+        "md5": "d3c573d94b95d9c897171cfd1ce3151d"
+    },
+    {
+        "path": "/media/files/pux_sabia09.jpg",
+        "type": "file",
+        "md5": "036679da6e5e73429eba74054172e7e8"
+    },
+    {
+        "path": "/media/files/pux_sabia10.jpg",
+        "type": "file",
+        "md5": "c5c44c467bf66ec344a097d5c0ab68d6"
+    },
+    {
+        "path": "/media/files/pux_sabia11.jpg",
+        "type": "file",
+        "md5": "68c58046ab2c62b52c3f64c34bbd2e07"
+    },
+    {
+        "path": "/media/files/pux_sabia13.jpg",
+        "type": "file",
+        "md5": "feec8e472fdf742caffb02d14a09f348"
+    },
+    {
+        "path": "/media/files/pux_sabia14.jpg",
+        "type": "file",
+        "md5": "ff67eddd689417994bcfcc007a52a461"
+    },
+    {
+        "path": "/media/files/pux_sabia15.jpg",
+        "type": "file",
+        "md5": "ff67eddd689417994bcfcc007a52a461"
+    },
+    {
+        "path": "/media/files/trabalhos_02-07 a 21-07_ACD_0.jpg",
+        "type": "file",
+        "md5": "d9c59cf9ae875250cf26e7e5ff6a93f8"
+    },
+    {
+        "path": "/media/files/trabalhos_02-07 a 21-07_ACD_2.jpg",
+        "type": "file",
+        "md5": "f0a07e5522a3cedb7ace41f8b676f387"
+    },
+    {
+        "path": "/media/files/vazoimg01.243.jpg",
+        "type": "file",
+        "md5": "3a45f37487d3f28e2dc93047a4c9c510"
+    },
+    {
+        "path": "/media/files/vazoimg04.246.jpg",
+        "type": "file",
+        "md5": "26504eb3d3970f8848a497fa20ced49d"
+    },
+    {
+        "path": "/media/files/z01.jpg",
+        "type": "file",
+        "md5": "45e8cbcf895513ce52c859963724e08a"
+    },
+    {
+        "path": "/media/files/zbimg02.jpg",
+        "type": "file",
+        "md5": "4c9d578c4d3c985c1dd7e37c19393ce9"
+    },
+    {
+        "path": "/media/files/ZBrush Document.jpg",
+        "type": "file",
+        "md5": "90877b1b65ce29f00ac0dda0f27c2573"
+    },
+    {
+        "path": "/media/files/ZBrush Document01.jpg",
+        "type": "file",
+        "md5": "7ab0879e72c06e6b14ca369ab41ac9a2"
+    },
+    {
+        "path": "media/website",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/media/website/1689879704997.jpg",
+        "type": "file",
+        "md5": "88340e505a692d3ac55b9fd2991cce58"
+    },
+    {
+        "path": "/media/website/gbn.ico.ico",
+        "type": "file",
+        "md5": "cd586f6f738ebd95c41fbe5441ef3874"
+    },
+    {
+        "path": "/media/website/logocircularpng2_a1.png",
+        "type": "file",
+        "md5": "b67811643659e957239a09e9807d4594"
+    },
+    {
+        "path": "media/website/responsive",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/media/website/responsive/1689879704997-2xl.jpg",
+        "type": "file",
+        "md5": "8c936832fba4a5269aaa28c79be4fc56"
+    },
+    {
+        "path": "/media/website/responsive/1689879704997-lg.jpg",
+        "type": "file",
+        "md5": "93e4e73d2a8dbfaf4cf1771e8d5d0a36"
+    },
+    {
+        "path": "/media/website/responsive/1689879704997-md.jpg",
+        "type": "file",
+        "md5": "1d7c2297d348a513756cb6ab14a9a689"
+    },
+    {
+        "path": "/media/website/responsive/1689879704997-sm.jpg",
+        "type": "file",
+        "md5": "9561b7b7c07a9dad88f676af08213ef9"
+    },
+    {
+        "path": "/media/website/responsive/1689879704997-xl.jpg",
+        "type": "file",
+        "md5": "af012d34bd80afd1a99694b6d1958bab"
+    },
+    {
+        "path": "/media/website/responsive/1689879704997-xs.jpg",
+        "type": "file",
+        "md5": "62f857380bfd060a881a1c01393bf9cf"
+    },
+    {
+        "path": "/media/website/responsive/logocircularpng2_a1-2xl.png",
+        "type": "file",
+        "md5": "b4ceedb518cd9dcf881d5f27e9241c02"
+    },
+    {
+        "path": "/media/website/responsive/logocircularpng2_a1-lg.png",
+        "type": "file",
+        "md5": "c25d545a6ae19befa494567234ebfd94"
+    },
+    {
+        "path": "/media/website/responsive/logocircularpng2_a1-md.png",
+        "type": "file",
+        "md5": "58ae93b480f1c73ca64c402c4df7b71b"
+    },
+    {
+        "path": "/media/website/responsive/logocircularpng2_a1-sm.png",
+        "type": "file",
+        "md5": "6a1ba572d656231fad8cbef7d53958f8"
+    },
+    {
+        "path": "/media/website/responsive/logocircularpng2_a1-xl.png",
+        "type": "file",
+        "md5": "35632276dfaeecb8fbc5a742adc2707c"
+    },
+    {
+        "path": "/media/website/responsive/logocircularpng2_a1-xs.png",
+        "type": "file",
+        "md5": "a32f9c50b2c90379bfb7ddeaa54ce0c4"
+    },
+    {
+        "path": "OK01.jpg",
+        "type": "file",
+        "md5": "77bf7b337a39ca95b076c3512b237834"
+    },
+    {
+        "path": "OK02.jpg",
+        "type": "file",
+        "md5": "24f497962f3d99e95109e509f81a71fd"
+    },
+    {
+        "path": "OK05.jpg",
+        "type": "file",
+        "md5": "cfac2410d3d4d86aac1224b938fe0a6b"
+    },
+    {
+        "path": "OK06.jpg",
+        "type": "file",
+        "md5": "8920e8628817ddcf3b18d246b0e29b28"
+    },
+    {
+        "path": "OK07.jpg",
+        "type": "file",
+        "md5": "a00ed34d749e1057408733ec943b8e8e"
+    },
+    {
+        "path": "OK08.jpg",
+        "type": "file",
+        "md5": "9b75816bb3c2622cf2048c8b7515e159"
+    },
+    {
+        "path": "pc04.212.jpg",
+        "type": "file",
+        "md5": "dc1a6b17909a06a2fbfc0e86622a033e"
+    },
+    {
+        "path": "pc04.213.jpg",
+        "type": "file",
+        "md5": "52b538a9b246d87e07cf8f56fe82cef4"
+    },
+    {
+        "path": "pc04.214.jpg",
+        "type": "file",
+        "md5": "f9ad4e3def03c162a61e1fdfa4c34e55"
+    },
+    {
+        "path": "print01.jpg",
+        "type": "file",
+        "md5": "4aecc7c57a37ad34aaf1d7ea58e20c2e"
+    },
+    {
+        "path": "print02.jpg",
+        "type": "file",
+        "md5": "05795dc67b403b03b34b36f62a4c32ee"
+    },
+    {
+        "path": "print03.jpg",
+        "type": "file",
+        "md5": "3ad9fc5619313edac9d8636e278b7d58"
+    },
+    {
+        "path": "psimg01.jpg",
+        "type": "file",
+        "md5": "c0e1cf8700363c0a10ef4d6bc6ffce18"
+    },
+    {
+        "path": "pux_sabia06.jpg",
+        "type": "file",
+        "md5": "79fdfca572e3b29c48012d8129591e3c"
+    },
+    {
+        "path": "pux_sabia07.jpg",
+        "type": "file",
+        "md5": "2947c6d52fea865bb5a4ce69d645cb6d"
+    },
+    {
+        "path": "pux_sabia08.jpg",
+        "type": "file",
+        "md5": "d3c573d94b95d9c897171cfd1ce3151d"
+    },
+    {
+        "path": "pux_sabia09.jpg",
+        "type": "file",
+        "md5": "036679da6e5e73429eba74054172e7e8"
+    },
+    {
+        "path": "pux_sabia10.jpg",
+        "type": "file",
+        "md5": "c5c44c467bf66ec344a097d5c0ab68d6"
+    },
+    {
+        "path": "pux_sabia11.jpg",
+        "type": "file",
+        "md5": "68c58046ab2c62b52c3f64c34bbd2e07"
+    },
+    {
+        "path": "pux_sabia13.jpg",
+        "type": "file",
+        "md5": "feec8e472fdf742caffb02d14a09f348"
+    },
+    {
+        "path": "pux_sabia14.jpg",
+        "type": "file",
+        "md5": "ff67eddd689417994bcfcc007a52a461"
+    },
+    {
+        "path": "pux_sabia15.jpg",
+        "type": "file",
+        "md5": "ff67eddd689417994bcfcc007a52a461"
+    },
+    {
+        "path": "robots.txt",
+        "type": "file",
+        "md5": "d795a85e5448a3b4095cf66b722bc07c"
+    },
+    {
+        "path": "sitemap.xml",
+        "type": "file",
+        "md5": "d7a20e38cea3d239fe87cb19ee350ec3"
+    },
+    {
+        "path": "sitemap.xsl",
+        "type": "file",
+        "md5": "03c2f9a7fdcc46ff05c435907614a0b8"
+    },
+    {
+        "path": "tags",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/tags/index.html",
+        "type": "file",
+        "md5": "08500a88edc1cd81117453c4d745879d"
+    },
+    {
+        "path": "trabalhos_02-07 a 21-07_ACD_0.jpg",
+        "type": "file",
+        "md5": "d9c59cf9ae875250cf26e7e5ff6a93f8"
+    },
+    {
+        "path": "trabalhos_02-07 a 21-07_ACD_2.jpg",
+        "type": "file",
+        "md5": "f0a07e5522a3cedb7ace41f8b676f387"
+    },
+    {
+        "path": "vazoimg01.243.jpg",
+        "type": "file",
+        "md5": "3a45f37487d3f28e2dc93047a4c9c510"
+    },
+    {
+        "path": "vazoimg04.246.jpg",
+        "type": "file",
+        "md5": "26504eb3d3970f8848a497fa20ced49d"
+    },
+    {
+        "path": "z01.jpg",
+        "type": "file",
+        "md5": "45e8cbcf895513ce52c859963724e08a"
+    },
+    {
+        "path": "zbimg02.jpg",
+        "type": "file",
+        "md5": "4c9d578c4d3c985c1dd7e37c19393ce9"
+    },
+    {
+        "path": "ZBrush Document.jpg",
+        "type": "file",
+        "md5": "90877b1b65ce29f00ac0dda0f27c2573"
+    },
+    {
+        "path": "ZBrush Document01.jpg",
+        "type": "file",
+        "md5": "7ab0879e72c06e6b14ca369ab41ac9a2"
+    }
+]

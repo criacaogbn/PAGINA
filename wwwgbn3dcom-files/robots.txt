@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://www.gbn3d.com/sitemap.xml

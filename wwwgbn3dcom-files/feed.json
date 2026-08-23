@@ -1,0 +1,14 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "www.gbn3d.com",
+    "description": "",
+    "home_page_url": "https://www.gbn3d.com",
+    "feed_url": "https://www.gbn3d.com/feed.json",
+    "user_comment": "",
+    "icon": "https://www.gbn3d.com/media/website/logocircularpng2_a1.png",
+    "author": {
+        "name": "Glauber Barbarrossa Nunes"
+    },
+    "items": [
+    ]
+}
