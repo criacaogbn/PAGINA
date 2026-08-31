@@ -130,7 +130,6 @@ const PAGE_HEAD = `<!doctype html>
 <meta property="og:title" content="GBN 3D — Portfólio 3D">
 <meta property="og:description" content="Modelagem 3D, escultura digital e rendering: personagens, criaturas, cenários e produtos.">
 <meta property="og:image" content="imagens/guerreira_ks01.177.jpg">
-<meta name="theme-color" content="#0d0f14">
 <link rel="icon" type="image/png" href="logo/logocircularpng2.png">
 <title>GBN 3D — Acervo Completo de Trabalhos</title>
 <style>
@@ -138,9 +137,10 @@ const PAGE_HEAD = `<!doctype html>
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--tx);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+body.no-scroll{overflow:hidden}
 img{max-width:100%}
 .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
-header{position:sticky;top:0;z-index:50;background:rgba(13,15,20,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header{position:sticky;top:0;z-index:50;background:rgba(13,15,20,.82);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;gap:14px;padding:10px 0}
 .nav img{width:42px;height:42px;border-radius:50%;border:1px solid var(--line)}
 .brand{font-weight:700;font-size:1.1rem;letter-spacing:.5px}
@@ -164,7 +164,7 @@ h2{font-size:1.6rem;margin-bottom:6px}
 .sub{color:var(--mut);margin-bottom:26px}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
 .svc{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px}
-.svc .ico{font-size:1.6rem}
+.svc .ico{display:inline-flex;align-items:center;justify-content:center;color:var(--tx)}
 .svc h3{margin:8px 0 4px;font-size:1.02rem}
 .svc p{color:var(--mut);font-size:.92rem}
 .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
@@ -177,14 +177,15 @@ h2{font-size:1.6rem;margin-bottom:6px}
 .card:hover{transform:translateY(-3px);border-color:var(--acc)}
 .card.hide{display:none}
 .thumb{display:block;width:100%;aspect-ratio:4/3;border:0;background:#0a0c10;cursor:zoom-in;position:relative;padding:0}
-.thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .25s}
-.card:hover .thumb img{transform:scale(1.04)}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(100%) contrast(110%) brightness(95%);transition:filter .3s ease,transform .25s}
+.card:hover .thumb img,.card:focus-within .thumb img{transform:scale(1.04);filter:grayscale(0%) contrast(100%) brightness(100%)}
 .zoom{position:absolute;right:10px;top:10px;background:rgba(0,0,0,.55);color:#fff;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-weight:700;opacity:0;transition:opacity .18s}
 .card:hover .zoom,.thumb:focus-visible .zoom{opacity:1}
 .card figcaption{display:flex;align-items:center;gap:8px;padding:10px 12px;font-size:.86rem;color:var(--mut)}
 .chip{background:#232939;color:var(--acc2);font-size:.68rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:2px 8px;border-radius:999px;white-space:nowrap}
 .about p{color:var(--mut);max-width:780px}
 .contact{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px}
+.note{margin-top:14px;font-size:.85rem}
 footer{border-top:1px solid var(--line);padding:26px 0;color:var(--mut);font-size:.9rem;text-align:center}
 #lb{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;background:rgba(5,6,9,.93)}
 #lb.open{display:flex}
@@ -228,12 +229,12 @@ footer{border-top:1px solid var(--line);padding:26px 0;color:var(--mut);font-siz
     <h2>Serviços</h2>
     <p class="sub">O que eu posso produzir para o seu projeto</p>
     <div class="cards">
-      <div class="svc"><div class="ico">🧊</div><h3>Modelagem 3D</h3><p>Modelos poligonais limpos e otimizados para render, animação ou jogos.</p></div>
-      <div class="svc"><div class="ico">🗿</div><h3>Escultura Digital</h3><p>Esculturas de alta resolução em ZBrush: personagens, criaturas e orgânicos.</p></div>
-      <div class="svc"><div class="ico">🎨</div><h3>Texturização</h3><p>Materiais PBR, pintura procedural e mapas de alta qualidade.</p></div>
-      <div class="svc"><div class="ico">💡</div><h3>Iluminação &amp; Render</h3><p>Iluminação, câmera e composição para imagens finais de impacto.</p></div>
-      <div class="svc"><div class="ico">🖨️</div><h3>Impressão 3D</h3><p>Preparação de malhas para impressão: espessura, corte e suportes.</p></div>
-      <div class="svc"><div class="ico">🔧</div><h3>Correção de Malhas</h3><p>Retopologia, otimização e conserto de modelos para produção.</p></div>
+      <div class="svc"><div class="ico"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96 12 12.01l8.73-5.05"/><path d="M12 22.08V12"/></svg></div><h3>Modelagem 3D</h3><p>Modelos poligonais limpos e otimizados para render, animação ou jogos.</p></div>
+      <div class="svc"><div class="ico"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="7" r="4"/><path d="M19 20v-1.5a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4V20"/><path d="M4 20h16"/></svg></div><h3>Escultura Digital</h3><p>Esculturas de alta resolução em ZBrush: personagens, criaturas e orgânicos.</p></div>
+      <div class="svc"><div class="ico"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/><circle cx="13.5" cy="6.5" r=".75" fill="currentColor" stroke="none"/><circle cx="17.5" cy="10.5" r=".75" fill="currentColor" stroke="none"/><circle cx="8.5" cy="7.5" r=".75" fill="currentColor" stroke="none"/><circle cx="6.5" cy="12.5" r=".75" fill="currentColor" stroke="none"/></svg></div><h3>Texturização</h3><p>Materiais PBR, pintura procedural e mapas de alta qualidade.</p></div>
+      <div class="svc"><div class="ico"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1.3.5 2.6 1.5 3.5.8.8 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg></div><h3>Iluminação &amp; Render</h3><p>Iluminação, câmera e composição para imagens finais de impacto.</p></div>
+      <div class="svc"><div class="ico"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg></div><h3>Impressão 3D</h3><p>Preparação de malhas para impressão: espessura, corte e suportes.</p></div>
+      <div class="svc"><div class="ico"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><h3>Correção de Malhas</h3><p>Retopologia, otimização e conserto de modelos para produção.</p></div>
     </div>
   </div>
 </section>
@@ -265,10 +266,9 @@ __FIGURES__
     <h2>Contato</h2>
     <p class="sub">Vamos conversar sobre o seu projeto</p>
     <div class="contact">
-      <a class="btn primary" href="https://wa.me/5500000000000">WhatsApp — (00) 00000-0000</a>
-      <a class="btn ghost" href="mailto:seuemail@exemplo.com">E-mail</a>
+      <a class="btn primary" href="https://wa.me/5519971043891" target="_blank" rel="noopener">WhatsApp — (19) 9 7104-3891</a>
+      <a class="btn ghost" href="mailto:criacaogbn@gmail.com">criacaogbn@gmail.com</a>
     </div>
-    <p class="sub" style="margin-top:14px;font-size:.85rem">* Edite os contatos acima no arquivo galeria.html (procure por "wa.me" e "mailto:").</p>
   </div>
 </section>
 
@@ -309,7 +309,9 @@ var G = "__DATA__";
   }
   function updateLb() {
     var it = G[cur];
-    lbImg.src = 'imagens_trabalhos/' + encodeURIComponent(it.f);
+    var card = cards[cur];
+    var thumb = card ? card.querySelector('img') : null;
+    lbImg.src = thumb ? thumb.src : '';
     lbImg.alt = it.t;
     lbCap.textContent = it.t;
     lbCnt.textContent = (posInVis(cur) + 1) + ' / ' + vis.length;
@@ -319,13 +321,13 @@ var G = "__DATA__";
     lastFocus = document.activeElement;
     updateLb();
     lb.classList.add('open');
-    document.body.style.overflow = 'hidden';
+    document.body.classList.add('no-scroll');
     document.getElementById('lbClose').focus();
   }
   function closeLb() {
     lb.classList.remove('open');
     lbImg.src = '';
-    document.body.style.overflow = '';
+    document.body.classList.remove('no-scroll');
     if (lastFocus && lastFocus.focus) lastFocus.focus();
   }
   function step(d) {

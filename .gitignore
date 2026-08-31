@@ -1,0 +1,15 @@
+# Sistema operacional
+desktop.ini
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+.DS_Store
+
+# Node / servidor local
+node_modules/
+npm-debug.log*
+
+# Arquivos temporários de diagnóstico
+_*.txt
+_*.ps1
+_*.py
