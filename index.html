@@ -1997,11 +1997,15 @@
     </div>
 
     <div class="project-form-card" id="projectFormCard" style="--tilt-y: 0deg; --tilt-x: 0deg;">
-      <form id="projectForm" novalidate="">
+      <form id="projectForm" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data" novalidate>
+        <!-- Chave de Acesso do Web3Forms -->
+        <input type="hidden" name="access_key" value="c5028d65-c47c-4f9a-a508-7abb2b0ad9ad">
+        <input type="hidden" name="subject" value="Novo Projeto 3D Recebido - GBN3D">
+        <input type="hidden" name="from_name" value="GBN3D Website">
         <div class="form-grid-2col">
           <div class="form-group">
             <label for="piNome">Nome *</label>
-            <input type="text" id="piNome" name="nome" placeholder="Seu nome completo" autocomplete="name" required="">
+            <input type="text" id="piNome" name="name" placeholder="Seu nome completo" autocomplete="name" required="">
           </div>
           <div class="form-group">
             <label for="piEmpresa">Empresa</label>
@@ -2012,7 +2016,7 @@
             <input type="text" id="piCnpj" name="cnpj" placeholder="00.000.000/0000-00" inputmode="numeric" maxlength="18">
           </div>
           <div class="form-group">
-            <label for="piTelefone">Telefone *</label>
+            <label for="piTelefone">Telefone / WhatsApp *</label>
             <input type="tel" id="piTelefone" name="telefone" placeholder="(00) 00000-0000" inputmode="tel" autocomplete="tel" required="">
           </div>
           <div class="form-group form-group-full">
@@ -2021,7 +2025,7 @@
           </div>
           <div class="form-group form-group-full">
             <label for="piIdeia">Descreva sua ideia *</label>
-            <textarea id="piIdeia" name="ideia" placeholder="Conte os detalhes: o que deseja modelar, estilo visual, referências, dimensões, prazo e uso final (impressão 3D, games, animação, publicidade)..." required=""></textarea>
+            <textarea id="piIdeia" name="message" placeholder="Conte os detalhes: o que deseja modelar, estilo visual, referências, dimensões, prazo e uso final (impressão 3D, games, animação, publicidade)..." required=""></textarea>
             <div class="char-counter" id="piCharCounter">0 caracteres</div>
           </div>
           <div class="form-group form-group-full">
@@ -2030,7 +2034,7 @@
               <span class="upload-icon-3d" aria-hidden="true">🖼️</span>
               <p class="upload-title">ANEXE ATÉ 7 IMAGENS DE ALTA RESOLUÇÃO</p>
               <p class="upload-sub">Arraste e solte aqui ou clique para selecionar — JPG, PNG ou WEBP</p>
-              <input type="file" id="projectFiles" name="imagens" accept="image/*" multiple="">
+              <input type="file" id="projectFiles" name="attachment" accept="image/*" multiple="">
             </div>
             <div class="file-preview-grid" id="filePreviewGrid"></div>
           </div>
@@ -2042,7 +2046,7 @@
           </span>
           <span class="btn-label" id="btnLabel">ENVIAR PROJETO</span>
         </button>
-        <p class="submit-hint">Ao enviar, o WhatsApp da GBN3D abrirá com suas informações — basta anexar as imagens na conversa.</p>
+        <p class="submit-hint">As informações e imagens anexadas serão enviadas diretamente para a sua caixa de e-mail.</p>
       </form>
     </div>
   </section>
@@ -2634,7 +2638,6 @@
     // ===== Seção "Forneça informações sobre seu projeto" =====
     (function () {
       const MAX_FILES = 7;
-      const WHATSAPP_NUMBER = '5519971043891'; // mesmo número exibido no rodapé
 
       const form = document.getElementById('projectForm');
       const card = document.getElementById('projectFormCard');
@@ -2802,58 +2805,59 @@
       form.querySelectorAll('input, textarea').forEach(f =>
         f.addEventListener('input', () => f.classList.remove('is-invalid')));
 
-      // --- Validação e envio via WhatsApp ---
-      form.addEventListener('submit', (e) => {
+      // --- Validação e envio via Web3Forms ---
+      form.addEventListener('submit', function (e) {
         e.preventDefault();
 
         const obrigatorios = [nomeField, telefoneField, emailField, ideiaField];
-        const invalidos = [];
+        let temErro = false;
+
         obrigatorios.forEach(f => {
           const vazio = !f.value.trim();
           const emailRuim = f === emailField && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.value.trim());
           const ruim = vazio || emailRuim;
           f.classList.toggle('is-invalid', ruim);
-          if (ruim) invalidos.push(f);
+          if (ruim) temErro = true;
         });
 
-        if (invalidos.length) {
-          showToast('Preencha os campos destacados para continuar.', 'error');
-          invalidos[0].focus();
+        if (temErro) {
+          showToast('Preencha os campos destacados corretamente.', 'error');
           return;
         }
 
-        const mensagem = [
-          '🎨 *NOVO PROJETO — GBN3D*', '',
-          '*Nome:* ' + nomeField.value.trim(),
-          '*Empresa:* ' + (empresaField.value.trim() || '—'),
-          '*CNPJ:* ' + (cnpjField.value.trim() || '—'),
-          '*Telefone:* ' + telefoneField.value.trim(),
-          '*E-mail:* ' + emailField.value.trim(), '',
-          '*💡 Ideia do projeto:*',
-          ideiaField.value.trim(), '',
-          '🖼️ Referências: ' + selectedFiles.length + ' imagem(ns) — vou anexá-las nesta conversa.'
-        ].join('\n');
-
         btnSubmit.disabled = true;
         const rotuloOriginal = btnLabel.textContent;
-        btnLabel.textContent = 'PREPARANDO...';
+        btnLabel.textContent = 'ENVIANDO...';
 
-        setTimeout(() => {
-          const win = window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(mensagem), '_blank', 'noopener');
-          btnSubmit.disabled = false;
-          if (win) {
+        const formData = new FormData(form);
+
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData
+        })
+        .then(async (response) => {
+          let json = await response.json();
+          if (response.status === 200) {
             btnLabel.textContent = 'ENVIADO ✓';
-            showToast('Abrimos o WhatsApp com suas informações. Anexe as imagens na conversa!', 'success');
+            showToast('Projeto e imagens enviados com sucesso!', 'success');
             form.reset();
             selectedFiles = [];
             renderPreviews();
             charCounter.textContent = '0 caracteres';
-            setTimeout(() => { btnLabel.textContent = rotuloOriginal; }, 2800);
+            setTimeout(() => { btnLabel.textContent = rotuloOriginal; btnSubmit.disabled = false; }, 3000);
           } else {
+            console.log(response);
             btnLabel.textContent = rotuloOriginal;
-            showToast('Pop-up bloqueado. Permita pop-ups ou chame direto: wa.me/' + WHATSAPP_NUMBER, 'error');
+            btnSubmit.disabled = false;
+            showToast(json.message || 'Erro ao enviar. Tente novamente.', 'error');
           }
-        }, 450);
+        })
+        .catch(error => {
+          console.log(error);
+          btnLabel.textContent = rotuloOriginal;
+          btnSubmit.disabled = false;
+          showToast('Erro de conexção ao enviar o formulário.', 'error');
+        });
       });
     })();
   </script>
