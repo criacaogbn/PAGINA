@@ -2638,6 +2638,7 @@
     // ===== Seção "Forneça informações sobre seu projeto" =====
     (function () {
       const MAX_FILES = 7;
+      const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5 MB por imagem (limite do uploader padrão do Web3Forms)
 
       const form = document.getElementById('projectForm');
       const card = document.getElementById('projectFormCard');
@@ -2756,15 +2757,17 @@
       }
 
       function addFiles(fileList) {
-        let foraDoLimite = 0, invalidos = 0;
+        let foraDoLimite = 0, invalidos = 0, grandes = 0;
         Array.from(fileList).forEach(file => {
           if (selectedFiles.length >= MAX_FILES) { foraDoLimite++; return; }
           if (!file.type.startsWith('image/')) { invalidos++; return; }
+          if (file.size > MAX_FILE_SIZE) { grandes++; return; }
           const duplicado = selectedFiles.some(f => f.name === file.name && f.size === file.size);
           if (!duplicado) selectedFiles.push(file);
         });
         renderPreviews();
         if (foraDoLimite) showToast('Limite de ' + MAX_FILES + ' imagens por envio.', 'error');
+        else if (grandes) showToast('Cada imagem deve ter no máximo 5 MB.', 'error');
         else if (invalidos) showToast('Envie apenas arquivos de imagem (JPG, PNG, WEBP).', 'error');
       }
 
@@ -2831,6 +2834,13 @@
 
         const formData = new FormData(form);
 
+        // O input de arquivo é limpo após a seleção (para permitir reseleção),
+        // então os arquivos precisam ser adicionados manualmente a partir de selectedFiles.
+        formData.delete('attachment');
+        selectedFiles.forEach((f, i) => {
+          formData.append(i === 0 ? 'attachment' : 'attachment_' + (i + 1), f, f.name);
+        });
+
         fetch('https://api.web3forms.com/submit', {
           method: 'POST',
           body: formData
@@ -2856,7 +2866,7 @@
           console.log(error);
           btnLabel.textContent = rotuloOriginal;
           btnSubmit.disabled = false;
-          showToast('Erro de conexção ao enviar o formulário.', 'error');
+          showToast('Erro de conexão ao enviar o formulário.', 'error');
         });
       });
     })();
