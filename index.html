@@ -1997,11 +1997,13 @@
     </div>
 
     <div class="project-form-card" id="projectFormCard" style="--tilt-y: 0deg; --tilt-x: 0deg;">
-      <form id="projectForm" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data" novalidate>
-        <!-- Chave de Acesso do Web3Forms -->
-        <input type="hidden" name="access_key" value="c5028d65-c47c-4f9a-a508-7abb2b0ad9ad">
-        <input type="hidden" name="subject" value="Novo Projeto 3D Recebido - GBN3D">
-        <input type="hidden" name="from_name" value="GBN3D Website">
+      <form id="projectForm" action="https://formsubmit.co/criacaogbn@gmail.com" method="POST" enctype="multipart/form-data" novalidate>
+        <!-- Configurações do FormSubmit.co (envio gratuito com anexos) -->
+        <input type="hidden" name="_subject" value="Novo Projeto 3D Recebido - GBN3D">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://gbn3d.com/?enviado=1">
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
         <div class="form-grid-2col">
           <div class="form-group">
             <label for="piNome">Nome *</label>
@@ -2638,7 +2640,7 @@
     // ===== Seção "Forneça informações sobre seu projeto" =====
     (function () {
       const MAX_FILES = 7;
-      const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5 MB por imagem (limite do uploader padrão do Web3Forms)
+      const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10 MB por imagem (limite de anexo do FormSubmit)
 
       const form = document.getElementById('projectForm');
       const card = document.getElementById('projectFormCard');
@@ -2767,7 +2769,7 @@
         });
         renderPreviews();
         if (foraDoLimite) showToast('Limite de ' + MAX_FILES + ' imagens por envio.', 'error');
-        else if (grandes) showToast('Cada imagem deve ter no máximo 5 MB.', 'error');
+        else if (grandes) showToast('Cada imagem deve ter no máximo 10 MB.', 'error');
         else if (invalidos) showToast('Envie apenas arquivos de imagem (JPG, PNG, WEBP).', 'error');
       }
 
@@ -2804,11 +2806,17 @@
         toastTimer = setTimeout(() => toast.classList.remove('is-visible'), 4500);
       }
 
+      // --- Sucesso após redirect do FormSubmit (fallback quando o AJAX não roda) ---
+      if (new URLSearchParams(location.search).has('enviado')) {
+        showToast('Projeto e imagens enviados com sucesso!', 'success');
+        history.replaceState(null, '', location.pathname + location.hash);
+      }
+
       // --- Limpa o destaque de erro ao digitar ---
       form.querySelectorAll('input, textarea').forEach(f =>
         f.addEventListener('input', () => f.classList.remove('is-invalid')));
 
-      // --- Validação e envio via Web3Forms ---
+      // --- Validação e envio via FormSubmit.co (AJAX com anexos) ---
       form.addEventListener('submit', function (e) {
         e.preventDefault();
 
@@ -2841,13 +2849,13 @@
           formData.append(i === 0 ? 'attachment' : 'attachment_' + (i + 1), f, f.name);
         });
 
-        fetch('https://api.web3forms.com/submit', {
+        fetch('https://formsubmit.co/ajax/criacaogbn@gmail.com', {
           method: 'POST',
           body: formData
         })
         .then(async (response) => {
           let json = await response.json();
-          if (response.status === 200) {
+          if (response.ok && (json.success === 'true' || json.success === true)) {
             btnLabel.textContent = 'ENVIADO ✓';
             showToast('Projeto e imagens enviados com sucesso!', 'success');
             form.reset();
