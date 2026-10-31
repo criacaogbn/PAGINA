@@ -12,17 +12,25 @@
 <meta property="og:title" content="GBN 3D — Portfólio 3D">
 <meta property="og:description" content="Modelagem 3D, escultura digital e rendering: personagens, criaturas, cenários e produtos.">
 <meta property="og:image" content="imagens/02.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="logo/logocircularpng2.png">
 <title>GBN 3D — Acervo Completo de Trabalhos</title>
 <style>
-:root{--bg:#0d0f14;--panel:#151823;--line:#252a3a;--tx:#e8eaf2;--mut:#9aa3b8;--acc:#f5a524;--acc2:#ffc46b}
+:root{--bg:#0d0d0d;--panel:#111111;--line:#1a1a1a;--tx:#ffffff;--mut:#a0a0a0;--acc:#ffffff;--acc2:#ffffff}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--tx);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+html{background-color:#0d0d0d}
+body{background:var(--bg);color:var(--tx);font:16px/1.5 'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,sans-serif}
+.luz-canvas{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.9}
 body.no-scroll{overflow:hidden}
 img{max-width:100%}
 .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
-header{position:sticky;top:0;z-index:50;background:rgba(13,15,20,.82);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 0;border-bottom:1px solid var(--line)}
+.brand-container{display:flex;align-items:center;gap:15px}
+.brand-logo{width:70px;height:70px;object-fit:contain;background:#000;padding:4px;border-radius:4px}
+.brand-name{font-size:1.6rem;font-weight:800;letter-spacing:2px;color:#fff;text-transform:uppercase}
 .nav{display:flex;align-items:center;gap:14px;padding:10px 0}
 .nav img{width:42px;height:42px;border-radius:50%;border:1px solid var(--line)}
 .brand{font-weight:700;font-size:1.1rem;letter-spacing:.5px}
@@ -82,17 +90,18 @@ footer{border-top:1px solid var(--line);padding:26px 0;color:var(--mut);font-siz
 </style>
 </head>
 <body>
+<canvas id="luzCosmica" class="luz-canvas" aria-hidden="true"></canvas>
 <header>
-  <div class="wrap nav">
-    <img src="logo/logocircularpng2.png" alt="Logotipo GBN 3D">
-    <div class="brand">GBN<span>3D</span></div>
-    <nav class="links">
-      <a href="#servicos">Serviços</a>
-      <a href="#galeria">Galeria</a>
-      <a href="#sobre">Sobre</a>
-      <a href="#contato">Contato</a>
-    </nav>
+  <div class="brand-container">
+    <img src="logo/logocircularpng2.png" class="brand-logo" alt="GBN3D Logo" onerror="this.style.display='none'">
+    <div class="brand-name">GBN3D</div>
   </div>
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="galeria.html" class="active">Galeria</a>
+    <a href="index.html#sobre">Sobre</a>
+    <a href="index.html#contato">Contato</a>
+  </nav>
 </header>
 
 <section id="hero">
@@ -124,7 +133,7 @@ footer{border-top:1px solid var(--line);padding:26px 0;color:var(--mut);font-siz
 <section id="galeria">
   <div class="wrap">
     <h2>Galeria</h2>
-    <p class="sub">45 trabalhos — clique em uma imagem para ampliar</p>
+    <p class="sub">44 trabalhos — clique em uma imagem para ampliar</p>
     <div class="filters" role="group" aria-label="Filtrar galeria por categoria">
           <button class="filter active" type="button" data-filter="todos">Todos</button>
           <button class="filter" type="button" data-filter="personagens">Personagens & Criaturas</button>
@@ -310,141 +319,134 @@ footer{border-top:1px solid var(--line);padding:26px 0;color:var(--mut);font-siz
             </button>
             <figcaption><span class="chip">Render</span>Render — série de estudos</figcaption>
           </figure>
-          <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="25" aria-label="Ampliar: Imggbn">
-              <img src="imagens/imggbn.jpg" alt="Imggbn" loading="lazy" decoding="async">
-              <span class="zoom" aria-hidden="true">+</span>
-            </button>
-            <figcaption><span class="chip">Render</span>Imggbn</figcaption>
-          </figure>
           <figure class="card" data-cat="objetos">
-            <button class="thumb" type="button" data-i="26" aria-label="Ampliar: Render KeyShot — produto">
+            <button class="thumb" type="button" data-i="25" aria-label="Ampliar: Render KeyShot — produto">
               <img src="imagens/ks_img_01.259.jpg" alt="Render KeyShot — produto" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Produto</span>Render KeyShot — produto</figcaption>
           </figure>
           <figure class="card" data-cat="objetos">
-            <button class="thumb" type="button" data-i="27" aria-label="Ampliar: Render KeyShot — produto">
+            <button class="thumb" type="button" data-i="26" aria-label="Ampliar: Render KeyShot — produto">
               <img src="imagens/ks_img_02.254.jpg" alt="Render KeyShot — produto" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Produto</span>Render KeyShot — produto</figcaption>
           </figure>
           <figure class="card" data-cat="objetos">
-            <button class="thumb" type="button" data-i="28" aria-label="Ampliar: Render KeyShot — produto">
+            <button class="thumb" type="button" data-i="27" aria-label="Ampliar: Render KeyShot — produto">
               <img src="imagens/ks_img_03.255.jpg" alt="Render KeyShot — produto" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Produto</span>Render KeyShot — produto</figcaption>
           </figure>
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="29" aria-label="Ampliar: Mesatrevo01">
+            <button class="thumb" type="button" data-i="28" aria-label="Ampliar: Mesatrevo01">
               <img src="imagens/mesatrevo01.208.jpg" alt="Mesatrevo01" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Render</span>Mesatrevo01</figcaption>
           </figure>
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="30" aria-label="Ampliar: OK01">
+            <button class="thumb" type="button" data-i="29" aria-label="Ampliar: OK01">
               <img src="imagens/OK01.jpg" alt="OK01" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Render</span>OK01</figcaption>
           </figure>
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="31" aria-label="Ampliar: PureRef 3Pb9og3Hfb">
+            <button class="thumb" type="button" data-i="30" aria-label="Ampliar: PureRef 3Pb9og3Hfb">
               <img src="imagens/PureRef_3Pb9og3Hfb.jpg" alt="PureRef 3Pb9og3Hfb" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Render</span>PureRef 3Pb9og3Hfb</figcaption>
           </figure>
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="32" aria-label="Ampliar: PureRef B65Obmv2Hr">
+            <button class="thumb" type="button" data-i="31" aria-label="Ampliar: PureRef B65Obmv2Hr">
               <img src="imagens/PureRef_B65Obmv2Hr.jpg" alt="PureRef B65Obmv2Hr" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Render</span>PureRef B65Obmv2Hr</figcaption>
           </figure>
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="33" aria-label="Ampliar: PureRef l32im8utmw">
+            <button class="thumb" type="button" data-i="32" aria-label="Ampliar: PureRef l32im8utmw">
               <img src="imagens/PureRef_l32im8utmw.png" alt="PureRef l32im8utmw" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Render</span>PureRef l32im8utmw</figcaption>
           </figure>
           <figure class="card" data-cat="personagens">
-            <button class="thumb" type="button" data-i="34" aria-label="Ampliar: Sabiá — ave esculpida em 3D">
+            <button class="thumb" type="button" data-i="33" aria-label="Ampliar: Sabiá — ave esculpida em 3D">
               <img src="imagens/pux_sabia08.jpg" alt="Sabiá — ave esculpida em 3D" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Personagem</span>Sabiá — ave esculpida em 3D</figcaption>
           </figure>
           <figure class="card" data-cat="personagens">
-            <button class="thumb" type="button" data-i="35" aria-label="Ampliar: Sabiá — ave esculpida em 3D">
+            <button class="thumb" type="button" data-i="34" aria-label="Ampliar: Sabiá — ave esculpida em 3D">
               <img src="imagens/pux_sabia15.jpg" alt="Sabiá — ave esculpida em 3D" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Personagem</span>Sabiá — ave esculpida em 3D</figcaption>
           </figure>
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="36" aria-label="Ampliar: Render 01">
+            <button class="thumb" type="button" data-i="35" aria-label="Ampliar: Render 01">
               <img src="imagens/render_01.139.jpg" alt="Render 01" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Render</span>Render 01</figcaption>
           </figure>
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="37" aria-label="Ampliar: Salatino03">
+            <button class="thumb" type="button" data-i="36" aria-label="Ampliar: Salatino03">
               <img src="imagens/salatino03.265.jpg" alt="Salatino03" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Render</span>Salatino03</figcaption>
           </figure>
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="38" aria-label="Ampliar: Compilação de trabalhos">
+            <button class="thumb" type="button" data-i="37" aria-label="Ampliar: Compilação de trabalhos">
               <img src="imagens/trabalhos_02-07%20a%2021-07_ACD_0.jpg" alt="Compilação de trabalhos" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Render</span>Compilação de trabalhos</figcaption>
           </figure>
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="39" aria-label="Ampliar: Compilação de trabalhos">
+            <button class="thumb" type="button" data-i="38" aria-label="Ampliar: Compilação de trabalhos">
               <img src="imagens/trabalhos_02-07%20a%2021-07_ACD_2.jpg" alt="Compilação de trabalhos" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Render</span>Compilação de trabalhos</figcaption>
           </figure>
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="40" aria-label="Ampliar: Trofeu02 render05">
+            <button class="thumb" type="button" data-i="39" aria-label="Ampliar: Trofeu02 render05">
               <img src="imagens/trofeu02_render05.jpg" alt="Trofeu02 render05" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Render</span>Trofeu02 render05</figcaption>
           </figure>
           <figure class="card" data-cat="objetos">
-            <button class="thumb" type="button" data-i="41" aria-label="Ampliar: Vaso — design de produto">
+            <button class="thumb" type="button" data-i="40" aria-label="Ampliar: Vaso — design de produto">
               <img src="imagens/vazoimg04.246.jpg" alt="Vaso — design de produto" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Produto</span>Vaso — design de produto</figcaption>
           </figure>
           <figure class="card" data-cat="escultura">
-            <button class="thumb" type="button" data-i="42" aria-label="Ampliar: Escultura digital em ZBrush">
+            <button class="thumb" type="button" data-i="41" aria-label="Ampliar: Escultura digital em ZBrush">
               <img src="imagens/zbr01.jpg" alt="Escultura digital em ZBrush" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">ZBrush</span>Escultura digital em ZBrush</figcaption>
           </figure>
           <figure class="card" data-cat="escultura">
-            <button class="thumb" type="button" data-i="43" aria-label="Ampliar: Escultura digital em ZBrush">
+            <button class="thumb" type="button" data-i="42" aria-label="Ampliar: Escultura digital em ZBrush">
               <img src="imagens/ZBrush%20Document.jpg" alt="Escultura digital em ZBrush" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">ZBrush</span>Escultura digital em ZBrush</figcaption>
           </figure>
           <figure class="card" data-cat="escultura">
-            <button class="thumb" type="button" data-i="44" aria-label="Ampliar: Escultura digital em ZBrush">
+            <button class="thumb" type="button" data-i="43" aria-label="Ampliar: Escultura digital em ZBrush">
               <img src="imagens/ZBrush%20Document01.jpg" alt="Escultura digital em ZBrush" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
@@ -488,7 +490,7 @@ footer{border-top:1px solid var(--line);padding:26px 0;color:var(--mut);font-siz
 </div>
 
 <script>
-var G = [{"f":"02.jpg","t":"Estudo 3D — 02","c":"renders"},{"f":"03 (3).jpg","t":"Estudo 3D — 03 — variante 3","c":"renders"},{"f":"03.jpg","t":"Estudo 3D — 03","c":"renders"},{"f":"07.jpg","t":"Estudo 3D — 07","c":"renders"},{"f":"10.jpg","t":"Estudo 3D — 10","c":"renders"},{"f":"arara_home_lux.jpg","t":"Arara home lux","c":"renders"},{"f":"cena_chav02.269.jpg","t":"Cena — ambientação 3D","c":"cenas"},{"f":"cena_velariseira06.238.jpg","t":"Cena — ambientação 3D","c":"cenas"},{"f":"copaamericafem_ks01.115.jpg","t":"Copaamericafem ks01","c":"renders"},{"f":"Desk.5.jpg","t":"Desk.5","c":"renders"},{"f":"dogimg1.jpg","t":"Cão — modelo 3D","c":"personagens"},{"f":"escultura_Gabriela_r01.225.jpg","t":"Escultura Gabriela","c":"personagens"},{"f":"escultura_Gabriela_r02.215.jpg","t":"Escultura Gabriela","c":"personagens"},{"f":"garrafacranio_ks_04.261.jpg","t":"Garrafa Crânio — design de produto","c":"objetos"},{"f":"Gemini_Generated_Image_kxhni9kxhni9kxhn (1).jpg","t":"Gemini Generated Image kxhni9kxhni9kxhn (1)","c":"renders"},{"f":"Gemini_Generated_Image_oakgu7oakgu7oakg.jpg","t":"Gemini Generated Image oakgu7oakgu7oakg","c":"renders"},{"f":"guerreira_remod01b.179.jpg","t":"Guerreira — personagem","c":"personagens"},{"f":"Imagem25ps1.jpg","t":"Imagem25ps1","c":"renders"},{"f":"Imagem8.jpg","t":"Imagem8","c":"renders"},{"f":"img_pomoyasmin01.jpg","t":"Img pomoyasmin01","c":"renders"},{"f":"img02.jpg","t":"Render — série de estudos","c":"renders"},{"f":"img03.147.jpg","t":"Render — série de estudos","c":"renders"},{"f":"img03.jpg","t":"Render — série de estudos","c":"renders"},{"f":"img04.151.jpg","t":"Render — série de estudos","c":"renders"},{"f":"img07.jpg","t":"Render — série de estudos","c":"renders"},{"f":"imggbn.jpg","t":"Imggbn","c":"renders"},{"f":"ks_img_01.259.jpg","t":"Render KeyShot — produto","c":"objetos"},{"f":"ks_img_02.254.jpg","t":"Render KeyShot — produto","c":"objetos"},{"f":"ks_img_03.255.jpg","t":"Render KeyShot — produto","c":"objetos"},{"f":"mesatrevo01.208.jpg","t":"Mesatrevo01","c":"renders"},{"f":"OK01.jpg","t":"OK01","c":"renders"},{"f":"PureRef_3Pb9og3Hfb.jpg","t":"PureRef 3Pb9og3Hfb","c":"renders"},{"f":"PureRef_B65Obmv2Hr.jpg","t":"PureRef B65Obmv2Hr","c":"renders"},{"f":"PureRef_l32im8utmw.png","t":"PureRef l32im8utmw","c":"renders"},{"f":"pux_sabia08.jpg","t":"Sabiá — ave esculpida em 3D","c":"personagens"},{"f":"pux_sabia15.jpg","t":"Sabiá — ave esculpida em 3D","c":"personagens"},{"f":"render_01.139.jpg","t":"Render 01","c":"renders"},{"f":"salatino03.265.jpg","t":"Salatino03","c":"renders"},{"f":"trabalhos_02-07 a 21-07_ACD_0.jpg","t":"Compilação de trabalhos","c":"renders"},{"f":"trabalhos_02-07 a 21-07_ACD_2.jpg","t":"Compilação de trabalhos","c":"renders"},{"f":"trofeu02_render05.jpg","t":"Trofeu02 render05","c":"renders"},{"f":"vazoimg04.246.jpg","t":"Vaso — design de produto","c":"objetos"},{"f":"zbr01.jpg","t":"Escultura digital em ZBrush","c":"escultura"},{"f":"ZBrush Document.jpg","t":"Escultura digital em ZBrush","c":"escultura"},{"f":"ZBrush Document01.jpg","t":"Escultura digital em ZBrush","c":"escultura"}];
+var G = [{"f":"02.jpg","t":"Estudo 3D — 02","c":"renders"},{"f":"03 (3).jpg","t":"Estudo 3D — 03 — variante 3","c":"renders"},{"f":"03.jpg","t":"Estudo 3D — 03","c":"renders"},{"f":"07.jpg","t":"Estudo 3D — 07","c":"renders"},{"f":"10.jpg","t":"Estudo 3D — 10","c":"renders"},{"f":"arara_home_lux.jpg","t":"Arara home lux","c":"renders"},{"f":"cena_chav02.269.jpg","t":"Cena — ambientação 3D","c":"cenas"},{"f":"cena_velariseira06.238.jpg","t":"Cena — ambientação 3D","c":"cenas"},{"f":"copaamericafem_ks01.115.jpg","t":"Copaamericafem ks01","c":"renders"},{"f":"Desk.5.jpg","t":"Desk.5","c":"renders"},{"f":"dogimg1.jpg","t":"Cão — modelo 3D","c":"personagens"},{"f":"escultura_Gabriela_r01.225.jpg","t":"Escultura Gabriela","c":"personagens"},{"f":"escultura_Gabriela_r02.215.jpg","t":"Escultura Gabriela","c":"personagens"},{"f":"garrafacranio_ks_04.261.jpg","t":"Garrafa Crânio — design de produto","c":"objetos"},{"f":"Gemini_Generated_Image_kxhni9kxhni9kxhn (1).jpg","t":"Gemini Generated Image kxhni9kxhni9kxhn (1)","c":"renders"},{"f":"Gemini_Generated_Image_oakgu7oakgu7oakg.jpg","t":"Gemini Generated Image oakgu7oakgu7oakg","c":"renders"},{"f":"guerreira_remod01b.179.jpg","t":"Guerreira — personagem","c":"personagens"},{"f":"Imagem25ps1.jpg","t":"Imagem25ps1","c":"renders"},{"f":"Imagem8.jpg","t":"Imagem8","c":"renders"},{"f":"img_pomoyasmin01.jpg","t":"Img pomoyasmin01","c":"renders"},{"f":"img02.jpg","t":"Render — série de estudos","c":"renders"},{"f":"img03.147.jpg","t":"Render — série de estudos","c":"renders"},{"f":"img03.jpg","t":"Render — série de estudos","c":"renders"},{"f":"img04.151.jpg","t":"Render — série de estudos","c":"renders"},{"f":"img07.jpg","t":"Render — série de estudos","c":"renders"},{"f":"ks_img_01.259.jpg","t":"Render KeyShot — produto","c":"objetos"},{"f":"ks_img_02.254.jpg","t":"Render KeyShot — produto","c":"objetos"},{"f":"ks_img_03.255.jpg","t":"Render KeyShot — produto","c":"objetos"},{"f":"mesatrevo01.208.jpg","t":"Mesatrevo01","c":"renders"},{"f":"OK01.jpg","t":"OK01","c":"renders"},{"f":"PureRef_3Pb9og3Hfb.jpg","t":"PureRef 3Pb9og3Hfb","c":"renders"},{"f":"PureRef_B65Obmv2Hr.jpg","t":"PureRef B65Obmv2Hr","c":"renders"},{"f":"PureRef_l32im8utmw.png","t":"PureRef l32im8utmw","c":"renders"},{"f":"pux_sabia08.jpg","t":"Sabiá — ave esculpida em 3D","c":"personagens"},{"f":"pux_sabia15.jpg","t":"Sabiá — ave esculpida em 3D","c":"personagens"},{"f":"render_01.139.jpg","t":"Render 01","c":"renders"},{"f":"salatino03.265.jpg","t":"Salatino03","c":"renders"},{"f":"trabalhos_02-07 a 21-07_ACD_0.jpg","t":"Compilação de trabalhos","c":"renders"},{"f":"trabalhos_02-07 a 21-07_ACD_2.jpg","t":"Compilação de trabalhos","c":"renders"},{"f":"trofeu02_render05.jpg","t":"Trofeu02 render05","c":"renders"},{"f":"vazoimg04.246.jpg","t":"Vaso — design de produto","c":"objetos"},{"f":"zbr01.jpg","t":"Escultura digital em ZBrush","c":"escultura"},{"f":"ZBrush Document.jpg","t":"Escultura digital em ZBrush","c":"escultura"},{"f":"ZBrush Document01.jpg","t":"Escultura digital em ZBrush","c":"escultura"}];
 (function () {
   'use strict';
   var grid = document.getElementById('grid');
@@ -572,6 +574,272 @@ var G = [{"f":"02.jpg","t":"Estudo 3D — 02","c":"renders"},{"f":"03 (3).jpg","
   });
   applyFilter('todos');
 })();
+</script>
+<script>
+    // ===== Constelação Luminosa — luz volumétrica em canvas (atrás do conteúdo) =====
+    (function () {
+      const canvas = document.getElementById('luzCosmica');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      let W = 0, H = 0, DPR = 1;
+      let particles = [];
+      let pulses = [];
+      let pulsesEnabled = true;
+      let running = false;
+      let lastT = 0;
+      let slowFrames = 0;
+      const LINK_DIST = 150;
+      const CURSOR_DIST = 190;
+      const MAX_PULSES = 7;
+      const mouse = { x: -9999, y: -9999, active: false };
+
+      // Sprite de luz pré-renderizado: núcleo quente + halo com queda gaussiana
+      const SPR = 64;
+      const sprite = document.createElement('canvas');
+      sprite.width = sprite.height = SPR;
+      (function () {
+        const s = sprite.getContext('2d');
+        const g = s.createRadialGradient(SPR / 2, SPR / 2, 0, SPR / 2, SPR / 2, SPR / 2);
+        g.addColorStop(0, 'rgba(255,255,255,1)');
+        g.addColorStop(0.22, 'rgba(255,255,255,0.6)');
+        g.addColorStop(0.55, 'rgba(255,255,255,0.14)');
+        g.addColorStop(1, 'rgba(255,255,255,0)');
+        s.fillStyle = g;
+        s.fillRect(0, 0, SPR, SPR);
+      })();
+
+      function targetCount() {
+        return Math.max(45, Math.min(110, Math.round((W * H) / 15500)));
+      }
+
+      function makeParticle() {
+        const depth = 0.35 + Math.random() * 0.65; // 0,35 = fundo | 1 = frente
+        return {
+          x: Math.random() * W,
+          y: Math.random() * H,
+          vx: (Math.random() - 0.5) * 0.14,
+          vy: (Math.random() - 0.5) * 0.14,
+          r: 0.7 + depth * 1.5,
+          depth: depth,
+          tw: Math.random() * Math.PI * 2,
+          ts: 0.5 + Math.random() * 1.1,
+          fl: Math.random() * Math.PI * 2
+        };
+      }
+
+      function syncPopulation() {
+        const alvo = targetCount();
+        while (particles.length < alvo) particles.push(makeParticle());
+        if (particles.length > alvo) particles.length = alvo;
+      }
+
+      function resize() {
+        DPR = Math.min(window.devicePixelRatio || 1, 1.75);
+        W = window.innerWidth;
+        H = window.innerHeight;
+        canvas.width = Math.round(W * DPR);
+        canvas.height = Math.round(H * DPR);
+        canvas.style.width = W + 'px';
+        canvas.style.height = H + 'px';
+        ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+        syncPopulation();
+        if (reduceMotion) render(16, 0); // um único quadro estático
+      }
+
+      function wrapY(y) {
+        return ((y % H) + H) % H;
+      }
+
+      // Vento orgânico: senóides sobrepostas — trajetórias curvas, nunca retas
+      function applyFlow(p, t, k) {
+        p.vx += Math.sin(p.y * 0.0021 + t * 0.00021 + p.fl) * 0.016 * k;
+        p.vy += Math.cos(p.x * 0.0018 - t * 0.00017 + p.fl * 1.7) * 0.014 * k;
+      }
+
+      function update(dt, t) {
+        const k = dt / 16.66;
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i];
+          applyFlow(p, t, k);
+
+          // A mão de luz: atração suave com redemoinho tangencial
+          if (mouse.active) {
+            const dx = mouse.x - p.x;
+            const dy = mouse.y - p.y;
+            const d2 = dx * dx + dy * dy;
+            if (d2 < CURSOR_DIST * CURSOR_DIST) {
+              const d = Math.sqrt(d2) || 1;
+              const f = (1 - d / CURSOR_DIST) * 0.011 * p.depth * k;
+              p.vx += (dx / d) * f - (dy / d) * f * 0.7;
+              p.vy += (dy / d) * f + (dx / d) * f * 0.7;
+            }
+          }
+
+          p.vx *= 0.986;
+          p.vy *= 0.986;
+          const sp = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
+          if (sp > 0.85) { p.vx = (p.vx / sp) * 0.85; p.vy = (p.vy / sp) * 0.85; }
+
+          p.x += p.vx * k;
+          p.y += p.vy * k;
+          p.tw += 0.02 * p.ts * k;
+
+          if (p.x < -24) p.x = W + 24; else if (p.x > W + 24) p.x = -24;
+          if (p.y < -24) p.y = H + 24; else if (p.y > H + 24) p.y = -24;
+        }
+
+        // Pulsos de luz percorrendo os fios (sinais de fibra óptica)
+        if (pulsesEnabled && pulses.length < MAX_PULSES && Math.random() < 0.05) {
+          const a = particles[(Math.random() * particles.length) | 0];
+          if (a) {
+            let melhor = null, melhorD = LINK_DIST * LINK_DIST;
+            for (let j = 0; j < particles.length; j++) {
+              const b = particles[j];
+              if (b === a) continue;
+              const dx = b.x - a.x, dy = b.y - a.y;
+              const d2 = dx * dx + dy * dy;
+              if (d2 < melhorD) { melhorD = d2; melhor = b; }
+            }
+            if (melhor) pulses.push({ a: a, b: melhor, t: 0, v: 0.009 + Math.random() * 0.008 });
+          }
+        }
+        for (let i = pulses.length - 1; i >= 0; i--) {
+          pulses[i].t += pulses[i].v * k;
+          if (pulses[i].t >= 1) pulses.splice(i, 1);
+        }
+      }
+
+      function render(dt, t) {
+        ctx.clearRect(0, 0, W, H);
+        ctx.globalCompositeOperation = 'lighter';
+
+        const scrollY = window.scrollY;
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i];
+          p.px = p.x;
+          p.py = wrapY(p.y - (p.depth - 0.62) * 0.12 * scrollY); // paralaxe de profundidade
+        }
+
+        // Fios de luz: halo largo + núcleo fino (a luz se acumula nas junções)
+        for (let i = 0; i < particles.length; i++) {
+          const a = particles[i];
+          for (let j = i + 1; j < particles.length; j++) {
+            const b = particles[j];
+            const dx = b.px - a.px, dy = b.py - a.py;
+            if (dx > LINK_DIST || dx < -LINK_DIST || dy > LINK_DIST || dy < -LINK_DIST) continue;
+            const d = Math.sqrt(dx * dx + dy * dy);
+            if (d >= LINK_DIST) continue;
+            const alfa = (1 - d / LINK_DIST) * Math.min(a.depth, b.depth) * 0.55;
+            ctx.strokeStyle = 'rgba(255,255,255,' + (alfa * 0.28).toFixed(3) + ')';
+            ctx.lineWidth = 2.8;
+            ctx.beginPath();
+            ctx.moveTo(a.px, a.py);
+            ctx.lineTo(b.px, b.py);
+            ctx.stroke();
+            ctx.strokeStyle = 'rgba(255,255,255,' + alfa.toFixed(3) + ')';
+            ctx.lineWidth = 0.75;
+            ctx.beginPath();
+            ctx.moveTo(a.px, a.py);
+            ctx.lineTo(b.px, b.py);
+            ctx.stroke();
+          }
+        }
+
+        // Fios até a mão de luz + halo da lanterna do cursor
+        if (mouse.active) {
+          let ligados = 0;
+          for (let i = 0; i < particles.length && ligados < 6; i++) {
+            const p = particles[i];
+            const dx = mouse.x - p.px, dy = mouse.y - p.py;
+            const d = Math.sqrt(dx * dx + dy * dy);
+            if (d < CURSOR_DIST) {
+              ligados++;
+              ctx.strokeStyle = 'rgba(255,255,255,' + ((1 - d / CURSOR_DIST) * 0.4).toFixed(3) + ')';
+              ctx.lineWidth = 0.8;
+              ctx.beginPath();
+              ctx.moveTo(p.px, p.py);
+              ctx.lineTo(mouse.x, mouse.y);
+              ctx.stroke();
+            }
+          }
+          ctx.globalAlpha = 0.05;
+          ctx.drawImage(sprite, mouse.x - 130, mouse.y - 130, 260, 260);
+          ctx.globalAlpha = 0.14;
+          ctx.drawImage(sprite, mouse.x - 45, mouse.y - 45, 90, 90);
+          ctx.globalAlpha = 1;
+        }
+
+        // Partículas: cintilação individual (cada estrela respira)
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i];
+          const brilho = 0.55 + 0.45 * Math.sin(p.tw);
+          const s = p.r * 9 * (0.75 + 0.45 * brilho);
+          ctx.globalAlpha = Math.min(1, brilho * (0.35 + 0.65 * p.depth));
+          ctx.drawImage(sprite, p.px - s / 2, p.py - s / 2, s, s);
+        }
+        ctx.globalAlpha = 1;
+
+        // Pulsos viajando pelos fios
+        for (let i = 0; i < pulses.length; i++) {
+          const pu = pulses[i];
+          const x = pu.a.px + (pu.b.px - pu.a.px) * pu.t;
+          const y = pu.a.py + (pu.b.py - pu.a.py) * pu.t;
+          ctx.globalAlpha = 0.5;
+          ctx.drawImage(sprite, x - 11, y - 11, 22, 22);
+          ctx.globalAlpha = 0.95;
+          ctx.drawImage(sprite, x - 5, y - 5, 10, 10);
+          ctx.globalAlpha = 1;
+        }
+
+        ctx.globalCompositeOperation = 'source-over';
+      }
+
+      function loop(t) {
+        if (!running) return;
+        const dt = Math.min(50, t - lastT || 16);
+        lastT = t;
+
+        // Qualidade adaptativa: se o quadro pesar, reduz a população uma única vez
+        if (dt > 40) slowFrames++; else slowFrames = Math.max(0, slowFrames - 2);
+        if (slowFrames > 90 && particles.length > 55) {
+          particles.length = Math.round(particles.length * 0.7);
+          pulsesEnabled = false;
+          slowFrames = 0;
+        }
+
+        update(dt, t);
+        render(dt, t);
+        requestAnimationFrame(loop);
+      }
+
+      function start() {
+        if (running || reduceMotion) return;
+        running = true;
+        lastT = 0;
+        requestAnimationFrame(loop);
+      }
+
+      function stop() { running = false; }
+
+      window.addEventListener('pointermove', function (e) {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+        mouse.active = true;
+      }, { passive: true });
+      window.addEventListener('pointerdown', function (e) {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+        mouse.active = true;
+      }, { passive: true });
+      document.documentElement.addEventListener('pointerleave', function () { mouse.active = false; });
+      document.addEventListener('visibilitychange', function () { if (document.hidden) stop(); else start(); });
+      window.addEventListener('resize', resize);
+
+      resize();
+      start();
+    })();
 </script>
 </body>
 </html>
