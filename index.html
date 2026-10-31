@@ -1997,7 +1997,7 @@
     </div>
 
     <div class="project-form-card" id="projectFormCard" style="--tilt-y: 0deg; --tilt-x: 0deg;">
-      <form id="projectForm" action="https://formsubmit.co/gbnmodelagem3d@yahoo.com" method="POST">
+      <form id="projectForm" action="https://formsubmit.co/gbnmodelagem3d@yahoo.com" method="POST" enctype="multipart/form-data">
         <!-- Configurações do FormSubmit.co (envio por e-mail, sem anexos) -->
         <input type="hidden" name="_subject" value="Novo Projeto 3D Recebido - GBN3D">
         <input type="hidden" name="_template" value="table">
@@ -2030,6 +2030,12 @@
             <textarea id="piIdeia" name="message" placeholder="Conte os detalhes: o que deseja modelar, estilo visual, referências, dimensões, prazo e uso final (impressão 3D, games, animação, publicidade)..." required></textarea>
             <div class="char-counter" id="piCharCounter">0 caracteres</div>
           </div>
+        </div>
+
+        <div class="form-group form-group-full">
+          <label for="piAnexos">Anexar imagens (até 4, máx. 2 MB cada)</label>
+          <input type="file" id="piAnexos" name="attachment" accept="image/*" multiple>
+          <p class="submit-hint" style="margin-top:6px;">Formatos de imagem. Total recomendado até 4,5 MB por envio.</p>
         </div>
 
         <button type="submit" class="btn-submit-3d" id="btnSubmitProject">
@@ -2724,4 +2730,26 @@
     })();
 
   </script>
+<script>
+(function () {
+  const form = document.getElementById('projectForm');
+  const fileInput = document.getElementById('piAnexos');
+  if (!form || !fileInput) return;
+  form.addEventListener('submit', function (e) {
+    const files = fileInput.files;
+    if (files.length > 4) {
+      alert('Selecione no máximo 4 imagens.');
+      e.preventDefault();
+      return;
+    }
+    for (let i = 0; i < files.length; i++) {
+      if (files[i].size > 2 * 1024 * 1024) {
+        alert('Cada imagem deve ter no máximo 2 MB.');
+        e.preventDefault();
+        return;
+      }
+    }
+  });
+})();
+</script>
 </body></html>
