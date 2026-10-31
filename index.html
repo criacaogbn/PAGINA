@@ -1997,7 +1997,7 @@
     </div>
 
     <div class="project-form-card" id="projectFormCard" style="--tilt-y: 0deg; --tilt-x: 0deg;">
-      <form id="projectForm" action="https://formsubmit.co/be763747781a0ad8a6dfc8109473625e" method="POST" novalidate>
+      <form id="projectForm" action="https://formsubmit.co/gbnmodelagem3d@yahoo.com" method="POST">
         <!-- Configurações do FormSubmit.co (envio por e-mail, sem anexos) -->
         <input type="hidden" name="_subject" value="Novo Projeto 3D Recebido - GBN3D">
         <input type="hidden" name="_template" value="table">
@@ -2721,51 +2721,7 @@
       form.querySelectorAll('input, textarea').forEach(f =>
         f.addEventListener('input', () => f.classList.remove('is-invalid')));
 
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        const obrigatorios = [nomeField, telefoneField, emailField, ideiaField];
-        let temErro = false;
-        obrigatorios.forEach(f => {
-          const vazio = !f.value.trim();
-          const emailRuim = f === emailField && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.value.trim());
-          const ruim = vazio || emailRuim;
-          f.classList.toggle('is-invalid', ruim);
-          if (ruim) temErro = true;
-        });
-        if (temErro) {
-          showToast('Preencha os campos destacados corretamente.', 'error');
-          return;
-        }
-        btnSubmit.disabled = true;
-        const rotuloOriginal = btnLabel.textContent;
-        btnLabel.textContent = 'ENVIANDO...';
-        const formData = new FormData(form);
-        fetch('https://formsubmit.co/ajax/be763747781a0ad8a6dfc8109473625e', {
-          method: 'POST',
-          body: formData
-        })
-        .then(async (response) => {
-          let json = await response.json();
-          if (response.ok && (json.success === 'true' || json.success === true)) {
-            btnLabel.textContent = 'ENVIADO ✓';
-            showToast('Projeto enviado com sucesso!', 'success');
-            form.reset();
-            charCounter.textContent = '0 caracteres';
-            setTimeout(() => { btnLabel.textContent = rotuloOriginal; btnSubmit.disabled = false; }, 3000);
-          } else {
-            console.log(response);
-            btnLabel.textContent = rotuloOriginal;
-            btnSubmit.disabled = false;
-            showToast(json.message || 'Erro ao enviar. Tente novamente.', 'error');
-          }
-        })
-        .catch(error => {
-          console.log(error);
-          btnLabel.textContent = rotuloOriginal;
-          btnSubmit.disabled = false;
-          showToast('Erro de conexão ao enviar o formulário.', 'error');
-        });
-      });
     })();
+
   </script>
 </body></html>
