@@ -3,124 +3,82 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <title>GBN 3D — Modelagem, Escultura Digital e Rendering</title>
 <meta name="description" content="Portfólio de modelagem 3D, escultura digital (ZBrush), texturização e rendering — personagens, criaturas, cenários e produtos.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="GBN 3D — Portfólio 3D">
 <meta property="og:description" content="Modelagem 3D, escultura digital e rendering: personagens, criaturas, cenários e produtos.">
-<meta property="og:image" content="wwwgbn3dcom-files/guerreira_ks01.177.jpg">
+<meta property="og:image" content="imagens/02.jpg">
 <link rel="icon" type="image/png" href="logo/logocircularpng2.png">
 <title>GBN 3D — Acervo Completo de Trabalhos</title>
-
-<!-- Importação de fontes modernas (Inter) -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
 <style>
-:root{
-  /* Paleta Dark Absoluta (Monocromática) referente à imagem */
-  --bg:#000000;
-  --panel:#0d0d0d;
-  --line:#1a1a1a;
-  --tx:#ffffff;
-  --mut:#7f7f7f;
-  --acc:#ffffff;
-  --acc2:#e6e6e6;
-  --btn-bg:#cccccc;
-}
+:root{--bg:#0d0f14;--panel:#151823;--line:#252a3a;--tx:#e8eaf2;--mut:#9aa3b8;--acc:#f5a524;--acc2:#ffc46b}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{
-  background:var(--bg);
-  color:var(--tx);
-  font:16px/1.6 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-}
+body{background:var(--bg);color:var(--tx);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 body.no-scroll{overflow:hidden}
 img{max-width:100%}
 .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
-header{position:sticky;top:0;z-index:50;background:rgba(0,0,0,.85);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;gap:14px;padding:12px 0}
+header{position:sticky;top:0;z-index:50;background:rgba(13,15,20,.82);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:14px;padding:10px 0}
 .nav img{width:42px;height:42px;border-radius:50%;border:1px solid var(--line)}
 .brand{font-weight:700;font-size:1.1rem;letter-spacing:.5px}
-.brand span{color:var(--tx)}
+.brand span{color:var(--acc)}
 nav.links{margin-left:auto;display:flex;gap:18px;flex-wrap:wrap}
-nav.links a{color:var(--mut);text-decoration:none;font-size:.95rem;transition:color .2s}
+nav.links a{color:var(--mut);text-decoration:none;font-size:.95rem}
 nav.links a:hover{color:var(--tx)}
-#hero{padding:88px 0 68px;text-align:center;background:radial-gradient(60% 80% at 50% 0%,#111111 0%,var(--bg) 72%)}
-#hero h1{font-size:clamp(2rem,6vw,3.4rem);line-height:1.15;font-weight:800;color:var(--tx)}
-#hero h1 span{color:var(--tx)}
+#hero{padding:88px 0 68px;text-align:center;background:radial-gradient(60% 80% at 50% 0%,#1b2136 0%,var(--bg) 72%)}
+#hero h1{font-size:clamp(2rem,6vw,3.4rem);line-height:1.15}
+#hero h1 span{color:var(--acc)}
 #hero p{max-width:640px;margin:16px auto 28px;color:var(--mut);font-size:1.08rem}
 .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.btn{display:inline-block;padding:12px 22px;border-radius:10px;text-decoration:none;font-weight:600;border:1px solid transparent;cursor:pointer;font-size:.98rem;transition:all .2s}
-.btn.primary{background:var(--btn-bg);color:#000000}
-.btn.primary:hover{background:#ffffff}
+.btn{display:inline-block;padding:12px 22px;border-radius:10px;text-decoration:none;font-weight:600;border:1px solid transparent;cursor:pointer;font-size:.98rem}
+.btn.primary{background:var(--acc);color:#14161c}
+.btn.primary:hover{background:var(--acc2)}
 .btn.ghost{border-color:var(--line);color:var(--tx)}
-.btn.ghost:hover{border-color:var(--tx)}
+.btn.ghost:hover{border-color:var(--acc)}
 section{padding:64px 0;border-top:1px solid var(--line)}
 section:first-of-type{border-top:0}
-h2{font-size:1.6rem;margin-bottom:6px;font-weight:700}
+h2{font-size:1.6rem;margin-bottom:6px}
 .sub{color:var(--mut);margin-bottom:26px}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
 .svc{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px}
 .svc .ico{display:inline-flex;align-items:center;justify-content:center;color:var(--tx)}
-.svc h3{margin:8px 0 4px;font-size:1.02rem;font-weight:600}
+.svc h3{margin:8px 0 4px;font-size:1.02rem}
 .svc p{color:var(--mut);font-size:.92rem}
 .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
-.filter{background:var(--panel);border:1px solid var(--line);color:var(--mut);padding:8px 14px;border-radius:999px;cursor:pointer;font-size:.9rem;font-family:inherit;transition:all .2s}
-.filter:hover{color:var(--tx);border-color:var(--tx)}
-.filter.active{background:var(--btn-bg);border-color:var(--btn-bg);color:#000000;font-weight:700}
+.filter{background:var(--panel);border:1px solid var(--line);color:var(--mut);padding:8px 14px;border-radius:999px;cursor:pointer;font-size:.9rem}
+.filter:hover{color:var(--tx);border-color:var(--acc)}
+.filter.active{background:var(--acc);border-color:var(--acc);color:#14161c;font-weight:700}
 #count{color:var(--mut);font-size:.9rem;margin-bottom:14px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:transform .18s,border-color .18s}
-.card:hover{transform:translateY(-3px);border-color:#333333}
+.card:hover{transform:translateY(-3px);border-color:var(--acc)}
 .card.hide{display:none}
-.thumb{display:block;width:100%;aspect-ratio:4/3;border:0;background:#050505;cursor:zoom-in;position:relative;padding:0}
+.thumb{display:block;width:100%;aspect-ratio:4/3;border:0;background:#0a0c10;cursor:zoom-in;position:relative;padding:0}
 .thumb img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(100%) contrast(110%) brightness(95%);transition:filter .3s ease,transform .25s}
 .card:hover .thumb img,.card:focus-within .thumb img{transform:scale(1.04);filter:grayscale(0%) contrast(100%) brightness(100%)}
 .zoom{position:absolute;right:10px;top:10px;background:rgba(0,0,0,.55);color:#fff;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-weight:700;opacity:0;transition:opacity .18s}
 .card:hover .zoom,.thumb:focus-visible .zoom{opacity:1}
 .card figcaption{display:flex;align-items:center;gap:8px;padding:10px 12px;font-size:.86rem;color:var(--mut)}
-.chip{background:#1f1f1f;color:var(--tx);font-size:.68rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.chip{background:#232939;color:var(--acc2);font-size:.68rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:2px 8px;border-radius:999px;white-space:nowrap}
 .about p{color:var(--mut);max-width:780px}
 .contact{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px}
 .note{margin-top:14px;font-size:.85rem}
 footer{border-top:1px solid var(--line);padding:26px 0;color:var(--mut);font-size:.9rem;text-align:center}
-#lb{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.95)}
+#lb{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;background:rgba(5,6,9,.93)}
 #lb.open{display:flex}
-#lbImg{max-width:min(92vw,1200px);max-height:76vh;border-radius:10px;box-shadow:0 12px 60px rgba(0,0,0,.8)}
+#lbImg{max-width:min(92vw,1200px);max-height:76vh;border-radius:10px;box-shadow:0 12px 60px rgba(0,0,0,.65)}
 #lb .bar{position:absolute;left:0;right:0;bottom:18px;display:flex;justify-content:center;align-items:center;gap:16px;color:var(--mut);font-size:.95rem}
 #lb button{background:var(--panel);border:1px solid var(--line);color:var(--tx);width:44px;height:44px;border-radius:50%;font-size:1.15rem;cursor:pointer;line-height:1}
-#lb button:hover{border-color:var(--tx)}
+#lb button:hover{border-color:var(--acc)}
 #lbClose{position:absolute;top:16px;right:16px}
 #lbCap{position:absolute;top:24px;left:18px;right:74px;font-weight:600;text-shadow:0 1px 4px #000}
-:focus-visible{outline:2px solid var(--tx);outline-offset:2px}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
-/* ===== Aplicações na Indústria — janela de slides ===== */
-.slides-window{max-width:960px;margin:0 auto;background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 18px 50px rgba(0,0,0,.45)}
-.slides-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 14px;border-bottom:1px solid var(--line)}
-.slides-title{font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.slides-head-actions{display:flex;align-items:center;gap:10px;flex-shrink:0}
-.slides-counter{color:var(--mut);font-size:.85rem;font-variant-numeric:tabular-nums;white-space:nowrap}
-.slides-toggle{background:transparent;border:1px solid var(--line);color:var(--tx);font-family:inherit;font-size:.78rem;padding:6px 12px;border-radius:999px;cursor:pointer;transition:all .2s}
-.slides-toggle:hover{border-color:var(--tx)}
-.slides-toggle.on{background:var(--btn-bg);border-color:var(--btn-bg);color:#000;font-weight:700}
-.slides-stage{position:relative;aspect-ratio:1376/768;background:#050505;cursor:pointer;user-select:none;-webkit-user-select:none;outline-offset:-2px}
-.slides-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity .45s ease;pointer-events:none}
-.slides-stage img.active{opacity:1}
-.slides-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:42px;height:42px;border-radius:50%;background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:1.35rem;line-height:1;display:grid;place-items:center;cursor:pointer;padding:0;transition:background .2s,border-color .2s}
-.slides-btn:hover{background:rgba(255,255,255,.18);border-color:#fff}
-.slides-btn.prev{left:12px}
-.slides-btn.next{right:12px}
-.slides-cap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:30px 16px 10px;text-align:center;font-size:.85rem;color:#ddd;background:linear-gradient(transparent,rgba(0,0,0,.85));pointer-events:none}
-.slides-hint{position:absolute;top:12px;left:50%;transform:translateX(-50%);z-index:2;background:rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.25);color:#eee;font-size:.72rem;letter-spacing:.06em;padding:5px 12px;border-radius:999px;pointer-events:none;transition:opacity .4s}
-.slides-stage.touched .slides-hint{opacity:0}
-.slides-dots{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;padding:12px;border-top:1px solid var(--line)}
-.slides-dot{width:10px;height:10px;border-radius:50%;border:1px solid var(--mut);background:transparent;padding:0;cursor:pointer;transition:background .2s,transform .2s}
-.slides-dot:hover{background:var(--mut)}
-.slides-dot.active{background:var(--tx);border-color:var(--tx);transform:scale(1.2)}
-.slides-dl{display:flex;justify-content:center;margin-top:18px}
-@media (max-width:560px){.slides-title{font-size:.68rem}.slides-btn{width:34px;height:34px;font-size:1.1rem}}
 </style>
 </head>
 <body>
@@ -129,10 +87,8 @@ footer{border-top:1px solid var(--line);padding:26px 0;color:var(--mut);font-siz
     <img src="logo/logocircularpng2.png" alt="Logotipo GBN 3D">
     <div class="brand">GBN<span>3D</span></div>
     <nav class="links">
-      <a href="index.html">Home</a>
       <a href="#servicos">Serviços</a>
       <a href="#galeria">Galeria</a>
-      <a href="#industria">Indústria</a>
       <a href="#sobre">Sobre</a>
       <a href="#contato">Contato</a>
     </nav>
@@ -168,7 +124,7 @@ footer{border-top:1px solid var(--line);padding:26px 0;color:var(--mut);font-siz
 <section id="galeria">
   <div class="wrap">
     <h2>Galeria</h2>
-    <p class="sub">80 trabalhos — clique em uma imagem para ampliar</p>
+    <p class="sub">45 trabalhos — clique em uma imagem para ampliar</p>
     <div class="filters" role="group" aria-label="Filtrar galeria por categoria">
           <button class="filter active" type="button" data-filter="todos">Todos</button>
           <button class="filter" type="button" data-filter="personagens">Personagens & Criaturas</button>
@@ -180,640 +136,320 @@ footer{border-top:1px solid var(--line);padding:26px 0;color:var(--mut);font-siz
     <p id="count" aria-live="polite"></p>
     <div class="grid" id="grid">
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="0" aria-label="Ampliar: Estudo 3D — 01 — variante 2">
-              <img src="imagens/01%20(2).jpg" alt="Estudo 3D — 01 — variante 2" loading="lazy" decoding="async">
-              <span class="zoom" aria-hidden="true">+</span>
-            </button>
-            <figcaption><span class="chip">Render</span>Estudo 3D — 01 — variante 2</figcaption>
-          </figure>
-          <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="1" aria-label="Ampliar: Estudo 3D — 01 — variante 3">
-              <img src="wwwgbn3dcom-files/01%20(3).jpg" alt="Estudo 3D — 01 — variante 3" loading="lazy" decoding="async">
-              <span class="zoom" aria-hidden="true">+</span>
-            </button>
-            <figcaption><span class="chip">Render</span>Estudo 3D — 01 — variante 3</figcaption>
-          </figure>
-          <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="2" aria-label="Ampliar: Estudo 3D — 01">
-              <img src="imagens/01.jpg" alt="Estudo 3D — 01" loading="lazy" decoding="async">
-              <span class="zoom" aria-hidden="true">+</span>
-            </button>
-            <figcaption><span class="chip">Render</span>Estudo 3D — 01</figcaption>
-          </figure>
-          <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="3" aria-label="Ampliar: Estudo 3D — 01bpr">
-              <img src="imagens/01bpr.jpg" alt="Estudo 3D — 01bpr" loading="lazy" decoding="async">
-              <span class="zoom" aria-hidden="true">+</span>
-            </button>
-            <figcaption><span class="chip">Render</span>Estudo 3D — 01bpr</figcaption>
-          </figure>
-          <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="4" aria-label="Ampliar: Estudo 3D — 02 — variante 2">
-              <img src="wwwgbn3dcom-files/02%20(2).jpg" alt="Estudo 3D — 02 — variante 2" loading="lazy" decoding="async">
-              <span class="zoom" aria-hidden="true">+</span>
-            </button>
-            <figcaption><span class="chip">Render</span>Estudo 3D — 02 — variante 2</figcaption>
-          </figure>
-          <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="5" aria-label="Ampliar: Estudo 3D — 02">
+            <button class="thumb" type="button" data-i="0" aria-label="Ampliar: Estudo 3D — 02">
               <img src="imagens/02.jpg" alt="Estudo 3D — 02" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Render</span>Estudo 3D — 02</figcaption>
           </figure>
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="6" aria-label="Ampliar: Estudo 3D — 03 — variante 2">
-              <img src="wwwgbn3dcom-files/03%20(2).jpg" alt="Estudo 3D — 03 — variante 2" loading="lazy" decoding="async">
-              <span class="zoom" aria-hidden="true">+</span>
-            </button>
-            <figcaption><span class="chip">Render</span>Estudo 3D — 03 — variante 2</figcaption>
-          </figure>
-          <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="7" aria-label="Ampliar: Estudo 3D — 03 — variante 3">
+            <button class="thumb" type="button" data-i="1" aria-label="Ampliar: Estudo 3D — 03 — variante 3">
               <img src="imagens/03%20(3).jpg" alt="Estudo 3D — 03 — variante 3" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Render</span>Estudo 3D — 03 — variante 3</figcaption>
           </figure>
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="8" aria-label="Ampliar: Estudo 3D — 03">
+            <button class="thumb" type="button" data-i="2" aria-label="Ampliar: Estudo 3D — 03">
               <img src="imagens/03.jpg" alt="Estudo 3D — 03" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Render</span>Estudo 3D — 03</figcaption>
           </figure>
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="9" aria-label="Ampliar: Estudo 3D — 04">
-              <img src="imagens/04.jpg" alt="Estudo 3D — 04" loading="lazy" decoding="async">
-              <span class="zoom" aria-hidden="true">+</span>
-            </button>
-            <figcaption><span class="chip">Render</span>Estudo 3D — 04</figcaption>
-          </figure>
-          <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="10" aria-label="Ampliar: Estudo 3D — 05 — variante 2">
-              <img src="wwwgbn3dcom-files/05%20(2).jpg" alt="Estudo 3D — 05 — variante 2" loading="lazy" decoding="async">
-              <span class="zoom" aria-hidden="true">+</span>
-            </button>
-            <figcaption><span class="chip">Render</span>Estudo 3D — 05 — variante 2</figcaption>
-          </figure>
-          <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="11" aria-label="Ampliar: Estudo 3D — 05">
-              <img src="imagens/05.jpg" alt="Estudo 3D — 05" loading="lazy" decoding="async">
-              <span class="zoom" aria-hidden="true">+</span>
-            </button>
-            <figcaption><span class="chip">Render</span>Estudo 3D — 05</figcaption>
-          </figure>
-          <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="12" aria-label="Ampliar: Estudo 3D — 05a">
-              <img src="wwwgbn3dcom-files/05a.jpg" alt="Estudo 3D — 05a" loading="lazy" decoding="async">
-              <span class="zoom" aria-hidden="true">+</span>
-            </button>
-            <figcaption><span class="chip">Render</span>Estudo 3D — 05a</figcaption>
-          </figure>
-          <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="13" aria-label="Ampliar: 05a2">
-              <img src="wwwgbn3dcom-files/05a2.jpg" alt="05a2" loading="lazy" decoding="async">
-              <span class="zoom" aria-hidden="true">+</span>
-            </button>
-            <figcaption><span class="chip">Render</span>05a2</figcaption>
-          </figure>
-          <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="14" aria-label="Ampliar: Estudo 3D — 07">
+            <button class="thumb" type="button" data-i="3" aria-label="Ampliar: Estudo 3D — 07">
               <img src="imagens/07.jpg" alt="Estudo 3D — 07" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Render</span>Estudo 3D — 07</figcaption>
           </figure>
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="15" aria-label="Ampliar: Estudo 3D — 08">
-              <img src="wwwgbn3dcom-files/08.jpg" alt="Estudo 3D — 08" loading="lazy" decoding="async">
+            <button class="thumb" type="button" data-i="4" aria-label="Ampliar: Estudo 3D — 10">
+              <img src="imagens/10.jpg" alt="Estudo 3D — 10" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
-            <figcaption><span class="chip">Render</span>Estudo 3D — 08</figcaption>
+            <figcaption><span class="chip">Render</span>Estudo 3D — 10</figcaption>
           </figure>
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="16" aria-label="Ampliar: Estudo 3D — 088">
-              <img src="wwwgbn3dcom-files/088.jpg" alt="Estudo 3D — 088" loading="lazy" decoding="async">
+            <button class="thumb" type="button" data-i="5" aria-label="Ampliar: Arara home lux">
+              <img src="imagens/arara_home_lux.jpg" alt="Arara home lux" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
-            <figcaption><span class="chip">Render</span>Estudo 3D — 088</figcaption>
-          </figure>
-          <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="17" aria-label="Ampliar: Estudo 3D — 22">
-              <img src="imagens/22.jpg" alt="Estudo 3D — 22" loading="lazy" decoding="async">
-              <span class="zoom" aria-hidden="true">+</span>
-            </button>
-            <figcaption><span class="chip">Render</span>Estudo 3D — 22</figcaption>
-          </figure>
-          <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="18" aria-label="Ampliar: Trabalho 3D">
-              <img src="wwwgbn3dcom-files/433645cc-519e-401f-8197-6970e0c0aaf6.jpg" alt="Trabalho 3D" loading="lazy" decoding="async">
-              <span class="zoom" aria-hidden="true">+</span>
-            </button>
-            <figcaption><span class="chip">Render</span>Trabalho 3D</figcaption>
+            <figcaption><span class="chip">Render</span>Arara home lux</figcaption>
           </figure>
           <figure class="card" data-cat="cenas">
-            <button class="thumb" type="button" data-i="19" aria-label="Ampliar: Cena — ambientação 3D">
-              <img src="wwwgbn3dcom-files/cena_chav01.268.jpg" alt="Cena — ambientação 3D" loading="lazy" decoding="async">
-              <span class="zoom" aria-hidden="true">+</span>
-            </button>
-            <figcaption><span class="chip">Cena</span>Cena — ambientação 3D</figcaption>
-          </figure>
-          <figure class="card" data-cat="cenas">
-            <button class="thumb" type="button" data-i="20" aria-label="Ampliar: Cena — ambientação 3D">
+            <button class="thumb" type="button" data-i="6" aria-label="Ampliar: Cena — ambientação 3D">
               <img src="imagens/cena_chav02.269.jpg" alt="Cena — ambientação 3D" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Cena</span>Cena — ambientação 3D</figcaption>
           </figure>
           <figure class="card" data-cat="cenas">
-            <button class="thumb" type="button" data-i="21" aria-label="Ampliar: Cena — ambientação 3D">
-              <img src="wwwgbn3dcom-files/cena_chav03.270.jpg" alt="Cena — ambientação 3D" loading="lazy" decoding="async">
-              <span class="zoom" aria-hidden="true">+</span>
-            </button>
-            <figcaption><span class="chip">Cena</span>Cena — ambientação 3D</figcaption>
-          </figure>
-          <figure class="card" data-cat="cenas">
-            <button class="thumb" type="button" data-i="22" aria-label="Ampliar: Cena — ambientação 3D">
-              <img src="imagens/cena_velariseira01.bip.242.jpg" alt="Cena — ambientação 3D" loading="lazy" decoding="async">
-              <span class="zoom" aria-hidden="true">+</span>
-            </button>
-            <figcaption><span class="chip">Cena</span>Cena — ambientação 3D</figcaption>
-          </figure>
-          <figure class="card" data-cat="cenas">
-            <button class="thumb" type="button" data-i="23" aria-label="Ampliar: Cena — ambientação 3D">
+            <button class="thumb" type="button" data-i="7" aria-label="Ampliar: Cena — ambientação 3D">
               <img src="imagens/cena_velariseira06.238.jpg" alt="Cena — ambientação 3D" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Cena</span>Cena — ambientação 3D</figcaption>
           </figure>
+          <figure class="card" data-cat="renders">
+            <button class="thumb" type="button" data-i="8" aria-label="Ampliar: Copaamericafem ks01">
+              <img src="imagens/copaamericafem_ks01.115.jpg" alt="Copaamericafem ks01" loading="lazy" decoding="async">
+              <span class="zoom" aria-hidden="true">+</span>
+            </button>
+            <figcaption><span class="chip">Render</span>Copaamericafem ks01</figcaption>
+          </figure>
+          <figure class="card" data-cat="renders">
+            <button class="thumb" type="button" data-i="9" aria-label="Ampliar: Desk.5">
+              <img src="imagens/Desk.5.jpg" alt="Desk.5" loading="lazy" decoding="async">
+              <span class="zoom" aria-hidden="true">+</span>
+            </button>
+            <figcaption><span class="chip">Render</span>Desk.5</figcaption>
+          </figure>
           <figure class="card" data-cat="personagens">
-            <button class="thumb" type="button" data-i="24" aria-label="Ampliar: Cão — modelo 3D">
+            <button class="thumb" type="button" data-i="10" aria-label="Ampliar: Cão — modelo 3D">
               <img src="imagens/dogimg1.jpg" alt="Cão — modelo 3D" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Personagem</span>Cão — modelo 3D</figcaption>
           </figure>
           <figure class="card" data-cat="personagens">
-            <button class="thumb" type="button" data-i="25" aria-label="Ampliar: Escultura Gabriela">
+            <button class="thumb" type="button" data-i="11" aria-label="Ampliar: Escultura Gabriela">
               <img src="imagens/escultura_Gabriela_r01.225.jpg" alt="Escultura Gabriela" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Personagem</span>Escultura Gabriela</figcaption>
           </figure>
           <figure class="card" data-cat="personagens">
-            <button class="thumb" type="button" data-i="26" aria-label="Ampliar: Escultura Gabriela">
+            <button class="thumb" type="button" data-i="12" aria-label="Ampliar: Escultura Gabriela">
               <img src="imagens/escultura_Gabriela_r02.215.jpg" alt="Escultura Gabriela" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Personagem</span>Escultura Gabriela</figcaption>
           </figure>
           <figure class="card" data-cat="objetos">
-            <button class="thumb" type="button" data-i="27" aria-label="Ampliar: Garrafa Crânio — design de produto">
-              <img src="wwwgbn3dcom-files/garrafacranio_ks_01.247.jpg" alt="Garrafa Crânio — design de produto" loading="lazy" decoding="async">
+            <button class="thumb" type="button" data-i="13" aria-label="Ampliar: Garrafa Crânio — design de produto">
+              <img src="imagens/garrafacranio_ks_04.261.jpg" alt="Garrafa Crânio — design de produto" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Produto</span>Garrafa Crânio — design de produto</figcaption>
           </figure>
-          <figure class="card" data-cat="objetos">
-            <button class="thumb" type="button" data-i="28" aria-label="Ampliar: Garrafa Crânio — design de produto">
-              <img src="wwwgbn3dcom-files/garrafacranio_ks_02.248.jpg" alt="Garrafa Crânio — design de produto" loading="lazy" decoding="async">
+          <figure class="card" data-cat="renders">
+            <button class="thumb" type="button" data-i="14" aria-label="Ampliar: Gemini Generated Image kxhni9kxhni9kxhn (1)">
+              <img src="imagens/Gemini_Generated_Image_kxhni9kxhni9kxhn%20(1).jpg" alt="Gemini Generated Image kxhni9kxhni9kxhn (1)" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
-            <figcaption><span class="chip">Produto</span>Garrafa Crânio — design de produto</figcaption>
+            <figcaption><span class="chip">Render</span>Gemini Generated Image kxhni9kxhni9kxhn (1)</figcaption>
           </figure>
-          <figure class="card" data-cat="objetos">
-            <button class="thumb" type="button" data-i="29" aria-label="Ampliar: Garrafa Crânio — design de produto">
-              <img src="wwwgbn3dcom-files/garrafacranio_ks_03.249.jpg" alt="Garrafa Crânio — design de produto" loading="lazy" decoding="async">
+          <figure class="card" data-cat="renders">
+            <button class="thumb" type="button" data-i="15" aria-label="Ampliar: Gemini Generated Image oakgu7oakgu7oakg">
+              <img src="imagens/Gemini_Generated_Image_oakgu7oakgu7oakg.jpg" alt="Gemini Generated Image oakgu7oakgu7oakg" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
-            <figcaption><span class="chip">Produto</span>Garrafa Crânio — design de produto</figcaption>
-          </figure>
-          <figure class="card" data-cat="objetos">
-            <button class="thumb" type="button" data-i="30" aria-label="Ampliar: Garrafa Crânio — design de produto">
-              <img src="imagens/garrafacranio_ks_04.250.jpg" alt="Garrafa Crânio — design de produto" loading="lazy" decoding="async">
-              <span class="zoom" aria-hidden="true">+</span>
-            </button>
-            <figcaption><span class="chip">Produto</span>Garrafa Crânio — design de produto</figcaption>
-          </figure>
-          <figure class="card" data-cat="objetos">
-            <button class="thumb" type="button" data-i="31" aria-label="Ampliar: Garrafa Crânio — design de produto">
-              <img src="wwwgbn3dcom-files/garrafacranio_ks_06.252.jpg" alt="Garrafa Crânio — design de produto" loading="lazy" decoding="async">
-              <span class="zoom" aria-hidden="true">+</span>
-            </button>
-            <figcaption><span class="chip">Produto</span>Garrafa Crânio — design de produto</figcaption>
+            <figcaption><span class="chip">Render</span>Gemini Generated Image oakgu7oakgu7oakg</figcaption>
           </figure>
           <figure class="card" data-cat="personagens">
-            <button class="thumb" type="button" data-i="32" aria-label="Ampliar: Guerreira — personagem">
-              <img src="wwwgbn3dcom-files/guerreira_ks01.177.jpg" alt="Guerreira — personagem" loading="lazy" decoding="async">
-              <span class="zoom" aria-hidden="true">+</span>
-            </button>
-            <figcaption><span class="chip">Personagem</span>Guerreira — personagem</figcaption>
-          </figure>
-          <figure class="card" data-cat="personagens">
-            <button class="thumb" type="button" data-i="33" aria-label="Ampliar: Guerreira — personagem">
+            <button class="thumb" type="button" data-i="16" aria-label="Ampliar: Guerreira — personagem">
               <img src="imagens/guerreira_remod01b.179.jpg" alt="Guerreira — personagem" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Personagem</span>Guerreira — personagem</figcaption>
           </figure>
-          <figure class="card" data-cat="personagens">
-            <button class="thumb" type="button" data-i="34" aria-label="Ampliar: Fênix — criatura fantástica">
-              <img src="wwwgbn3dcom-files/img_fenix01.jpg" alt="Fênix — criatura fantástica" loading="lazy" decoding="async">
+          <figure class="card" data-cat="renders">
+            <button class="thumb" type="button" data-i="17" aria-label="Ampliar: Imagem25ps1">
+              <img src="imagens/Imagem25ps1.jpg" alt="Imagem25ps1" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
-            <figcaption><span class="chip">Personagem</span>Fênix — criatura fantástica</figcaption>
-          </figure>
-          <figure class="card" data-cat="personagens">
-            <button class="thumb" type="button" data-i="35" aria-label="Ampliar: Hermes — escultura clássica">
-              <img src="wwwgbn3dcom-files/img_hermes01.jpg" alt="Hermes — escultura clássica" loading="lazy" decoding="async">
-              <span class="zoom" aria-hidden="true">+</span>
-            </button>
-            <figcaption><span class="chip">Personagem</span>Hermes — escultura clássica</figcaption>
-          </figure>
-          <figure class="card" data-cat="personagens">
-            <button class="thumb" type="button" data-i="36" aria-label="Ampliar: Hermes — escultura clássica">
-              <img src="wwwgbn3dcom-files/img_hermes02.jpg" alt="Hermes — escultura clássica" loading="lazy" decoding="async">
-              <span class="zoom" aria-hidden="true">+</span>
-            </button>
-            <figcaption><span class="chip">Personagem</span>Hermes — escultura clássica</figcaption>
-          </figure>
-          <figure class="card" data-cat="personagens">
-            <button class="thumb" type="button" data-i="37" aria-label="Ampliar: Hermes — escultura clássica">
-              <img src="imagens/img_hermes03.jpg" alt="Hermes — escultura clássica" loading="lazy" decoding="async">
-              <span class="zoom" aria-hidden="true">+</span>
-            </button>
-            <figcaption><span class="chip">Personagem</span>Hermes — escultura clássica</figcaption>
+            <figcaption><span class="chip">Render</span>Imagem25ps1</figcaption>
           </figure>
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="38" aria-label="Ampliar: Render — série de estudos">
-              <img src="imagens/img01.jpg" alt="Render — série de estudos" loading="lazy" decoding="async">
+            <button class="thumb" type="button" data-i="18" aria-label="Ampliar: Imagem8">
+              <img src="imagens/Imagem8.jpg" alt="Imagem8" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
-            <figcaption><span class="chip">Render</span>Render — série de estudos</figcaption>
+            <figcaption><span class="chip">Render</span>Imagem8</figcaption>
           </figure>
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="39" aria-label="Ampliar: Render — série de estudos">
+            <button class="thumb" type="button" data-i="19" aria-label="Ampliar: Img pomoyasmin01">
+              <img src="imagens/img_pomoyasmin01.jpg" alt="Img pomoyasmin01" loading="lazy" decoding="async">
+              <span class="zoom" aria-hidden="true">+</span>
+            </button>
+            <figcaption><span class="chip">Render</span>Img pomoyasmin01</figcaption>
+          </figure>
+          <figure class="card" data-cat="renders">
+            <button class="thumb" type="button" data-i="20" aria-label="Ampliar: Render — série de estudos">
               <img src="imagens/img02.jpg" alt="Render — série de estudos" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Render</span>Render — série de estudos</figcaption>
           </figure>
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="40" aria-label="Ampliar: Render — série de estudos">
+            <button class="thumb" type="button" data-i="21" aria-label="Ampliar: Render — série de estudos">
               <img src="imagens/img03.147.jpg" alt="Render — série de estudos" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Render</span>Render — série de estudos</figcaption>
           </figure>
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="41" aria-label="Ampliar: Render — série de estudos">
+            <button class="thumb" type="button" data-i="22" aria-label="Ampliar: Render — série de estudos">
               <img src="imagens/img03.jpg" alt="Render — série de estudos" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Render</span>Render — série de estudos</figcaption>
           </figure>
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="42" aria-label="Ampliar: Render — série de estudos">
+            <button class="thumb" type="button" data-i="23" aria-label="Ampliar: Render — série de estudos">
               <img src="imagens/img04.151.jpg" alt="Render — série de estudos" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Render</span>Render — série de estudos</figcaption>
           </figure>
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="43" aria-label="Ampliar: Render — série de estudos">
-              <img src="wwwgbn3dcom-files/img04.jpg" alt="Render — série de estudos" loading="lazy" decoding="async">
-              <span class="zoom" aria-hidden="true">+</span>
-            </button>
-            <figcaption><span class="chip">Render</span>Render — série de estudos</figcaption>
-          </figure>
-          <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="44" aria-label="Ampliar: Render — série de estudos">
-              <img src="imagens/img04a.152.jpg" alt="Render — série de estudos" loading="lazy" decoding="async">
-              <span class="zoom" aria-hidden="true">+</span>
-            </button>
-            <figcaption><span class="chip">Render</span>Render — série de estudos</figcaption>
-          </figure>
-          <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="45" aria-label="Ampliar: Render — série de estudos">
-              <img src="imagens/img06.154.jpg" alt="Render — série de estudos" loading="lazy" decoding="async">
-              <span class="zoom" aria-hidden="true">+</span>
-            </button>
-            <figcaption><span class="chip">Render</span>Render — série de estudos</figcaption>
-          </figure>
-          <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="46" aria-label="Ampliar: Render — série de estudos">
+            <button class="thumb" type="button" data-i="24" aria-label="Ampliar: Render — série de estudos">
               <img src="imagens/img07.jpg" alt="Render — série de estudos" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Render</span>Render — série de estudos</figcaption>
           </figure>
+          <figure class="card" data-cat="renders">
+            <button class="thumb" type="button" data-i="25" aria-label="Ampliar: Imggbn">
+              <img src="imagens/imggbn.jpg" alt="Imggbn" loading="lazy" decoding="async">
+              <span class="zoom" aria-hidden="true">+</span>
+            </button>
+            <figcaption><span class="chip">Render</span>Imggbn</figcaption>
+          </figure>
           <figure class="card" data-cat="objetos">
-            <button class="thumb" type="button" data-i="47" aria-label="Ampliar: Render KeyShot — produto">
-              <img src="imagens/ks_img_01.253.jpg" alt="Render KeyShot — produto" loading="lazy" decoding="async">
+            <button class="thumb" type="button" data-i="26" aria-label="Ampliar: Render KeyShot — produto">
+              <img src="imagens/ks_img_01.259.jpg" alt="Render KeyShot — produto" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Produto</span>Render KeyShot — produto</figcaption>
           </figure>
           <figure class="card" data-cat="objetos">
-            <button class="thumb" type="button" data-i="48" aria-label="Ampliar: Render KeyShot — produto">
+            <button class="thumb" type="button" data-i="27" aria-label="Ampliar: Render KeyShot — produto">
               <img src="imagens/ks_img_02.254.jpg" alt="Render KeyShot — produto" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Produto</span>Render KeyShot — produto</figcaption>
           </figure>
           <figure class="card" data-cat="objetos">
-            <button class="thumb" type="button" data-i="49" aria-label="Ampliar: Render KeyShot — produto">
+            <button class="thumb" type="button" data-i="28" aria-label="Ampliar: Render KeyShot — produto">
               <img src="imagens/ks_img_03.255.jpg" alt="Render KeyShot — produto" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Produto</span>Render KeyShot — produto</figcaption>
           </figure>
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="50" aria-label="Ampliar: OK01">
+            <button class="thumb" type="button" data-i="29" aria-label="Ampliar: Mesatrevo01">
+              <img src="imagens/mesatrevo01.208.jpg" alt="Mesatrevo01" loading="lazy" decoding="async">
+              <span class="zoom" aria-hidden="true">+</span>
+            </button>
+            <figcaption><span class="chip">Render</span>Mesatrevo01</figcaption>
+          </figure>
+          <figure class="card" data-cat="renders">
+            <button class="thumb" type="button" data-i="30" aria-label="Ampliar: OK01">
               <img src="imagens/OK01.jpg" alt="OK01" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Render</span>OK01</figcaption>
           </figure>
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="51" aria-label="Ampliar: OK02">
-              <img src="wwwgbn3dcom-files/OK02.jpg" alt="OK02" loading="lazy" decoding="async">
+            <button class="thumb" type="button" data-i="31" aria-label="Ampliar: PureRef 3Pb9og3Hfb">
+              <img src="imagens/PureRef_3Pb9og3Hfb.jpg" alt="PureRef 3Pb9og3Hfb" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
-            <figcaption><span class="chip">Render</span>OK02</figcaption>
+            <figcaption><span class="chip">Render</span>PureRef 3Pb9og3Hfb</figcaption>
           </figure>
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="52" aria-label="Ampliar: OK05">
-              <img src="imagens/OK05.jpg" alt="OK05" loading="lazy" decoding="async">
+            <button class="thumb" type="button" data-i="32" aria-label="Ampliar: PureRef B65Obmv2Hr">
+              <img src="imagens/PureRef_B65Obmv2Hr.jpg" alt="PureRef B65Obmv2Hr" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
-            <figcaption><span class="chip">Render</span>OK05</figcaption>
+            <figcaption><span class="chip">Render</span>PureRef B65Obmv2Hr</figcaption>
           </figure>
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="53" aria-label="Ampliar: OK06">
-              <img src="imagens/OK06.jpg" alt="OK06" loading="lazy" decoding="async">
+            <button class="thumb" type="button" data-i="33" aria-label="Ampliar: PureRef l32im8utmw">
+              <img src="imagens/PureRef_l32im8utmw.png" alt="PureRef l32im8utmw" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
-            <figcaption><span class="chip">Render</span>OK06</figcaption>
-          </figure>
-          <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="54" aria-label="Ampliar: OK07">
-              <img src="wwwgbn3dcom-files/OK07.jpg" alt="OK07" loading="lazy" decoding="async">
-              <span class="zoom" aria-hidden="true">+</span>
-            </button>
-            <figcaption><span class="chip">Render</span>OK07</figcaption>
-          </figure>
-          <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="55" aria-label="Ampliar: OK08">
-              <img src="wwwgbn3dcom-files/OK08.jpg" alt="OK08" loading="lazy" decoding="async">
-              <span class="zoom" aria-hidden="true">+</span>
-            </button>
-            <figcaption><span class="chip">Render</span>OK08</figcaption>
-          </figure>
-          <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="56" aria-label="Ampliar: Pc04">
-              <img src="imagens/pc04.212.jpg" alt="Pc04" loading="lazy" decoding="async">
-              <span class="zoom" aria-hidden="true">+</span>
-            </button>
-            <figcaption><span class="chip">Render</span>Pc04</figcaption>
-          </figure>
-          <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="57" aria-label="Ampliar: Pc04">
-              <img src="wwwgbn3dcom-files/pc04.213.jpg" alt="Pc04" loading="lazy" decoding="async">
-              <span class="zoom" aria-hidden="true">+</span>
-            </button>
-            <figcaption><span class="chip">Render</span>Pc04</figcaption>
-          </figure>
-          <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="58" aria-label="Ampliar: Pc04">
-              <img src="wwwgbn3dcom-files/pc04.214.jpg" alt="Pc04" loading="lazy" decoding="async">
-              <span class="zoom" aria-hidden="true">+</span>
-            </button>
-            <figcaption><span class="chip">Render</span>Pc04</figcaption>
-          </figure>
-          <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="59" aria-label="Ampliar: Registro de processo">
-              <img src="imagens/print01.jpg" alt="Registro de processo" loading="lazy" decoding="async">
-              <span class="zoom" aria-hidden="true">+</span>
-            </button>
-            <figcaption><span class="chip">Render</span>Registro de processo</figcaption>
-          </figure>
-          <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="60" aria-label="Ampliar: Registro de processo">
-              <img src="imagens/print02.jpg" alt="Registro de processo" loading="lazy" decoding="async">
-              <span class="zoom" aria-hidden="true">+</span>
-            </button>
-            <figcaption><span class="chip">Render</span>Registro de processo</figcaption>
-          </figure>
-          <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="61" aria-label="Ampliar: Registro de processo">
-              <img src="imagens/print03.jpg" alt="Registro de processo" loading="lazy" decoding="async">
-              <span class="zoom" aria-hidden="true">+</span>
-            </button>
-            <figcaption><span class="chip">Render</span>Registro de processo</figcaption>
-          </figure>
-          <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="62" aria-label="Ampliar: Pós-produção de imagem">
-              <img src="imagens/psimg01.jpg" alt="Pós-produção de imagem" loading="lazy" decoding="async">
-              <span class="zoom" aria-hidden="true">+</span>
-            </button>
-            <figcaption><span class="chip">Render</span>Pós-produção de imagem</figcaption>
+            <figcaption><span class="chip">Render</span>PureRef l32im8utmw</figcaption>
           </figure>
           <figure class="card" data-cat="personagens">
-            <button class="thumb" type="button" data-i="63" aria-label="Ampliar: Sabiá — ave esculpida em 3D">
-              <img src="wwwgbn3dcom-files/pux_sabia06.jpg" alt="Sabiá — ave esculpida em 3D" loading="lazy" decoding="async">
-              <span class="zoom" aria-hidden="true">+</span>
-            </button>
-            <figcaption><span class="chip">Personagem</span>Sabiá — ave esculpida em 3D</figcaption>
-          </figure>
-          <figure class="card" data-cat="personagens">
-            <button class="thumb" type="button" data-i="64" aria-label="Ampliar: Sabiá — ave esculpida em 3D">
-              <img src="wwwgbn3dcom-files/pux_sabia07.jpg" alt="Sabiá — ave esculpida em 3D" loading="lazy" decoding="async">
-              <span class="zoom" aria-hidden="true">+</span>
-            </button>
-            <figcaption><span class="chip">Personagem</span>Sabiá — ave esculpida em 3D</figcaption>
-          </figure>
-          <figure class="card" data-cat="personagens">
-            <button class="thumb" type="button" data-i="65" aria-label="Ampliar: Sabiá — ave esculpida em 3D">
+            <button class="thumb" type="button" data-i="34" aria-label="Ampliar: Sabiá — ave esculpida em 3D">
               <img src="imagens/pux_sabia08.jpg" alt="Sabiá — ave esculpida em 3D" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Personagem</span>Sabiá — ave esculpida em 3D</figcaption>
           </figure>
           <figure class="card" data-cat="personagens">
-            <button class="thumb" type="button" data-i="66" aria-label="Ampliar: Sabiá — ave esculpida em 3D">
-              <img src="wwwgbn3dcom-files/pux_sabia09.jpg" alt="Sabiá — ave esculpida em 3D" loading="lazy" decoding="async">
-              <span class="zoom" aria-hidden="true">+</span>
-            </button>
-            <figcaption><span class="chip">Personagem</span>Sabiá — ave esculpida em 3D</figcaption>
-          </figure>
-          <figure class="card" data-cat="personagens">
-            <button class="thumb" type="button" data-i="67" aria-label="Ampliar: Sabiá — ave esculpida em 3D">
-              <img src="wwwgbn3dcom-files/pux_sabia10.jpg" alt="Sabiá — ave esculpida em 3D" loading="lazy" decoding="async">
-              <span class="zoom" aria-hidden="true">+</span>
-            </button>
-            <figcaption><span class="chip">Personagem</span>Sabiá — ave esculpida em 3D</figcaption>
-          </figure>
-          <figure class="card" data-cat="personagens">
-            <button class="thumb" type="button" data-i="68" aria-label="Ampliar: Sabiá — ave esculpida em 3D">
-              <img src="imagens/pux_sabia11.jpg" alt="Sabiá — ave esculpida em 3D" loading="lazy" decoding="async">
-              <span class="zoom" aria-hidden="true">+</span>
-            </button>
-            <figcaption><span class="chip">Personagem</span>Sabiá — ave esculpida em 3D</figcaption>
-          </figure>
-          <figure class="card" data-cat="personagens">
-            <button class="thumb" type="button" data-i="69" aria-label="Ampliar: Sabiá — ave esculpida em 3D">
-              <img src="wwwgbn3dcom-files/pux_sabia13.jpg" alt="Sabiá — ave esculpida em 3D" loading="lazy" decoding="async">
-              <span class="zoom" aria-hidden="true">+</span>
-            </button>
-            <figcaption><span class="chip">Personagem</span>Sabiá — ave esculpida em 3D</figcaption>
-          </figure>
-          <figure class="card" data-cat="personagens">
-            <button class="thumb" type="button" data-i="70" aria-label="Ampliar: Sabiá — ave esculpida em 3D">
-              <img src="wwwgbn3dcom-files/pux_sabia14.jpg" alt="Sabiá — ave esculpida em 3D" loading="lazy" decoding="async">
-              <span class="zoom" aria-hidden="true">+</span>
-            </button>
-            <figcaption><span class="chip">Personagem</span>Sabiá — ave esculpida em 3D</figcaption>
-          </figure>
-          <figure class="card" data-cat="personagens">
-            <button class="thumb" type="button" data-i="71" aria-label="Ampliar: Sabiá — ave esculpida em 3D">
+            <button class="thumb" type="button" data-i="35" aria-label="Ampliar: Sabiá — ave esculpida em 3D">
               <img src="imagens/pux_sabia15.jpg" alt="Sabiá — ave esculpida em 3D" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Personagem</span>Sabiá — ave esculpida em 3D</figcaption>
           </figure>
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="72" aria-label="Ampliar: Compilação de trabalhos">
+            <button class="thumb" type="button" data-i="36" aria-label="Ampliar: Render 01">
+              <img src="imagens/render_01.139.jpg" alt="Render 01" loading="lazy" decoding="async">
+              <span class="zoom" aria-hidden="true">+</span>
+            </button>
+            <figcaption><span class="chip">Render</span>Render 01</figcaption>
+          </figure>
+          <figure class="card" data-cat="renders">
+            <button class="thumb" type="button" data-i="37" aria-label="Ampliar: Salatino03">
+              <img src="imagens/salatino03.265.jpg" alt="Salatino03" loading="lazy" decoding="async">
+              <span class="zoom" aria-hidden="true">+</span>
+            </button>
+            <figcaption><span class="chip">Render</span>Salatino03</figcaption>
+          </figure>
+          <figure class="card" data-cat="renders">
+            <button class="thumb" type="button" data-i="38" aria-label="Ampliar: Compilação de trabalhos">
               <img src="imagens/trabalhos_02-07%20a%2021-07_ACD_0.jpg" alt="Compilação de trabalhos" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Render</span>Compilação de trabalhos</figcaption>
           </figure>
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="73" aria-label="Ampliar: Compilação de trabalhos">
+            <button class="thumb" type="button" data-i="39" aria-label="Ampliar: Compilação de trabalhos">
               <img src="imagens/trabalhos_02-07%20a%2021-07_ACD_2.jpg" alt="Compilação de trabalhos" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Render</span>Compilação de trabalhos</figcaption>
           </figure>
-          <figure class="card" data-cat="objetos">
-            <button class="thumb" type="button" data-i="74" aria-label="Ampliar: Vaso — design de produto">
-              <img src="wwwgbn3dcom-files/vazoimg01.243.jpg" alt="Vaso — design de produto" loading="lazy" decoding="async">
+          <figure class="card" data-cat="renders">
+            <button class="thumb" type="button" data-i="40" aria-label="Ampliar: Trofeu02 render05">
+              <img src="imagens/trofeu02_render05.jpg" alt="Trofeu02 render05" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
-            <figcaption><span class="chip">Produto</span>Vaso — design de produto</figcaption>
+            <figcaption><span class="chip">Render</span>Trofeu02 render05</figcaption>
           </figure>
           <figure class="card" data-cat="objetos">
-            <button class="thumb" type="button" data-i="75" aria-label="Ampliar: Vaso — design de produto">
+            <button class="thumb" type="button" data-i="41" aria-label="Ampliar: Vaso — design de produto">
               <img src="imagens/vazoimg04.246.jpg" alt="Vaso — design de produto" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Produto</span>Vaso — design de produto</figcaption>
           </figure>
           <figure class="card" data-cat="escultura">
-            <button class="thumb" type="button" data-i="76" aria-label="Ampliar: Escultura digital em ZBrush">
-              <img src="imagens/z01.jpg" alt="Escultura digital em ZBrush" loading="lazy" decoding="async">
+            <button class="thumb" type="button" data-i="42" aria-label="Ampliar: Escultura digital em ZBrush">
+              <img src="imagens/zbr01.jpg" alt="Escultura digital em ZBrush" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">ZBrush</span>Escultura digital em ZBrush</figcaption>
           </figure>
           <figure class="card" data-cat="escultura">
-            <button class="thumb" type="button" data-i="77" aria-label="Ampliar: Escultura digital em ZBrush">
-              <img src="wwwgbn3dcom-files/zbimg02.jpg" alt="Escultura digital em ZBrush" loading="lazy" decoding="async">
-              <span class="zoom" aria-hidden="true">+</span>
-            </button>
-            <figcaption><span class="chip">ZBrush</span>Escultura digital em ZBrush</figcaption>
-          </figure>
-          <figure class="card" data-cat="escultura">
-            <button class="thumb" type="button" data-i="78" aria-label="Ampliar: Escultura digital em ZBrush">
+            <button class="thumb" type="button" data-i="43" aria-label="Ampliar: Escultura digital em ZBrush">
               <img src="imagens/ZBrush%20Document.jpg" alt="Escultura digital em ZBrush" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">ZBrush</span>Escultura digital em ZBrush</figcaption>
           </figure>
           <figure class="card" data-cat="escultura">
-            <button class="thumb" type="button" data-i="79" aria-label="Ampliar: Escultura digital em ZBrush">
+            <button class="thumb" type="button" data-i="44" aria-label="Ampliar: Escultura digital em ZBrush">
               <img src="imagens/ZBrush%20Document01.jpg" alt="Escultura digital em ZBrush" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">ZBrush</span>Escultura digital em ZBrush</figcaption>
           </figure>
-    </div>
-  </div>
-</section>
-
-<!-- ===== EXEMPLOS DE APLICAÇÕES NA INDÚSTRIA ===== -->
-<section id="industria">
-  <div class="wrap">
-    <h2>EXEMPLOS DE APLICAÇÕES NA INDÚSTRIA</h2>
-    <p class="sub">Apresentação “From Pixel to Metal” — do modelo digital à peça impressa. Clique na imagem para avançar slide a slide, use as setas ou os pontos abaixo.</p>
-    <div class="slides-window">
-      <div class="slides-head">
-        <span class="slides-title">▦ From Pixel to Metal — Impressão 3D</span>
-        <div class="slides-head-actions">
-          <button id="slidesPlay" class="slides-toggle" type="button" aria-pressed="false" title="Reproduzir slides automaticamente">▶ Reproduzir</button>
-          <span class="slides-counter" id="slidesCounter">1 / 12</span>
-        </div>
-      </div>
-      <div class="slides-stage" id="slidesStage" tabindex="0" role="region" aria-roledescription="carrossel" aria-label="Apresentação From Pixel to Metal — use as setas do teclado para navegar">
-        <img src="imagens_industria/slide_01.jpg" alt="Slide 1 da apresentação From Pixel to Metal" class="active" decoding="async">
-        <img src="imagens_industria/slide_02.jpg" alt="Slide 2 da apresentação From Pixel to Metal" loading="lazy" decoding="async">
-        <img src="imagens_industria/slide_03.jpg" alt="Slide 3 da apresentação From Pixel to Metal" loading="lazy" decoding="async">
-        <img src="imagens_industria/slide_04.jpg" alt="Slide 4 da apresentação From Pixel to Metal" loading="lazy" decoding="async">
-        <img src="imagens_industria/slide_05.jpg" alt="Slide 5 da apresentação From Pixel to Metal" loading="lazy" decoding="async">
-        <img src="imagens_industria/slide_06.jpg" alt="Slide 6 da apresentação From Pixel to Metal" loading="lazy" decoding="async">
-        <img src="imagens_industria/slide_07.jpg" alt="Slide 7 da apresentação From Pixel to Metal" loading="lazy" decoding="async">
-        <img src="imagens_industria/slide_08.jpg" alt="Slide 8 da apresentação From Pixel to Metal" loading="lazy" decoding="async">
-        <img src="imagens_industria/slide_09.jpg" alt="Slide 9 da apresentação From Pixel to Metal" loading="lazy" decoding="async">
-        <img src="imagens_industria/slide_10.jpg" alt="Slide 10 da apresentação From Pixel to Metal" loading="lazy" decoding="async">
-        <img src="imagens_industria/slide_11.jpg" alt="Slide 11 da apresentação From Pixel to Metal" loading="lazy" decoding="async">
-        <img src="imagens_industria/slide_12.jpg" alt="Slide 12 da apresentação From Pixel to Metal" loading="lazy" decoding="async">
-        <button class="slides-btn prev" id="slidesPrev" type="button" aria-label="Slide anterior">‹</button>
-        <button class="slides-btn next" id="slidesNext" type="button" aria-label="Próximo slide">›</button>
-        <div class="slides-cap" id="slidesCap">Slide 1 de 12 — From Pixel to Metal</div>
-        <div class="slides-hint" aria-hidden="true">Clique na imagem para avançar</div>
-      </div>
-      <div class="slides-dots" id="slidesDots" aria-label="Selecionar slide"></div>
-    </div>
-    <div class="slides-dl">
-      <a class="btn primary" href="imagens_industria/From_Pixel_to_Metal.pdf" download>⬇ Baixar apresentação completa (PDF)</a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== CASE: TROFÉU — DA FORMA BRUTA À REALIDADE ===== -->
-<section id="case-trofeu">
-  <div class="wrap">
-    <h2>CASE — DA FORMA BRUTA À REALIDADE</h2>
-    <p class="sub">Estudo completo do troféu: modelagem modular, engenharia de encaixes, física da luz e a peça final impressa. Clique na imagem para avançar slide a slide, use as setas ou os pontos abaixo.</p>
-    <div class="slides-window">
-      <div class="slides-head">
-        <span class="slides-title">◈ Case Troféu — Da Forma Bruta à Realidade</span>
-        <div class="slides-head-actions">
-          <button id="trofeuPlay" class="slides-toggle" type="button" aria-pressed="false" title="Reproduzir slides automaticamente">▶ Reproduzir</button>
-          <span class="slides-counter" id="trofeuCounter">1 / 9</span>
-        </div>
-      </div>
-      <div class="slides-stage" id="trofeuStage" tabindex="0" role="region" aria-roledescription="carrossel" aria-label="Apresentação Case Troféu — use as setas do teclado para navegar">
-        <img src="slides/slide_trofeu_01.jpg" alt="Capa — Da Forma Bruta à Realidade: do modelo 3D ao troféu dourado" class="active" decoding="async">
-        <img src="slides/slide_trofeu_02.jpg" alt="Pipeline de produção 3D — blockout, engenharia de encaixes, shading e iteração" loading="lazy" decoding="async">
-        <img src="slides/slide_trofeu_03.jpg" alt="Modelagem modular — alças, corpo principal, brasão e base do troféu" loading="lazy" decoding="async">
-        <img src="slides/slide_trofeu_04.jpg" alt="Engenharia de encaixes para manufatura física — diagrama de montagem" loading="lazy" decoding="async">
-        <img src="slides/slide_trofeu_05.jpg" alt="Simulação da física da luz e materiais — acabamento dourado PBR" loading="lazy" decoding="async">
-        <img src="slides/slide_trofeu_06.jpg" alt="Prototipagem rápida e variação de design — copa fatiada" loading="lazy" decoding="async">
-        <img src="slides/slide_trofeu_07.jpg" alt="Matriz de análise — copa clássica versus copa fatiada moderna" loading="lazy" decoding="async">
-        <img src="slides/slide_trofeu_08.jpg" alt="Materialização do objeto físico — troféu fatiado em metal" loading="lazy" decoding="async">
-        <img src="slides/slide_trofeu_09.jpg" alt="A fórmula definitiva do produto final — geometria, montagem e física da luz" loading="lazy" decoding="async">
-        <button class="slides-btn prev" id="trofeuPrev" type="button" aria-label="Slide anterior">‹</button>
-        <button class="slides-btn next" id="trofeuNext" type="button" aria-label="Próximo slide">›</button>
-        <div class="slides-cap" id="trofeuCap">Slide 1 de 9 — Case Troféu</div>
-        <div class="slides-hint" aria-hidden="true">Clique na imagem para avançar</div>
-      </div>
-      <div class="slides-dots" id="trofeuDots" aria-label="Selecionar slide"></div>
-    </div>
-    <div class="slides-dl">
-      <a class="btn primary" href="slides/slidetrofeu.pdf" download>⬇ Baixar apresentação completa (PDF)</a>
     </div>
   </div>
 </section>
@@ -852,7 +488,7 @@ footer{border-top:1px solid var(--line);padding:26px 0;color:var(--mut);font-siz
 </div>
 
 <script>
-var G = [{"f":"01 (2).jpg","t":"Estudo 3D — 01 — variante 2","c":"renders"},{"f":"01 (3).jpg","t":"Estudo 3D — 01 — variante 3","c":"renders"},{"f":"01.jpg","t":"Estudo 3D — 01","c":"renders"},{"f":"01bpr.jpg","t":"Estudo 3D — 01bpr","c":"renders"},{"f":"02 (2).jpg","t":"Estudo 3D — 02 — variante 2","c":"renders"},{"f":"02.jpg","t":"Estudo 3D — 02","c":"renders"},{"f":"03 (2).jpg","t":"Estudo 3D — 03 — variante 2","c":"renders"},{"f":"03 (3).jpg","t":"Estudo 3D — 03 — variante 3","c":"renders"},{"f":"03.jpg","t":"Estudo 3D — 03","c":"renders"},{"f":"04.jpg","t":"Estudo 3D — 04","c":"renders"},{"f":"05 (2).jpg","t":"Estudo 3D — 05 — variante 2","c":"renders"},{"f":"05.jpg","t":"Estudo 3D — 05","c":"renders"},{"f":"05a.jpg","t":"Estudo 3D — 05a","c":"renders"},{"f":"05a2.jpg","t":"05a2","c":"renders"},{"f":"07.jpg","t":"Estudo 3D — 07","c":"renders"},{"f":"08.jpg","t":"Estudo 3D — 08","c":"renders"},{"f":"088.jpg","t":"Estudo 3D — 088","c":"renders"},{"f":"22.jpg","t":"Estudo 3D — 22","c":"renders"},{"f":"433645cc-519e-401f-8197-6970e0c0aaf6.jpg","t":"Trabalho 3D","c":"renders"},{"f":"cena_chav01.268.jpg","t":"Cena — ambientação 3D","c":"cenas"},{"f":"cena_chav02.269.jpg","t":"Cena — ambientação 3D","c":"cenas"},{"f":"cena_chav03.270.jpg","t":"Cena — ambientação 3D","c":"cenas"},{"f":"cena_velariseira01.bip.242.jpg","t":"Cena — ambientação 3D","c":"cenas"},{"f":"cena_velariseira06.238.jpg","t":"Cena — ambientação 3D","c":"cenas"},{"f":"dogimg1.jpg","t":"Cão — modelo 3D","c":"personagens"},{"f":"escultura_Gabriela_r01.225.jpg","t":"Escultura Gabriela","c":"personagens"},{"f":"escultura_Gabriela_r02.215.jpg","t":"Escultura Gabriela","c":"personagens"},{"f":"garrafacranio_ks_01.247.jpg","t":"Garrafa Crânio — design de produto","c":"objetos"},{"f":"garrafacranio_ks_02.248.jpg","t":"Garrafa Crânio — design de produto","c":"objetos"},{"f":"garrafacranio_ks_03.249.jpg","t":"Garrafa Crânio — design de produto","c":"objetos"},{"f":"garrafacranio_ks_04.250.jpg","t":"Garrafa Crânio — design de produto","c":"objetos"},{"f":"garrafacranio_ks_06.252.jpg","t":"Garrafa Crânio — design de produto","c":"objetos"},{"f":"guerreira_ks01.177.jpg","t":"Guerreira — personagem","c":"personagens"},{"f":"guerreira_remod01b.179.jpg","t":"Guerreira — personagem","c":"personagens"},{"f":"img_fenix01.jpg","t":"Fênix — criatura fantástica","c":"personagens"},{"f":"img_hermes01.jpg","t":"Hermes — escultura clássica","c":"personagens"},{"f":"img_hermes02.jpg","t":"Hermes — escultura clássica","c":"personagens"},{"f":"img_hermes03.jpg","t":"Hermes — escultura clássica","c":"personagens"},{"f":"img01.jpg","t":"Render — série de estudos","c":"renders"},{"f":"img02.jpg","t":"Render — série de estudos","c":"renders"},{"f":"img03.147.jpg","t":"Render — série de estudos","c":"renders"},{"f":"img03.jpg","t":"Render — série de estudos","c":"renders"},{"f":"img04.151.jpg","t":"Render — série de estudos","c":"renders"},{"f":"img04.jpg","t":"Render — série de estudos","c":"renders"},{"f":"img04a.152.jpg","t":"Render — série de estudos","c":"renders"},{"f":"img06.154.jpg","t":"Render — série de estudos","c":"renders"},{"f":"img07.jpg","t":"Render — série de estudos","c":"renders"},{"f":"ks_img_01.253.jpg","t":"Render KeyShot — produto","c":"objetos"},{"f":"ks_img_02.254.jpg","t":"Render KeyShot — produto","c":"objetos"},{"f":"ks_img_03.255.jpg","t":"Render KeyShot — produto","c":"objetos"},{"f":"OK01.jpg","t":"OK01","c":"renders"},{"f":"OK02.jpg","t":"OK02","c":"renders"},{"f":"OK05.jpg","t":"OK05","c":"renders"},{"f":"OK06.jpg","t":"OK06","c":"renders"},{"f":"OK07.jpg","t":"OK07","c":"renders"},{"f":"OK08.jpg","t":"OK08","c":"renders"},{"f":"pc04.212.jpg","t":"Pc04","c":"renders"},{"f":"pc04.213.jpg","t":"Pc04","c":"renders"},{"f":"pc04.214.jpg","t":"Pc04","c":"renders"},{"f":"print01.jpg","t":"Registro de processo","c":"renders"},{"f":"print02.jpg","t":"Registro de processo","c":"renders"},{"f":"print03.jpg","t":"Registro de processo","c":"renders"},{"f":"psimg01.jpg","t":"Pós-produção de imagem","c":"renders"},{"f":"pux_sabia06.jpg","t":"Sabiá — ave esculpida em 3D","c":"personagens"},{"f":"pux_sabia07.jpg","t":"Sabiá — ave esculpida em 3D","c":"personagens"},{"f":"pux_sabia08.jpg","t":"Sabiá — ave esculpida em 3D","c":"personagens"},{"f":"pux_sabia09.jpg","t":"Sabiá — ave esculpida em 3D","c":"personagens"},{"f":"pux_sabia10.jpg","t":"Sabiá — ave esculpida em 3D","c":"personagens"},{"f":"pux_sabia11.jpg","t":"Sabiá — ave esculpida em 3D","c":"personagens"},{"f":"pux_sabia13.jpg","t":"Sabiá — ave esculpida em 3D","c":"personagens"},{"f":"pux_sabia14.jpg","t":"Sabiá — ave esculpida em 3D","c":"personagens"},{"f":"pux_sabia15.jpg","t":"Sabiá — ave esculpida em 3D","c":"personagens"},{"f":"trabalhos_02-07 a 21-07_ACD_0.jpg","t":"Compilação de trabalhos","c":"renders"},{"f":"trabalhos_02-07 a 21-07_ACD_2.jpg","t":"Compilação de trabalhos","c":"renders"},{"f":"vazoimg01.243.jpg","t":"Vaso — design de produto","c":"objetos"},{"f":"vazoimg04.246.jpg","t":"Vaso — design de produto","c":"objetos"},{"f":"z01.jpg","t":"Escultura digital em ZBrush","c":"escultura"},{"f":"zbimg02.jpg","t":"Escultura digital em ZBrush","c":"escultura"},{"f":"ZBrush Document.jpg","t":"Escultura digital em ZBrush","c":"escultura"},{"f":"ZBrush Document01.jpg","t":"Escultura digital em ZBrush","c":"escultura"}];
+var G = [{"f":"02.jpg","t":"Estudo 3D — 02","c":"renders"},{"f":"03 (3).jpg","t":"Estudo 3D — 03 — variante 3","c":"renders"},{"f":"03.jpg","t":"Estudo 3D — 03","c":"renders"},{"f":"07.jpg","t":"Estudo 3D — 07","c":"renders"},{"f":"10.jpg","t":"Estudo 3D — 10","c":"renders"},{"f":"arara_home_lux.jpg","t":"Arara home lux","c":"renders"},{"f":"cena_chav02.269.jpg","t":"Cena — ambientação 3D","c":"cenas"},{"f":"cena_velariseira06.238.jpg","t":"Cena — ambientação 3D","c":"cenas"},{"f":"copaamericafem_ks01.115.jpg","t":"Copaamericafem ks01","c":"renders"},{"f":"Desk.5.jpg","t":"Desk.5","c":"renders"},{"f":"dogimg1.jpg","t":"Cão — modelo 3D","c":"personagens"},{"f":"escultura_Gabriela_r01.225.jpg","t":"Escultura Gabriela","c":"personagens"},{"f":"escultura_Gabriela_r02.215.jpg","t":"Escultura Gabriela","c":"personagens"},{"f":"garrafacranio_ks_04.261.jpg","t":"Garrafa Crânio — design de produto","c":"objetos"},{"f":"Gemini_Generated_Image_kxhni9kxhni9kxhn (1).jpg","t":"Gemini Generated Image kxhni9kxhni9kxhn (1)","c":"renders"},{"f":"Gemini_Generated_Image_oakgu7oakgu7oakg.jpg","t":"Gemini Generated Image oakgu7oakgu7oakg","c":"renders"},{"f":"guerreira_remod01b.179.jpg","t":"Guerreira — personagem","c":"personagens"},{"f":"Imagem25ps1.jpg","t":"Imagem25ps1","c":"renders"},{"f":"Imagem8.jpg","t":"Imagem8","c":"renders"},{"f":"img_pomoyasmin01.jpg","t":"Img pomoyasmin01","c":"renders"},{"f":"img02.jpg","t":"Render — série de estudos","c":"renders"},{"f":"img03.147.jpg","t":"Render — série de estudos","c":"renders"},{"f":"img03.jpg","t":"Render — série de estudos","c":"renders"},{"f":"img04.151.jpg","t":"Render — série de estudos","c":"renders"},{"f":"img07.jpg","t":"Render — série de estudos","c":"renders"},{"f":"imggbn.jpg","t":"Imggbn","c":"renders"},{"f":"ks_img_01.259.jpg","t":"Render KeyShot — produto","c":"objetos"},{"f":"ks_img_02.254.jpg","t":"Render KeyShot — produto","c":"objetos"},{"f":"ks_img_03.255.jpg","t":"Render KeyShot — produto","c":"objetos"},{"f":"mesatrevo01.208.jpg","t":"Mesatrevo01","c":"renders"},{"f":"OK01.jpg","t":"OK01","c":"renders"},{"f":"PureRef_3Pb9og3Hfb.jpg","t":"PureRef 3Pb9og3Hfb","c":"renders"},{"f":"PureRef_B65Obmv2Hr.jpg","t":"PureRef B65Obmv2Hr","c":"renders"},{"f":"PureRef_l32im8utmw.png","t":"PureRef l32im8utmw","c":"renders"},{"f":"pux_sabia08.jpg","t":"Sabiá — ave esculpida em 3D","c":"personagens"},{"f":"pux_sabia15.jpg","t":"Sabiá — ave esculpida em 3D","c":"personagens"},{"f":"render_01.139.jpg","t":"Render 01","c":"renders"},{"f":"salatino03.265.jpg","t":"Salatino03","c":"renders"},{"f":"trabalhos_02-07 a 21-07_ACD_0.jpg","t":"Compilação de trabalhos","c":"renders"},{"f":"trabalhos_02-07 a 21-07_ACD_2.jpg","t":"Compilação de trabalhos","c":"renders"},{"f":"trofeu02_render05.jpg","t":"Trofeu02 render05","c":"renders"},{"f":"vazoimg04.246.jpg","t":"Vaso — design de produto","c":"objetos"},{"f":"zbr01.jpg","t":"Escultura digital em ZBrush","c":"escultura"},{"f":"ZBrush Document.jpg","t":"Escultura digital em ZBrush","c":"escultura"},{"f":"ZBrush Document01.jpg","t":"Escultura digital em ZBrush","c":"escultura"}];
 (function () {
   'use strict';
   var grid = document.getElementById('grid');
@@ -936,113 +572,6 @@ var G = [{"f":"01 (2).jpg","t":"Estudo 3D — 01 — variante 2","c":"renders"},
   });
   applyFilter('todos');
 })();
-</script>
-
-<script>
-function initSlideShow(cfg) {
-  'use strict';
-  var stage = document.getElementById(cfg.stage);
-  if (!stage) return;
-  var imgs = Array.prototype.slice.call(stage.querySelectorAll('img'));
-  var total = imgs.length;
-  if (!total) return;
-  var counter = document.getElementById(cfg.counter);
-  var cap = document.getElementById(cfg.cap);
-  var dotsWrap = document.getElementById(cfg.dots);
-  var playBtn = document.getElementById(cfg.play);
-  var lb = document.getElementById('lb');
-  var idx = 0;
-  var timer = null;
-  var playing = false;
-  var over = false;
-
-  imgs.forEach(function (_, i) {
-    var d = document.createElement('button');
-    d.type = 'button';
-    d.className = 'slides-dot' + (i === 0 ? ' active' : '');
-    d.setAttribute('aria-label', 'Ir para o slide ' + (i + 1));
-    d.addEventListener('click', function () { go(i, true); });
-    dotsWrap.appendChild(d);
-  });
-  var dots = Array.prototype.slice.call(dotsWrap.children);
-
-  function preload(from) {
-    for (var k = 1; k <= 2; k++) {
-      var im = imgs[(from + k) % total];
-      if (im && !im.complete) { var p = new Image(); p.src = im.src; }
-    }
-  }
-  function render() {
-    imgs.forEach(function (im, n) { im.classList.toggle('active', n === idx); });
-    dots.forEach(function (d, n) { d.classList.toggle('active', n === idx); });
-    counter.textContent = (idx + 1) + ' / ' + total;
-    cap.textContent = 'Slide ' + (idx + 1) + ' de ' + total + ' — ' + cfg.label;
-  }
-  function go(i, byUser) {
-    idx = ((i % total) + total) % total;
-    render();
-    preload(idx);
-    if (byUser) stop();
-  }
-  function play() {
-    if (playing) return;
-    playing = true;
-    playBtn.textContent = '⏸ Pausar';
-    playBtn.classList.add('on');
-    playBtn.setAttribute('aria-pressed', 'true');
-    timer = setInterval(function () { if (!over) go(idx + 1, false); }, 3500);
-  }
-  function stop() {
-    playing = false;
-    if (timer) { clearInterval(timer); timer = null; }
-    playBtn.textContent = '▶ Reproduzir';
-    playBtn.classList.remove('on');
-    playBtn.setAttribute('aria-pressed', 'false');
-  }
-
-  document.getElementById(cfg.prev).addEventListener('click', function () { go(idx - 1, true); });
-  document.getElementById(cfg.next).addEventListener('click', function () { go(idx + 1, true); });
-  playBtn.addEventListener('click', function () { playing ? stop() : play(); });
-  stage.addEventListener('click', function (e) {
-    if (e.target.closest && e.target.closest('.slides-btn')) return;
-    stage.classList.add('touched');
-    go(idx + 1, true);
-  });
-  stage.addEventListener('mouseenter', function () { over = true; });
-  stage.addEventListener('mouseleave', function () { over = false; });
-  stage.addEventListener('focus', function () { stage.classList.add('touched'); });
-
-  var touchX = null;
-  stage.addEventListener('touchstart', function (e) { touchX = e.touches[0].clientX; }, { passive: true });
-  stage.addEventListener('touchend', function (e) {
-    if (touchX === null) return;
-    var dx = e.changedTouches[0].clientX - touchX;
-    if (Math.abs(dx) > 40) { stage.classList.add('touched'); go(dx < 0 ? idx + 1 : idx - 1, true); }
-    touchX = null;
-  }, { passive: true });
-
-  document.addEventListener('keydown', function (e) {
-    if (lb && lb.classList.contains('open')) return;
-    if (!(over || document.activeElement === stage)) return;
-    if (e.key === 'ArrowRight') { stage.classList.add('touched'); go(idx + 1, true); e.preventDefault(); }
-    else if (e.key === 'ArrowLeft') { stage.classList.add('touched'); go(idx - 1, true); e.preventDefault(); }
-  });
-
-  render();
-  preload(0);
-}
-
-initSlideShow({
-  stage: 'slidesStage', counter: 'slidesCounter', cap: 'slidesCap',
-  dots: 'slidesDots', play: 'slidesPlay', prev: 'slidesPrev', next: 'slidesNext',
-  label: 'From Pixel to Metal'
-});
-
-initSlideShow({
-  stage: 'trofeuStage', counter: 'trofeuCounter', cap: 'trofeuCap',
-  dots: 'trofeuDots', play: 'trofeuPlay', prev: 'trofeuPrev', next: 'trofeuNext',
-  label: 'Case Troféu — Da Forma Bruta à Realidade'
-});
 </script>
 </body>
 </html>

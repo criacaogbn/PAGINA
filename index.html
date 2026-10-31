@@ -1796,7 +1796,7 @@
 
   <header>
     <div class="brand-container">
-      <img src="./index_files/logocircularpng2_a1.png" class="brand-logo" alt="GBN3D Logo" onerror="this.style.display=&#39;none&#39;">
+      <img src="./index_files/logocircularpng2_a1.png" class="brand-logo" alt="GBN3D Logo" onerror="this.style.display='none'">
       <div class="brand-name">GBN3D</div>
     </div>
     <nav>
@@ -1953,7 +1953,7 @@
   <!-- ===== SEÇÃO FORNEÇA INFORMAÇÕES SOBRE SEU PROJETO ===== -->
   <section class="project-info-section" id="projeto">
     <h2 class="project-section-title">FORNEÇA INFORMAÇÕES SOBRE SEU PROJETO</h2>
-    <p class="project-section-sub">Conte sua ideia, anexe referências e receba uma proposta sob medida para o seu projeto 3D.</p>
+    <p class="project-section-sub">Conte sua ideia e receba uma proposta sob medida para o seu projeto 3D.</p>
 
     <!-- Documento arremessado: animação vetorial 3D da esquerda para a direita -->
     <div class="doc-flight" aria-hidden="true">
@@ -1997,8 +1997,8 @@
     </div>
 
     <div class="project-form-card" id="projectFormCard" style="--tilt-y: 0deg; --tilt-x: 0deg;">
-      <form id="projectForm" action="https://formsubmit.co/be763747781a0ad8a6dfc8109473625e" method="POST" enctype="multipart/form-data" novalidate>
-        <!-- FormSubmit.co — o código aleatório no endpoint representa criacaogbn@gmail.com (protege contra spambots) -->
+      <form id="projectForm" action="https://formsubmit.co/be763747781a0ad8a6dfc8109473625e" method="POST" novalidate>
+        <!-- Configurações do FormSubmit.co (envio por e-mail, sem anexos) -->
         <input type="hidden" name="_subject" value="Novo Projeto 3D Recebido - GBN3D">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_captcha" value="false">
@@ -2007,7 +2007,7 @@
         <div class="form-grid-2col">
           <div class="form-group">
             <label for="piNome">Nome *</label>
-            <input type="text" id="piNome" name="name" placeholder="Seu nome completo" autocomplete="name" required="">
+            <input type="text" id="piNome" name="name" placeholder="Seu nome completo" autocomplete="name" required>
           </div>
           <div class="form-group">
             <label for="piEmpresa">Empresa</label>
@@ -2019,26 +2019,16 @@
           </div>
           <div class="form-group">
             <label for="piTelefone">Telefone / WhatsApp *</label>
-            <input type="tel" id="piTelefone" name="telefone" placeholder="(00) 00000-0000" inputmode="tel" autocomplete="tel" required="">
+            <input type="tel" id="piTelefone" name="telefone" placeholder="(00) 00000-0000" inputmode="tel" autocomplete="tel" required>
           </div>
           <div class="form-group form-group-full">
             <label for="piEmail">E-mail *</label>
-            <input type="email" id="piEmail" name="email" placeholder="seu@email.com" autocomplete="email" required="">
+            <input type="email" id="piEmail" name="email" placeholder="seu@email.com" autocomplete="email" required>
           </div>
           <div class="form-group form-group-full">
             <label for="piIdeia">Descreva sua ideia *</label>
-            <textarea id="piIdeia" name="message" placeholder="Conte os detalhes: o que deseja modelar, estilo visual, referências, dimensões, prazo e uso final (impressão 3D, games, animação, publicidade)..." required=""></textarea>
+            <textarea id="piIdeia" name="message" placeholder="Conte os detalhes: o que deseja modelar, estilo visual, referências, dimensões, prazo e uso final (impressão 3D, games, animação, publicidade)..." required></textarea>
             <div class="char-counter" id="piCharCounter">0 caracteres</div>
-          </div>
-          <div class="form-group form-group-full">
-            <div class="upload-dropzone" id="uploadDropzone" role="button" tabindex="0" aria-label="Anexar até 7 imagens de alta resolução">
-              <span class="upload-counter" id="uploadCounter">0 / 7</span>
-              <span class="upload-icon-3d" aria-hidden="true">🖼️</span>
-              <p class="upload-title">ANEXE ATÉ 7 IMAGENS DE ALTA RESOLUÇÃO</p>
-              <p class="upload-sub">Arraste e solte aqui ou clique para selecionar — JPG, PNG ou WEBP</p>
-              <input type="file" id="projectFiles" name="attachment" accept="image/*" multiple="">
-            </div>
-            <div class="file-preview-grid" id="filePreviewGrid"></div>
           </div>
         </div>
 
@@ -2048,14 +2038,14 @@
           </span>
           <span class="btn-label" id="btnLabel">ENVIAR PROJETO</span>
         </button>
-        <p class="submit-hint">As informações e imagens anexadas serão enviadas diretamente para a sua caixa de e-mail.</p>
+        <p class="submit-hint">As informações do projeto serão enviadas por e-mail. Retornaremos por telefone/WhatsApp para os projetos selecionados.</p>
       </form>
     </div>
   </section>
 
   <footer id="contato">
     <div class="footer-links">
-      <a href="mailto:criacaogbn@gmail.com">criacaogbn@gmail.com</a>
+      <a href="mailto:gbnmodelagem3d@yahoo.com">gbnmodelagem3d@yahoo.com</a>
     </div>
     <div>© 2026 GBN Modelagem 3D. Todos os direitos reservados.</div>
   </footer>
@@ -2639,15 +2629,8 @@
 
     // ===== Seção "Forneça informações sobre seu projeto" =====
     (function () {
-      const MAX_FILES = 7;
-      const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10 MB por imagem (limite de anexo do FormSubmit)
-
       const form = document.getElementById('projectForm');
       const card = document.getElementById('projectFormCard');
-      const dropzone = document.getElementById('uploadDropzone');
-      const fileInput = document.getElementById('projectFiles');
-      const previewGrid = document.getElementById('filePreviewGrid');
-      const uploadCounter = document.getElementById('uploadCounter');
       const charCounter = document.getElementById('piCharCounter');
       const btnSubmit = document.getElementById('btnSubmitProject');
       const btnLabel = document.getElementById('btnLabel');
@@ -2656,16 +2639,12 @@
       const cnpjField = document.getElementById('piCnpj');
       const emailField = document.getElementById('piEmail');
       const nomeField = document.getElementById('piNome');
-      const empresaField = document.getElementById('piEmpresa');
 
       if (!form || !card) return;
 
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       const finePointer = window.matchMedia('(pointer: fine)').matches;
-      let selectedFiles = [];
-      let previewUrls = [];
 
-      // --- Tilt 3D do cartão acompanhando o cursor ---
       if (finePointer && !reduceMotion) {
         card.addEventListener('mousemove', (e) => {
           const r = card.getBoundingClientRect();
@@ -2678,8 +2657,6 @@
           card.style.setProperty('--tilt-x', '0deg');
           card.style.setProperty('--tilt-y', '0deg');
         });
-
-        // Placa 3D do botão ENVIAR: inclinação + especular seguindo o cursor
         btnSubmit.addEventListener('pointermove', (e) => {
           const r = btnSubmit.getBoundingClientRect();
           const px = (e.clientX - r.left) / r.width;
@@ -2695,7 +2672,6 @@
         });
       }
 
-      // --- Máscara de Telefone ---
       telefoneField.addEventListener('input', () => {
         const d = telefoneField.value.replace(/\D/g, '').slice(0, 11);
         let v = d;
@@ -2705,7 +2681,6 @@
         telefoneField.value = v;
       });
 
-      // --- Máscara de CNPJ ---
       cnpjField.addEventListener('input', () => {
         const d = cnpjField.value.replace(/\D/g, '').slice(0, 14);
         let v = d;
@@ -2716,79 +2691,11 @@
         cnpjField.value = v;
       });
 
-      // --- Contador de caracteres da ideia ---
       ideiaField.addEventListener('input', () => {
         const n = ideiaField.value.length;
         charCounter.textContent = n + (n === 1 ? ' caractere' : ' caracteres');
       });
 
-      function escapeHtml(s) {
-        return s.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-      }
-
-      function formatBytes(bytes) {
-        if (bytes >= 1048576) return (bytes / 1048576).toFixed(1) + ' MB';
-        if (bytes >= 1024) return Math.round(bytes / 1024) + ' KB';
-        return bytes + ' B';
-      }
-
-      function renderPreviews() {
-        previewUrls.forEach(u => URL.revokeObjectURL(u));
-        previewUrls = [];
-        previewGrid.innerHTML = '';
-        uploadCounter.textContent = selectedFiles.length + ' / ' + MAX_FILES;
-        uploadCounter.classList.toggle('is-full', selectedFiles.length >= MAX_FILES);
-
-        selectedFiles.forEach((file, i) => {
-          const url = URL.createObjectURL(file);
-          previewUrls.push(url);
-          const item = document.createElement('figure');
-          item.className = 'file-preview-item';
-          item.style.setProperty('--i', i);
-          const safeName = escapeHtml(file.name.length > 20 ? file.name.slice(0, 17) + '…' : file.name);
-          item.innerHTML =
-            '<img src="' + url + '" alt="Pré-visualização ' + (i + 1) + '">' +
-            '<button type="button" class="file-preview-remove" aria-label="Remover imagem ' + (i + 1) + '">&times;</button>' +
-            '<figcaption class="file-preview-meta">' + safeName + '<br>' + formatBytes(file.size) + '</figcaption>';
-          item.querySelector('.file-preview-remove').addEventListener('click', () => {
-            selectedFiles.splice(i, 1);
-            renderPreviews();
-          });
-          previewGrid.appendChild(item);
-        });
-      }
-
-      function addFiles(fileList) {
-        let foraDoLimite = 0, invalidos = 0, grandes = 0;
-        Array.from(fileList).forEach(file => {
-          if (selectedFiles.length >= MAX_FILES) { foraDoLimite++; return; }
-          if (!file.type.startsWith('image/')) { invalidos++; return; }
-          if (file.size > MAX_FILE_SIZE) { grandes++; return; }
-          const duplicado = selectedFiles.some(f => f.name === file.name && f.size === file.size);
-          if (!duplicado) selectedFiles.push(file);
-        });
-        renderPreviews();
-        if (foraDoLimite) showToast('Limite de ' + MAX_FILES + ' imagens por envio.', 'error');
-        else if (grandes) showToast('Cada imagem deve ter no máximo 10 MB.', 'error');
-        else if (invalidos) showToast('Envie apenas arquivos de imagem (JPG, PNG, WEBP).', 'error');
-      }
-
-      // --- Dropzone: clique, teclado e arrastar & soltar ---
-      dropzone.addEventListener('click', () => fileInput.click());
-      dropzone.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); fileInput.click(); }
-      });
-      fileInput.addEventListener('change', () => { addFiles(fileInput.files); fileInput.value = ''; });
-
-      ['dragenter', 'dragover'].forEach(evt =>
-        dropzone.addEventListener(evt, (e) => { e.preventDefault(); dropzone.classList.add('is-dragover'); }));
-      ['dragleave', 'drop'].forEach(evt =>
-        dropzone.addEventListener(evt, (e) => { e.preventDefault(); dropzone.classList.remove('is-dragover'); }));
-      dropzone.addEventListener('drop', (e) => {
-        if (e.dataTransfer && e.dataTransfer.files.length) addFiles(e.dataTransfer.files);
-      });
-
-      // --- Toast com entrada 3D ---
       let toastTimer = null;
       function showToast(message, type) {
         let toast = document.querySelector('.form-toast');
@@ -2799,30 +2706,25 @@
         }
         toast.textContent = message;
         toast.classList.remove('is-visible', 'is-error');
-        void toast.offsetWidth; // reinicia a transição
+        void toast.offsetWidth;
         if (type === 'error') toast.classList.add('is-error');
         toast.classList.add('is-visible');
         clearTimeout(toastTimer);
         toastTimer = setTimeout(() => toast.classList.remove('is-visible'), 4500);
       }
 
-      // --- Sucesso após redirect do FormSubmit (fallback quando o AJAX não roda) ---
       if (new URLSearchParams(location.search).has('enviado')) {
-        showToast('Projeto e imagens enviados com sucesso!', 'success');
+        showToast('Projeto enviado com sucesso!', 'success');
         history.replaceState(null, '', location.pathname + location.hash);
       }
 
-      // --- Limpa o destaque de erro ao digitar ---
       form.querySelectorAll('input, textarea').forEach(f =>
         f.addEventListener('input', () => f.classList.remove('is-invalid')));
 
-      // --- Validação e envio via FormSubmit.co (AJAX com anexos) ---
       form.addEventListener('submit', function (e) {
         e.preventDefault();
-
         const obrigatorios = [nomeField, telefoneField, emailField, ideiaField];
         let temErro = false;
-
         obrigatorios.forEach(f => {
           const vazio = !f.value.trim();
           const emailRuim = f === emailField && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.value.trim());
@@ -2830,25 +2732,14 @@
           f.classList.toggle('is-invalid', ruim);
           if (ruim) temErro = true;
         });
-
         if (temErro) {
           showToast('Preencha os campos destacados corretamente.', 'error');
           return;
         }
-
         btnSubmit.disabled = true;
         const rotuloOriginal = btnLabel.textContent;
         btnLabel.textContent = 'ENVIANDO...';
-
         const formData = new FormData(form);
-
-        // O input de arquivo é limpo após a seleção (para permitir reseleção),
-        // então os arquivos precisam ser adicionados manualmente a partir de selectedFiles.
-        formData.delete('attachment');
-        selectedFiles.forEach((f, i) => {
-          formData.append(i === 0 ? 'attachment' : 'attachment_' + (i + 1), f, f.name);
-        });
-
         fetch('https://formsubmit.co/ajax/be763747781a0ad8a6dfc8109473625e', {
           method: 'POST',
           body: formData
@@ -2857,10 +2748,8 @@
           let json = await response.json();
           if (response.ok && (json.success === 'true' || json.success === true)) {
             btnLabel.textContent = 'ENVIADO ✓';
-            showToast('Projeto e imagens enviados com sucesso!', 'success');
+            showToast('Projeto enviado com sucesso!', 'success');
             form.reset();
-            selectedFiles = [];
-            renderPreviews();
             charCounter.textContent = '0 caracteres';
             setTimeout(() => { btnLabel.textContent = rotuloOriginal; btnSubmit.disabled = false; }, 3000);
           } else {
@@ -2879,5 +2768,4 @@
       });
     })();
   </script>
-
 </body></html>

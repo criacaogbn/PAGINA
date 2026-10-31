@@ -32,7 +32,7 @@ const CHIP = {
 // Remove extensão, número de frame (".268") e marcador ".bip"
 function cleanBase(file) {
   return file
-    .replace(/\.jpe?g$/i, '')
+    .replace(/\.(jpe?g|png|webp)$/i, '')
     .replace(/\.\d{2,3}$/, '')
     .replace(/\.bip$/i, '');
 }
@@ -82,7 +82,7 @@ function catFor(base) {
 
 // ---------- Montagem dos itens ----------
 const files = fs.readdirSync(IMG_DIR)
-  .filter(function (f) { return /\.jpe?g$/i.test(f); })
+  .filter(function (f) { return /\.(jpe?g|png|webp)$/i.test(f); })
   .sort(function (a, b) { return a.localeCompare(b, 'pt-BR'); });
 
 if (!files.length) {
@@ -124,12 +124,15 @@ const PAGE_HEAD = `<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <title>GBN 3D — Modelagem, Escultura Digital e Rendering</title>
 <meta name="description" content="Portfólio de modelagem 3D, escultura digital (ZBrush), texturização e rendering — personagens, criaturas, cenários e produtos.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="GBN 3D — Portfólio 3D">
 <meta property="og:description" content="Modelagem 3D, escultura digital e rendering: personagens, criaturas, cenários e produtos.">
-<meta property="og:image" content="imagens/guerreira_ks01.177.jpg">
+<meta property="og:image" content="imagens/${encodeURIComponent(items[0].f)}">
 <link rel="icon" type="image/png" href="logo/logocircularpng2.png">
 <title>GBN 3D — Acervo Completo de Trabalhos</title>
 <style>
