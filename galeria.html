@@ -35,9 +35,9 @@ header{display:flex;justify-content:space-between;align-items:center;padding:1.5
 .nav img{width:42px;height:42px;border-radius:50%;border:1px solid var(--line)}
 .brand{font-weight:700;font-size:1.1rem;letter-spacing:.5px}
 .brand span{color:var(--acc)}
-nav.links{margin-left:auto;display:flex;gap:18px;flex-wrap:wrap}
-nav.links a{color:var(--mut);text-decoration:none;font-size:.95rem}
-nav.links a:hover{color:var(--tx)}
+nav{display:flex;gap:2rem}
+nav a{color:#a0a0a0;text-decoration:none;font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;transition:color .3s}
+nav a:hover,nav a.active{color:#ffffff}
 #hero{padding:88px 0 68px;text-align:center;background:radial-gradient(60% 80% at 50% 0%,#1b2136 0%,var(--bg) 72%)}
 #hero h1{font-size:clamp(2rem,6vw,3.4rem);line-height:1.15}
 #hero h1 span{color:var(--acc)}
