@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   
@@ -715,15 +716,17 @@
       border-radius: 10px;
       padding: 2.5rem;
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-      transform-style: preserve-3d;
-      transition: transform 0.5s ease, box-shadow 0.5s ease, border-color 0.5s ease;
+      transform-style: flat;
+      transition: box-shadow 0.5s ease, border-color 0.5s ease;
     }
 
+@media (hover: hover) {
     .project-form-card:hover {
       transform: rotateX(1.5deg) rotateY(-1.5deg) translateZ(10px);
       box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 0 0 25px rgba(255, 255, 255, 0.05);
       border-color: #333333;
     }
+  }
 
     .form-grid-2col {
       display: grid;
@@ -758,9 +761,14 @@
       border-radius: 6px;
       padding: 0.9rem 1rem;
       color: #ffffff;
-      font-size: 0.9rem;
+      font-size: 1rem;
+      position: relative;
+      z-index: 3;
+      touch-action: manipulation;
+      -webkit-user-select: text;
+      user-select: text;
       outline: none;
-      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      transition: border-color 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), background 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
       box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
     }
 
@@ -769,7 +777,7 @@
       border-color: #ffffff;
       background: #111111;
       box-shadow: 0 0 15px rgba(255, 255, 255, 0.15), inset 0 1px 2px rgba(0, 0, 0, 0.8);
-      transform: translateZ(8px);
+      transform: none; /* evita quebra de foco em mobile (Android) */
     }
 
     .form-group input:focus + label,
@@ -781,6 +789,15 @@
       resize: vertical;
       min-height: 140px;
     }
+
+    /* Garante que o input de arquivo seja clicável/tocável em mobile */
+    .form-group input[type="file"] {
+      width: 100%;
+      padding: 0.75rem;
+      cursor: pointer;
+      transform: none !important;
+    }
+
 
     /* Área Surrealista de Upload 3D */
     .upload-dropzone {
@@ -897,12 +914,26 @@
       .form-grid-2col {
         grid-template-columns: 1fr;
       }
+  .project-info-section::before { display: none; }
+  .luz-canvas { display: none; }
+  .project-info-section { overflow: visible; isolation: auto; }
+  /* Garante interação com formulário em mobile (Android) */
+  .project-form-card { touch-action: manipulation; }
+  .project-info-section { perspective: none; }
+  .project-form-card { transform: none !important; transform-style: flat; }
+  .project-form-card:hover { transform: none !important; }
+  .form-grid-2col, .form-group { transform-style: flat; }
+  .form-group input, .form-group textarea { transform: none !important; }
+  .form-group input:focus, .form-group textarea:focus { transform: none !important; }
+  .project-form-card, .form-group input, .form-group textarea, .form-group input[type="file"] { pointer-events: auto; touch-action: manipulation; }
+  .project-form-card::after { display: none; }
+  .project-info-section .doc-flight { display: none; }
     }
 
     /* ===== EFEITOS 3D SURREALISTAS — CAMADA DE APRIMORAMENTO ===== */
     .project-info-section {
       position: relative;
-      overflow: hidden;
+      overflow: visible;
       isolation: isolate;
     }
 
@@ -963,18 +994,19 @@
     /* Profundidade real dentro do cartão (a perspective da seção alcança os campos) */
     .form-grid-2col,
     .form-group {
-      transform-style: preserve-3d;
+      transform-style: flat;
     }
 
     /* Tilt 3D dinâmico do cartão (variáveis alimentadas pelo cursor) */
     .project-form-card {
-      transition: transform 0.15s ease-out, box-shadow 0.5s ease, border-color 0.5s ease;
-      will-change: transform;
+      transition: box-shadow 0.5s ease, border-color 0.5s ease;
     }
 
+@media (hover: hover) {
     .project-form-card:hover {
       transform: rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) translateZ(18px);
     }
+  }
 
     /* Foco realça o rótulo acima do campo */
     .form-group:focus-within label {
@@ -1191,6 +1223,21 @@
         transform: none;
       }
     }
+
+    /* Desativa efeitos 3D de hover em dispositivos touch (evita travamento/inputs inacessíveis) */
+    @media (hover: none) {
+      .project-form-card { transform: none !important; transform-style: flat; }
+      .project-form-card:hover { transform: none !important; }
+      .project-form-card::after { display: none; }
+      .form-grid-2col, .form-group { transform-style: flat; }
+      .project-info-section .doc-flight { display: none; }
+      .project-info-section { perspective: none; }
+  .project-info-section { overflow: visible; isolation: auto; }
+  .project-info-section::before { display: none; }
+  .luz-canvas { display: none; }
+  .project-form-card, .project-form-card * { transform: none !important; }
+    }
+
 
     /* ===== PORTFÓLIO — SLIDE CENTRAL FUTURISTA ===== */
     .pf-stage {
@@ -2735,6 +2782,8 @@
   const form = document.getElementById('projectForm');
   const fileInput = document.getElementById('piAnexos');
   if (!form || !fileInput) return;
+  // Garante que o seletor de arquivos sempre abra (Android)
+  fileInput.addEventListener('click', function () { this.value = ''; });
   form.addEventListener('submit', function (e) {
     const files = fileInput.files;
     if (files.length > 4) {

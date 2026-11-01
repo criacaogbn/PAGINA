@@ -11,7 +11,7 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="GBN 3D — Portfólio 3D">
 <meta property="og:description" content="Modelagem 3D, escultura digital e rendering: personagens, criaturas, cenários e produtos.">
-<meta property="og:image" content="imagens/02.jpg">
+<meta property="og:image" content="imagens/01.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -72,6 +72,7 @@ h2{font-size:1.8rem;font-weight:800;letter-spacing:1px;margin-bottom:6px}
 .zoom{position:absolute;right:10px;top:10px;background:rgba(0,0,0,.55);color:#fff;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-weight:700;opacity:0;transition:opacity .18s}
 .card:hover .zoom,.thumb:focus-visible .zoom{opacity:1}
 .card figcaption{display:flex;align-items:center;gap:8px;padding:10px 12px;font-size:.86rem;color:var(--mut)}
+.card-desc{display:block;margin-top:6px;font-size:.8rem;color:var(--mut);line-height:1.45}
 .chip{background:#232939;color:var(--acc2);font-size:.68rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:2px 8px;border-radius:999px;white-space:nowrap}
 .about p{color:var(--mut);max-width:780px}
 .contact{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px}
@@ -85,6 +86,8 @@ footer{border-top:1px solid var(--line);padding:26px 0;color:var(--mut);font-siz
 #lb button:hover{border-color:var(--acc)}
 #lbClose{position:absolute;top:16px;right:16px}
 #lbCap{position:absolute;top:24px;left:18px;right:74px;font-weight:600;text-shadow:0 1px 4px #000}
+#lbDesc{max-width:min(92vw,720px);margin:8px auto 0;padding:0 18px;color:var(--mut);font-size:.92rem;line-height:1.5;text-align:center;max-height:30vh;overflow:auto}
+
 :focus-visible{outline:2px solid var(--acc);outline-offset:2px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
 </style>
@@ -133,7 +136,7 @@ footer{border-top:1px solid var(--line);padding:26px 0;color:var(--mut);font-siz
 <section id="galeria">
   <div class="wrap">
     <h2>Galeria</h2>
-    <p class="sub">44 trabalhos — clique em uma imagem para ampliar</p>
+    <p class="sub">50 trabalhos — clique em uma imagem para ampliar</p>
     <div class="filters" role="group" aria-label="Filtrar galeria por categoria">
           <button class="filter active" type="button" data-filter="todos">Todos</button>
           <button class="filter" type="button" data-filter="personagens">Personagens & Criaturas</button>
@@ -144,309 +147,361 @@ footer{border-top:1px solid var(--line);padding:26px 0;color:var(--mut);font-siz
     </div>
     <p id="count" aria-live="polite"></p>
     <div class="grid" id="grid">
-          <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="0" aria-label="Ampliar: Estudo 3D — 02">
-              <img src="imagens/02.jpg" alt="Estudo 3D — 02" loading="lazy" decoding="async">
+          <figure class="card" data-cat="escultura">
+            <button class="thumb" type="button" data-i="0" aria-label="Ampliar: Escultura Figurativa: Menino com Coelho">
+              <img src="imagens/01.jpg" alt="Escultura Figurativa: Menino com Coelho" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
-            <figcaption><span class="chip">Render</span>Estudo 3D — 02</figcaption>
+            <figcaption><span class="chip">ZBrush</span>Escultura Figurativa: Menino com Coelho
+            <span class="card-desc">Modelagem 3D: Escultura digital orgânica focada em detalhes anatômicos sutis, dobras de vestuário e texturização de pele/pelagem. Uso Final: Peça decorativa, colecionável ou estátua artística para impressão 3D em resina/PLA.</span></figcaption>
+          </figure>
+          <figure class="card" data-cat="escultura">
+            <button class="thumb" type="button" data-i="1" aria-label="Ampliar: Escultura Ornamental: Arara em Galho">
+              <img src="imagens/02.jpg" alt="Escultura Ornamental: Arara em Galho" loading="lazy" decoding="async">
+              <span class="zoom" aria-hidden="true">+</span>
+            </button>
+            <figcaption><span class="chip">ZBrush</span>Escultura Ornamental: Arara em Galho
+            <span class="card-desc">Modelagem 3D: Modelagem orgânica detalhada com alto relevo nas penas e textura naturalista na base de madeira. Uso Final: Elemento decorativo de alto padrão para ambientes internos, artigos de luxo ou matriz para fundição.</span></figcaption>
           </figure>
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="1" aria-label="Ampliar: Estudo 3D — 03 — variante 3">
+            <button class="thumb" type="button" data-i="2" aria-label="Ampliar: Estudo 3D — 03 — variante 3">
               <img src="imagens/03%20(3).jpg" alt="Estudo 3D — 03 — variante 3" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Render</span>Estudo 3D — 03 — variante 3</figcaption>
           </figure>
-          <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="2" aria-label="Ampliar: Estudo 3D — 03">
-              <img src="imagens/03.jpg" alt="Estudo 3D — 03" loading="lazy" decoding="async">
+          <figure class="card" data-cat="objetos">
+            <button class="thumb" type="button" data-i="3" aria-label="Ampliar: Chaveiro Institucional com Guindaste e Caçamba">
+              <img src="imagens/03.jpg" alt="Chaveiro Institucional com Guindaste e Caçamba" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
-            <figcaption><span class="chip">Render</span>Estudo 3D — 03</figcaption>
+            <figcaption><span class="chip">Produto</span>Chaveiro Institucional com Guindaste e Caçamba
+            <span class="card-desc">Modelagem 3D: Modelagem técnica hard-surface com encaixe funcional para argola e tipografia gravada em relevo. Uso Final: Chaveiro promocional utilitário e brinde corporativo personalizado para a empresa Locsolo.</span></figcaption>
           </figure>
-          <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="3" aria-label="Ampliar: Estudo 3D — 07">
-              <img src="imagens/07.jpg" alt="Estudo 3D — 07" loading="lazy" decoding="async">
+          <figure class="card" data-cat="objetos">
+            <button class="thumb" type="button" data-i="4" aria-label="Ampliar: Troféu Oficial: Copa América Femenina">
+              <img src="imagens/04.jpg" alt="Troféu Oficial: Copa América Femenina" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
-            <figcaption><span class="chip">Render</span>Estudo 3D — 07</figcaption>
+            <figcaption><span class="chip">Produto</span>Troféu Oficial: Copa América Femenina
+            <span class="card-desc">Modelagem 3D: Modelagem conceitual e de produto com superfícies de revolução, relevos geométricos e base tipográfica. Uso Final: Troféu de premiação esportiva para eventos oficiais da CONMEBOL.</span></figcaption>
           </figure>
-          <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="4" aria-label="Ampliar: Estudo 3D — 10">
-              <img src="imagens/10.jpg" alt="Estudo 3D — 10" loading="lazy" decoding="async">
+          <figure class="card" data-cat="objetos">
+            <button class="thumb" type="button" data-i="5" aria-label="Ampliar: Placa/Emblema Decorativo: Carpas Yin-Yang">
+              <img src="imagens/05.jpg" alt="Placa/Emblema Decorativo: Carpas Yin-Yang" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
-            <figcaption><span class="chip">Render</span>Estudo 3D — 10</figcaption>
+            <figcaption><span class="chip">Produto</span>Placa/Emblema Decorativo: Carpas Yin-Yang
+            <span class="card-desc">Modelagem 3D: Relevo técnico/artístico em plano com separação precisa de camadas para aplicação de cor contrastante. Uso Final: Placa decorativa de mesa, peso de papel ou elemento de identificação visual.</span></figcaption>
+          </figure>
+          <figure class="card" data-cat="objetos">
+            <button class="thumb" type="button" data-i="6" aria-label="Ampliar: Matriz de Molde: Presilha de Buldogue Francês">
+              <img src="imagens/06.jpg" alt="Matriz de Molde: Presilha de Buldogue Francês" loading="lazy" decoding="async">
+              <span class="zoom" aria-hidden="true">+</span>
+            </button>
+            <figcaption><span class="chip">Produto</span>Matriz de Molde: Presilha de Buldogue Francês
+            <span class="card-desc">Modelagem 3D: Design industrial combinado com escultura orgânica, incluindo a divisão da cavidade do molde, pinos de guia e mecanismo de clipe. Uso Final: Matriz/molde para injeção ou fundição de acessórios decorativos e funcionais.</span></figcaption>
+          </figure>
+          <figure class="card" data-cat="escultura">
+            <button class="thumb" type="button" data-i="7" aria-label="Ampliar: Moldura Ornamental: Ramos e Borboletas">
+              <img src="imagens/07.jpg" alt="Moldura Ornamental: Ramos e Borboletas" loading="lazy" decoding="async">
+              <span class="zoom" aria-hidden="true">+</span>
+            </button>
+            <figcaption><span class="chip">ZBrush</span>Moldura Ornamental: Ramos e Borboletas
+            <span class="card-desc">Modelagem 3D: Escultura orgânica entrelaçada com detalhes botânicos e anatômicos de insetos em malha fluida. Uso Final: Moldura decorativa para espelhos, quadros ou peças de joalheria/fundição de metal decorativo.</span></figcaption>
+          </figure>
+          <figure class="card" data-cat="objetos">
+            <button class="thumb" type="button" data-i="8" aria-label="Ampliar: Case/Estojo Personalizado: Clube Salatino">
+              <img src="imagens/08.jpg" alt="Case/Estojo Personalizado: Clube Salatino" loading="lazy" decoding="async">
+              <span class="zoom" aria-hidden="true">+</span>
+            </button>
+            <figcaption><span class="chip">Produto</span>Case/Estojo Personalizado: Clube Salatino
+            <span class="card-desc">Modelagem 3D: Modelagem mecânica de estojo bipartido com cavidade interna, encaixe de travamento e gravação vetorial na tampa. Uso Final: Case de proteção/transporte para pequenos objetos e cartões promocionais.</span></figcaption>
+          </figure>
+          <figure class="card" data-cat="objetos">
+            <button class="thumb" type="button" data-i="9" aria-label="Ampliar: Garrafa de Vidro Texturizada com Caveira em Relevo">
+              <img src="imagens/09.jpg" alt="Garrafa de Vidro Texturizada com Caveira em Relevo" loading="lazy" decoding="async">
+              <span class="zoom" aria-hidden="true">+</span>
+            </button>
+            <figcaption><span class="chip">Produto</span>Garrafa de Vidro Texturizada com Caveira em Relevo
+            <span class="card-desc">Modelagem 3D: Modelagem de embalagem (packaging) combinando superfície técnica de vidro com alto relevo orgânico na estrutura central. Uso Final: Embalagem de vidro exclusiva para bebidas premium (vodka, rum, destilados artesanais) ou item de colecionador.</span></figcaption>
+          </figure>
+          <figure class="card" data-cat="objetos">
+            <button class="thumb" type="button" data-i="10" aria-label="Ampliar: Design de Interiores: Mesa de Centro Orgânica">
+              <img src="imagens/10.jpg" alt="Design de Interiores: Mesa de Centro Orgânica" loading="lazy" decoding="async">
+              <span class="zoom" aria-hidden="true">+</span>
+            </button>
+            <figcaption><span class="chip">Produto</span>Design de Interiores: Mesa de Centro Orgânica
+            <span class="card-desc">Modelagem 3D: Modelagem de mobiliário contemporâneo com pés curvos bicolores, detalhes em metal e tampo de vidro temperado. Uso Final: Renderização arquitetônica fotorrealista e prototipagem de móvel autoral de alto padrão para salas de estar.</span></figcaption>
           </figure>
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="5" aria-label="Ampliar: Arara home lux">
+            <button class="thumb" type="button" data-i="11" aria-label="Ampliar: Arara home lux">
               <img src="imagens/arara_home_lux.jpg" alt="Arara home lux" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Render</span>Arara home lux</figcaption>
           </figure>
           <figure class="card" data-cat="cenas">
-            <button class="thumb" type="button" data-i="6" aria-label="Ampliar: Cena — ambientação 3D">
+            <button class="thumb" type="button" data-i="12" aria-label="Ampliar: Cena — ambientação 3D">
               <img src="imagens/cena_chav02.269.jpg" alt="Cena — ambientação 3D" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Cena</span>Cena — ambientação 3D</figcaption>
           </figure>
           <figure class="card" data-cat="cenas">
-            <button class="thumb" type="button" data-i="7" aria-label="Ampliar: Cena — ambientação 3D">
+            <button class="thumb" type="button" data-i="13" aria-label="Ampliar: Cena — ambientação 3D">
               <img src="imagens/cena_velariseira06.238.jpg" alt="Cena — ambientação 3D" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Cena</span>Cena — ambientação 3D</figcaption>
           </figure>
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="8" aria-label="Ampliar: Copaamericafem ks01">
+            <button class="thumb" type="button" data-i="14" aria-label="Ampliar: Copaamericafem ks01">
               <img src="imagens/copaamericafem_ks01.115.jpg" alt="Copaamericafem ks01" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Render</span>Copaamericafem ks01</figcaption>
           </figure>
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="9" aria-label="Ampliar: Desk.5">
+            <button class="thumb" type="button" data-i="15" aria-label="Ampliar: Desk.5">
               <img src="imagens/Desk.5.jpg" alt="Desk.5" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Render</span>Desk.5</figcaption>
           </figure>
           <figure class="card" data-cat="personagens">
-            <button class="thumb" type="button" data-i="10" aria-label="Ampliar: Cão — modelo 3D">
+            <button class="thumb" type="button" data-i="16" aria-label="Ampliar: Cão — modelo 3D">
               <img src="imagens/dogimg1.jpg" alt="Cão — modelo 3D" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Personagem</span>Cão — modelo 3D</figcaption>
           </figure>
           <figure class="card" data-cat="personagens">
-            <button class="thumb" type="button" data-i="11" aria-label="Ampliar: Escultura Gabriela">
+            <button class="thumb" type="button" data-i="17" aria-label="Ampliar: Escultura Gabriela">
               <img src="imagens/escultura_Gabriela_r01.225.jpg" alt="Escultura Gabriela" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Personagem</span>Escultura Gabriela</figcaption>
           </figure>
           <figure class="card" data-cat="personagens">
-            <button class="thumb" type="button" data-i="12" aria-label="Ampliar: Escultura Gabriela">
+            <button class="thumb" type="button" data-i="18" aria-label="Ampliar: Escultura Gabriela">
               <img src="imagens/escultura_Gabriela_r02.215.jpg" alt="Escultura Gabriela" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Personagem</span>Escultura Gabriela</figcaption>
           </figure>
           <figure class="card" data-cat="objetos">
-            <button class="thumb" type="button" data-i="13" aria-label="Ampliar: Garrafa Crânio — design de produto">
+            <button class="thumb" type="button" data-i="19" aria-label="Ampliar: Garrafa Crânio — design de produto">
               <img src="imagens/garrafacranio_ks_04.261.jpg" alt="Garrafa Crânio — design de produto" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Produto</span>Garrafa Crânio — design de produto</figcaption>
           </figure>
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="14" aria-label="Ampliar: Gemini Generated Image kxhni9kxhni9kxhn (1)">
+            <button class="thumb" type="button" data-i="20" aria-label="Ampliar: Gemini Generated Image kxhni9kxhni9kxhn (1)">
               <img src="imagens/Gemini_Generated_Image_kxhni9kxhni9kxhn%20(1).jpg" alt="Gemini Generated Image kxhni9kxhni9kxhn (1)" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Render</span>Gemini Generated Image kxhni9kxhni9kxhn (1)</figcaption>
           </figure>
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="15" aria-label="Ampliar: Gemini Generated Image oakgu7oakgu7oakg">
+            <button class="thumb" type="button" data-i="21" aria-label="Ampliar: Gemini Generated Image oakgu7oakgu7oakg">
               <img src="imagens/Gemini_Generated_Image_oakgu7oakgu7oakg.jpg" alt="Gemini Generated Image oakgu7oakgu7oakg" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Render</span>Gemini Generated Image oakgu7oakgu7oakg</figcaption>
           </figure>
           <figure class="card" data-cat="personagens">
-            <button class="thumb" type="button" data-i="16" aria-label="Ampliar: Guerreira — personagem">
+            <button class="thumb" type="button" data-i="22" aria-label="Ampliar: Guerreira — personagem">
               <img src="imagens/guerreira_remod01b.179.jpg" alt="Guerreira — personagem" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Personagem</span>Guerreira — personagem</figcaption>
           </figure>
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="17" aria-label="Ampliar: Imagem25ps1">
+            <button class="thumb" type="button" data-i="23" aria-label="Ampliar: Imagem25ps1">
               <img src="imagens/Imagem25ps1.jpg" alt="Imagem25ps1" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Render</span>Imagem25ps1</figcaption>
           </figure>
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="18" aria-label="Ampliar: Imagem8">
+            <button class="thumb" type="button" data-i="24" aria-label="Ampliar: Imagem8">
               <img src="imagens/Imagem8.jpg" alt="Imagem8" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Render</span>Imagem8</figcaption>
           </figure>
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="19" aria-label="Ampliar: Img pomoyasmin01">
+            <button class="thumb" type="button" data-i="25" aria-label="Ampliar: Img pomoyasmin01">
               <img src="imagens/img_pomoyasmin01.jpg" alt="Img pomoyasmin01" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Render</span>Img pomoyasmin01</figcaption>
           </figure>
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="20" aria-label="Ampliar: Render — série de estudos">
+            <button class="thumb" type="button" data-i="26" aria-label="Ampliar: Render — série de estudos">
               <img src="imagens/img02.jpg" alt="Render — série de estudos" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Render</span>Render — série de estudos</figcaption>
           </figure>
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="21" aria-label="Ampliar: Render — série de estudos">
+            <button class="thumb" type="button" data-i="27" aria-label="Ampliar: Render — série de estudos">
               <img src="imagens/img03.147.jpg" alt="Render — série de estudos" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Render</span>Render — série de estudos</figcaption>
           </figure>
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="22" aria-label="Ampliar: Render — série de estudos">
+            <button class="thumb" type="button" data-i="28" aria-label="Ampliar: Render — série de estudos">
               <img src="imagens/img03.jpg" alt="Render — série de estudos" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Render</span>Render — série de estudos</figcaption>
           </figure>
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="23" aria-label="Ampliar: Render — série de estudos">
+            <button class="thumb" type="button" data-i="29" aria-label="Ampliar: Render — série de estudos">
               <img src="imagens/img04.151.jpg" alt="Render — série de estudos" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Render</span>Render — série de estudos</figcaption>
           </figure>
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="24" aria-label="Ampliar: Render — série de estudos">
+            <button class="thumb" type="button" data-i="30" aria-label="Ampliar: Render — série de estudos">
               <img src="imagens/img07.jpg" alt="Render — série de estudos" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Render</span>Render — série de estudos</figcaption>
           </figure>
           <figure class="card" data-cat="objetos">
-            <button class="thumb" type="button" data-i="25" aria-label="Ampliar: Render KeyShot — produto">
+            <button class="thumb" type="button" data-i="31" aria-label="Ampliar: Render KeyShot — produto">
               <img src="imagens/ks_img_01.259.jpg" alt="Render KeyShot — produto" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Produto</span>Render KeyShot — produto</figcaption>
           </figure>
           <figure class="card" data-cat="objetos">
-            <button class="thumb" type="button" data-i="26" aria-label="Ampliar: Render KeyShot — produto">
+            <button class="thumb" type="button" data-i="32" aria-label="Ampliar: Render KeyShot — produto">
               <img src="imagens/ks_img_02.254.jpg" alt="Render KeyShot — produto" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Produto</span>Render KeyShot — produto</figcaption>
           </figure>
           <figure class="card" data-cat="objetos">
-            <button class="thumb" type="button" data-i="27" aria-label="Ampliar: Render KeyShot — produto">
+            <button class="thumb" type="button" data-i="33" aria-label="Ampliar: Render KeyShot — produto">
               <img src="imagens/ks_img_03.255.jpg" alt="Render KeyShot — produto" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Produto</span>Render KeyShot — produto</figcaption>
           </figure>
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="28" aria-label="Ampliar: Mesatrevo01">
+            <button class="thumb" type="button" data-i="34" aria-label="Ampliar: Mesatrevo01">
               <img src="imagens/mesatrevo01.208.jpg" alt="Mesatrevo01" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Render</span>Mesatrevo01</figcaption>
           </figure>
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="29" aria-label="Ampliar: OK01">
+            <button class="thumb" type="button" data-i="35" aria-label="Ampliar: OK01">
               <img src="imagens/OK01.jpg" alt="OK01" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Render</span>OK01</figcaption>
           </figure>
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="30" aria-label="Ampliar: PureRef 3Pb9og3Hfb">
+            <button class="thumb" type="button" data-i="36" aria-label="Ampliar: PureRef 3Pb9og3Hfb">
               <img src="imagens/PureRef_3Pb9og3Hfb.jpg" alt="PureRef 3Pb9og3Hfb" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Render</span>PureRef 3Pb9og3Hfb</figcaption>
           </figure>
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="31" aria-label="Ampliar: PureRef B65Obmv2Hr">
+            <button class="thumb" type="button" data-i="37" aria-label="Ampliar: PureRef B65Obmv2Hr">
               <img src="imagens/PureRef_B65Obmv2Hr.jpg" alt="PureRef B65Obmv2Hr" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Render</span>PureRef B65Obmv2Hr</figcaption>
           </figure>
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="32" aria-label="Ampliar: PureRef l32im8utmw">
+            <button class="thumb" type="button" data-i="38" aria-label="Ampliar: PureRef l32im8utmw">
               <img src="imagens/PureRef_l32im8utmw.png" alt="PureRef l32im8utmw" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Render</span>PureRef l32im8utmw</figcaption>
           </figure>
           <figure class="card" data-cat="personagens">
-            <button class="thumb" type="button" data-i="33" aria-label="Ampliar: Sabiá — ave esculpida em 3D">
+            <button class="thumb" type="button" data-i="39" aria-label="Ampliar: Sabiá — ave esculpida em 3D">
               <img src="imagens/pux_sabia08.jpg" alt="Sabiá — ave esculpida em 3D" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Personagem</span>Sabiá — ave esculpida em 3D</figcaption>
           </figure>
           <figure class="card" data-cat="personagens">
-            <button class="thumb" type="button" data-i="34" aria-label="Ampliar: Sabiá — ave esculpida em 3D">
+            <button class="thumb" type="button" data-i="40" aria-label="Ampliar: Sabiá — ave esculpida em 3D">
               <img src="imagens/pux_sabia15.jpg" alt="Sabiá — ave esculpida em 3D" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Personagem</span>Sabiá — ave esculpida em 3D</figcaption>
           </figure>
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="35" aria-label="Ampliar: Render 01">
+            <button class="thumb" type="button" data-i="41" aria-label="Ampliar: Render 01">
               <img src="imagens/render_01.139.jpg" alt="Render 01" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Render</span>Render 01</figcaption>
           </figure>
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="36" aria-label="Ampliar: Salatino03">
+            <button class="thumb" type="button" data-i="42" aria-label="Ampliar: Salatino03">
               <img src="imagens/salatino03.265.jpg" alt="Salatino03" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Render</span>Salatino03</figcaption>
           </figure>
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="37" aria-label="Ampliar: Compilação de trabalhos">
+            <button class="thumb" type="button" data-i="43" aria-label="Ampliar: Compilação de trabalhos">
               <img src="imagens/trabalhos_02-07%20a%2021-07_ACD_0.jpg" alt="Compilação de trabalhos" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Render</span>Compilação de trabalhos</figcaption>
           </figure>
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="38" aria-label="Ampliar: Compilação de trabalhos">
+            <button class="thumb" type="button" data-i="44" aria-label="Ampliar: Compilação de trabalhos">
               <img src="imagens/trabalhos_02-07%20a%2021-07_ACD_2.jpg" alt="Compilação de trabalhos" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Render</span>Compilação de trabalhos</figcaption>
           </figure>
           <figure class="card" data-cat="renders">
-            <button class="thumb" type="button" data-i="39" aria-label="Ampliar: Trofeu02 render05">
+            <button class="thumb" type="button" data-i="45" aria-label="Ampliar: Trofeu02 render05">
               <img src="imagens/trofeu02_render05.jpg" alt="Trofeu02 render05" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Render</span>Trofeu02 render05</figcaption>
           </figure>
           <figure class="card" data-cat="objetos">
-            <button class="thumb" type="button" data-i="40" aria-label="Ampliar: Vaso — design de produto">
+            <button class="thumb" type="button" data-i="46" aria-label="Ampliar: Vaso — design de produto">
               <img src="imagens/vazoimg04.246.jpg" alt="Vaso — design de produto" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">Produto</span>Vaso — design de produto</figcaption>
           </figure>
           <figure class="card" data-cat="escultura">
-            <button class="thumb" type="button" data-i="41" aria-label="Ampliar: Escultura digital em ZBrush">
+            <button class="thumb" type="button" data-i="47" aria-label="Ampliar: Escultura digital em ZBrush">
               <img src="imagens/zbr01.jpg" alt="Escultura digital em ZBrush" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">ZBrush</span>Escultura digital em ZBrush</figcaption>
           </figure>
           <figure class="card" data-cat="escultura">
-            <button class="thumb" type="button" data-i="42" aria-label="Ampliar: Escultura digital em ZBrush">
+            <button class="thumb" type="button" data-i="48" aria-label="Ampliar: Escultura digital em ZBrush">
               <img src="imagens/ZBrush%20Document.jpg" alt="Escultura digital em ZBrush" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
             <figcaption><span class="chip">ZBrush</span>Escultura digital em ZBrush</figcaption>
           </figure>
           <figure class="card" data-cat="escultura">
-            <button class="thumb" type="button" data-i="43" aria-label="Ampliar: Escultura digital em ZBrush">
+            <button class="thumb" type="button" data-i="49" aria-label="Ampliar: Escultura digital em ZBrush">
               <img src="imagens/ZBrush%20Document01.jpg" alt="Escultura digital em ZBrush" loading="lazy" decoding="async">
               <span class="zoom" aria-hidden="true">+</span>
             </button>
@@ -482,6 +537,7 @@ footer{border-top:1px solid var(--line);padding:26px 0;color:var(--mut);font-siz
   <button id="lbClose" type="button" aria-label="Fechar (tecla Esc)">✕</button>
   <div id="lbCap"></div>
   <img id="lbImg" alt="">
+  <div id="lbDesc"></div>
   <div class="bar">
     <button id="lbPrev" type="button" aria-label="Imagem anterior (seta à esquerda)">‹</button>
     <span id="lbCnt"></span>
@@ -490,7 +546,7 @@ footer{border-top:1px solid var(--line);padding:26px 0;color:var(--mut);font-siz
 </div>
 
 <script>
-var G = [{"f":"02.jpg","t":"Estudo 3D — 02","c":"renders"},{"f":"03 (3).jpg","t":"Estudo 3D — 03 — variante 3","c":"renders"},{"f":"03.jpg","t":"Estudo 3D — 03","c":"renders"},{"f":"07.jpg","t":"Estudo 3D — 07","c":"renders"},{"f":"10.jpg","t":"Estudo 3D — 10","c":"renders"},{"f":"arara_home_lux.jpg","t":"Arara home lux","c":"renders"},{"f":"cena_chav02.269.jpg","t":"Cena — ambientação 3D","c":"cenas"},{"f":"cena_velariseira06.238.jpg","t":"Cena — ambientação 3D","c":"cenas"},{"f":"copaamericafem_ks01.115.jpg","t":"Copaamericafem ks01","c":"renders"},{"f":"Desk.5.jpg","t":"Desk.5","c":"renders"},{"f":"dogimg1.jpg","t":"Cão — modelo 3D","c":"personagens"},{"f":"escultura_Gabriela_r01.225.jpg","t":"Escultura Gabriela","c":"personagens"},{"f":"escultura_Gabriela_r02.215.jpg","t":"Escultura Gabriela","c":"personagens"},{"f":"garrafacranio_ks_04.261.jpg","t":"Garrafa Crânio — design de produto","c":"objetos"},{"f":"Gemini_Generated_Image_kxhni9kxhni9kxhn (1).jpg","t":"Gemini Generated Image kxhni9kxhni9kxhn (1)","c":"renders"},{"f":"Gemini_Generated_Image_oakgu7oakgu7oakg.jpg","t":"Gemini Generated Image oakgu7oakgu7oakg","c":"renders"},{"f":"guerreira_remod01b.179.jpg","t":"Guerreira — personagem","c":"personagens"},{"f":"Imagem25ps1.jpg","t":"Imagem25ps1","c":"renders"},{"f":"Imagem8.jpg","t":"Imagem8","c":"renders"},{"f":"img_pomoyasmin01.jpg","t":"Img pomoyasmin01","c":"renders"},{"f":"img02.jpg","t":"Render — série de estudos","c":"renders"},{"f":"img03.147.jpg","t":"Render — série de estudos","c":"renders"},{"f":"img03.jpg","t":"Render — série de estudos","c":"renders"},{"f":"img04.151.jpg","t":"Render — série de estudos","c":"renders"},{"f":"img07.jpg","t":"Render — série de estudos","c":"renders"},{"f":"ks_img_01.259.jpg","t":"Render KeyShot — produto","c":"objetos"},{"f":"ks_img_02.254.jpg","t":"Render KeyShot — produto","c":"objetos"},{"f":"ks_img_03.255.jpg","t":"Render KeyShot — produto","c":"objetos"},{"f":"mesatrevo01.208.jpg","t":"Mesatrevo01","c":"renders"},{"f":"OK01.jpg","t":"OK01","c":"renders"},{"f":"PureRef_3Pb9og3Hfb.jpg","t":"PureRef 3Pb9og3Hfb","c":"renders"},{"f":"PureRef_B65Obmv2Hr.jpg","t":"PureRef B65Obmv2Hr","c":"renders"},{"f":"PureRef_l32im8utmw.png","t":"PureRef l32im8utmw","c":"renders"},{"f":"pux_sabia08.jpg","t":"Sabiá — ave esculpida em 3D","c":"personagens"},{"f":"pux_sabia15.jpg","t":"Sabiá — ave esculpida em 3D","c":"personagens"},{"f":"render_01.139.jpg","t":"Render 01","c":"renders"},{"f":"salatino03.265.jpg","t":"Salatino03","c":"renders"},{"f":"trabalhos_02-07 a 21-07_ACD_0.jpg","t":"Compilação de trabalhos","c":"renders"},{"f":"trabalhos_02-07 a 21-07_ACD_2.jpg","t":"Compilação de trabalhos","c":"renders"},{"f":"trofeu02_render05.jpg","t":"Trofeu02 render05","c":"renders"},{"f":"vazoimg04.246.jpg","t":"Vaso — design de produto","c":"objetos"},{"f":"zbr01.jpg","t":"Escultura digital em ZBrush","c":"escultura"},{"f":"ZBrush Document.jpg","t":"Escultura digital em ZBrush","c":"escultura"},{"f":"ZBrush Document01.jpg","t":"Escultura digital em ZBrush","c":"escultura"}];
+var G = [{"f":"01.jpg","t":"Escultura Figurativa: Menino com Coelho","c":"escultura","d":"Modelagem 3D: Escultura digital orgânica focada em detalhes anatômicos sutis, dobras de vestuário e texturização de pele/pelagem. Uso Final: Peça decorativa, colecionável ou estátua artística para impressão 3D em resina/PLA."},{"f":"02.jpg","t":"Escultura Ornamental: Arara em Galho","c":"escultura","d":"Modelagem 3D: Modelagem orgânica detalhada com alto relevo nas penas e textura naturalista na base de madeira. Uso Final: Elemento decorativo de alto padrão para ambientes internos, artigos de luxo ou matriz para fundição."},{"f":"03 (3).jpg","t":"Estudo 3D — 03 — variante 3","c":"renders","d":""},{"f":"03.jpg","t":"Chaveiro Institucional com Guindaste e Caçamba","c":"objetos","d":"Modelagem 3D: Modelagem técnica hard-surface com encaixe funcional para argola e tipografia gravada em relevo. Uso Final: Chaveiro promocional utilitário e brinde corporativo personalizado para a empresa Locsolo."},{"f":"04.jpg","t":"Troféu Oficial: Copa América Femenina","c":"objetos","d":"Modelagem 3D: Modelagem conceitual e de produto com superfícies de revolução, relevos geométricos e base tipográfica. Uso Final: Troféu de premiação esportiva para eventos oficiais da CONMEBOL."},{"f":"05.jpg","t":"Placa/Emblema Decorativo: Carpas Yin-Yang","c":"objetos","d":"Modelagem 3D: Relevo técnico/artístico em plano com separação precisa de camadas para aplicação de cor contrastante. Uso Final: Placa decorativa de mesa, peso de papel ou elemento de identificação visual."},{"f":"06.jpg","t":"Matriz de Molde: Presilha de Buldogue Francês","c":"objetos","d":"Modelagem 3D: Design industrial combinado com escultura orgânica, incluindo a divisão da cavidade do molde, pinos de guia e mecanismo de clipe. Uso Final: Matriz/molde para injeção ou fundição de acessórios decorativos e funcionais."},{"f":"07.jpg","t":"Moldura Ornamental: Ramos e Borboletas","c":"escultura","d":"Modelagem 3D: Escultura orgânica entrelaçada com detalhes botânicos e anatômicos de insetos em malha fluida. Uso Final: Moldura decorativa para espelhos, quadros ou peças de joalheria/fundição de metal decorativo."},{"f":"08.jpg","t":"Case/Estojo Personalizado: Clube Salatino","c":"objetos","d":"Modelagem 3D: Modelagem mecânica de estojo bipartido com cavidade interna, encaixe de travamento e gravação vetorial na tampa. Uso Final: Case de proteção/transporte para pequenos objetos e cartões promocionais."},{"f":"09.jpg","t":"Garrafa de Vidro Texturizada com Caveira em Relevo","c":"objetos","d":"Modelagem 3D: Modelagem de embalagem (packaging) combinando superfície técnica de vidro com alto relevo orgânico na estrutura central. Uso Final: Embalagem de vidro exclusiva para bebidas premium (vodka, rum, destilados artesanais) ou item de colecionador."},{"f":"10.jpg","t":"Design de Interiores: Mesa de Centro Orgânica","c":"objetos","d":"Modelagem 3D: Modelagem de mobiliário contemporâneo com pés curvos bicolores, detalhes em metal e tampo de vidro temperado. Uso Final: Renderização arquitetônica fotorrealista e prototipagem de móvel autoral de alto padrão para salas de estar."},{"f":"arara_home_lux.jpg","t":"Arara home lux","c":"renders","d":""},{"f":"cena_chav02.269.jpg","t":"Cena — ambientação 3D","c":"cenas","d":""},{"f":"cena_velariseira06.238.jpg","t":"Cena — ambientação 3D","c":"cenas","d":""},{"f":"copaamericafem_ks01.115.jpg","t":"Copaamericafem ks01","c":"renders","d":""},{"f":"Desk.5.jpg","t":"Desk.5","c":"renders","d":""},{"f":"dogimg1.jpg","t":"Cão — modelo 3D","c":"personagens","d":""},{"f":"escultura_Gabriela_r01.225.jpg","t":"Escultura Gabriela","c":"personagens","d":""},{"f":"escultura_Gabriela_r02.215.jpg","t":"Escultura Gabriela","c":"personagens","d":""},{"f":"garrafacranio_ks_04.261.jpg","t":"Garrafa Crânio — design de produto","c":"objetos","d":""},{"f":"Gemini_Generated_Image_kxhni9kxhni9kxhn (1).jpg","t":"Gemini Generated Image kxhni9kxhni9kxhn (1)","c":"renders","d":""},{"f":"Gemini_Generated_Image_oakgu7oakgu7oakg.jpg","t":"Gemini Generated Image oakgu7oakgu7oakg","c":"renders","d":""},{"f":"guerreira_remod01b.179.jpg","t":"Guerreira — personagem","c":"personagens","d":""},{"f":"Imagem25ps1.jpg","t":"Imagem25ps1","c":"renders","d":""},{"f":"Imagem8.jpg","t":"Imagem8","c":"renders","d":""},{"f":"img_pomoyasmin01.jpg","t":"Img pomoyasmin01","c":"renders","d":""},{"f":"img02.jpg","t":"Render — série de estudos","c":"renders","d":""},{"f":"img03.147.jpg","t":"Render — série de estudos","c":"renders","d":""},{"f":"img03.jpg","t":"Render — série de estudos","c":"renders","d":""},{"f":"img04.151.jpg","t":"Render — série de estudos","c":"renders","d":""},{"f":"img07.jpg","t":"Render — série de estudos","c":"renders","d":""},{"f":"ks_img_01.259.jpg","t":"Render KeyShot — produto","c":"objetos","d":""},{"f":"ks_img_02.254.jpg","t":"Render KeyShot — produto","c":"objetos","d":""},{"f":"ks_img_03.255.jpg","t":"Render KeyShot — produto","c":"objetos","d":""},{"f":"mesatrevo01.208.jpg","t":"Mesatrevo01","c":"renders","d":""},{"f":"OK01.jpg","t":"OK01","c":"renders","d":""},{"f":"PureRef_3Pb9og3Hfb.jpg","t":"PureRef 3Pb9og3Hfb","c":"renders","d":""},{"f":"PureRef_B65Obmv2Hr.jpg","t":"PureRef B65Obmv2Hr","c":"renders","d":""},{"f":"PureRef_l32im8utmw.png","t":"PureRef l32im8utmw","c":"renders","d":""},{"f":"pux_sabia08.jpg","t":"Sabiá — ave esculpida em 3D","c":"personagens","d":""},{"f":"pux_sabia15.jpg","t":"Sabiá — ave esculpida em 3D","c":"personagens","d":""},{"f":"render_01.139.jpg","t":"Render 01","c":"renders","d":""},{"f":"salatino03.265.jpg","t":"Salatino03","c":"renders","d":""},{"f":"trabalhos_02-07 a 21-07_ACD_0.jpg","t":"Compilação de trabalhos","c":"renders","d":""},{"f":"trabalhos_02-07 a 21-07_ACD_2.jpg","t":"Compilação de trabalhos","c":"renders","d":""},{"f":"trofeu02_render05.jpg","t":"Trofeu02 render05","c":"renders","d":""},{"f":"vazoimg04.246.jpg","t":"Vaso — design de produto","c":"objetos","d":""},{"f":"zbr01.jpg","t":"Escultura digital em ZBrush","c":"escultura","d":""},{"f":"ZBrush Document.jpg","t":"Escultura digital em ZBrush","c":"escultura","d":""},{"f":"ZBrush Document01.jpg","t":"Escultura digital em ZBrush","c":"escultura","d":""}];
 (function () {
   'use strict';
   var grid = document.getElementById('grid');
@@ -499,6 +555,7 @@ var G = [{"f":"02.jpg","t":"Estudo 3D — 02","c":"renders"},{"f":"03 (3).jpg","
   var lb = document.getElementById('lb');
   var lbImg = document.getElementById('lbImg');
   var lbCap = document.getElementById('lbCap');
+  var lbDesc = document.getElementById('lbDesc');
   var lbCnt = document.getElementById('lbCnt');
   var countEl = document.getElementById('count');
   var vis = [];
@@ -516,6 +573,7 @@ var G = [{"f":"02.jpg","t":"Estudo 3D — 02","c":"renders"},{"f":"03 (3).jpg","
     lbImg.src = thumb ? thumb.src : '';
     lbImg.alt = it.t;
     lbCap.textContent = it.t;
+    if (lbDesc) lbDesc.textContent = it.d || '';
     lbCnt.textContent = (posInVis(cur) + 1) + ' / ' + vis.length;
   }
   function openLb(i) {

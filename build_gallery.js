@@ -28,6 +28,21 @@ const CHIP = {
   escultura: 'ZBrush',
   renders: 'Render'
 };
+// Metadados personalizados (título, categoria, descrição) para imagens específicas
+const META = {
+  '01.jpg': { t: 'Escultura Figurativa: Menino com Coelho', c: 'escultura', d: 'Modelagem 3D: Escultura digital orgânica focada em detalhes anatômicos sutis, dobras de vestuário e texturização de pele/pelagem. Uso Final: Peça decorativa, colecionável ou estátua artística para impressão 3D em resina/PLA.' },
+  '02.jpg': { t: 'Escultura Ornamental: Arara em Galho', c: 'escultura', d: 'Modelagem 3D: Modelagem orgânica detalhada com alto relevo nas penas e textura naturalista na base de madeira. Uso Final: Elemento decorativo de alto padrão para ambientes internos, artigos de luxo ou matriz para fundição.' },
+  '03.jpg': { t: 'Chaveiro Institucional com Guindaste e Caçamba', c: 'objetos', d: 'Modelagem 3D: Modelagem técnica hard-surface com encaixe funcional para argola e tipografia gravada em relevo. Uso Final: Chaveiro promocional utilitário e brinde corporativo personalizado para a empresa Locsolo.' },
+  '04.jpg': { t: 'Troféu Oficial: Copa América Femenina', c: 'objetos', d: 'Modelagem 3D: Modelagem conceitual e de produto com superfícies de revolução, relevos geométricos e base tipográfica. Uso Final: Troféu de premiação esportiva para eventos oficiais da CONMEBOL.' },
+  '05.jpg': { t: 'Placa/Emblema Decorativo: Carpas Yin-Yang', c: 'objetos', d: 'Modelagem 3D: Relevo técnico/artístico em plano com separação precisa de camadas para aplicação de cor contrastante. Uso Final: Placa decorativa de mesa, peso de papel ou elemento de identificação visual.' },
+  '06.jpg': { t: 'Matriz de Molde: Presilha de Buldogue Francês', c: 'objetos', d: 'Modelagem 3D: Design industrial combinado com escultura orgânica, incluindo a divisão da cavidade do molde, pinos de guia e mecanismo de clipe. Uso Final: Matriz/molde para injeção ou fundição de acessórios decorativos e funcionais.' },
+  '07.jpg': { t: 'Moldura Ornamental: Ramos e Borboletas', c: 'escultura', d: 'Modelagem 3D: Escultura orgânica entrelaçada com detalhes botânicos e anatômicos de insetos em malha fluida. Uso Final: Moldura decorativa para espelhos, quadros ou peças de joalheria/fundição de metal decorativo.' },
+  '08.jpg': { t: 'Case/Estojo Personalizado: Clube Salatino', c: 'objetos', d: 'Modelagem 3D: Modelagem mecânica de estojo bipartido com cavidade interna, encaixe de travamento e gravação vetorial na tampa. Uso Final: Case de proteção/transporte para pequenos objetos e cartões promocionais.' },
+  '09.jpg': { t: 'Garrafa de Vidro Texturizada com Caveira em Relevo', c: 'objetos', d: 'Modelagem 3D: Modelagem de embalagem (packaging) combinando superfície técnica de vidro com alto relevo orgânico na estrutura central. Uso Final: Embalagem de vidro exclusiva para bebidas premium (vodka, rum, destilados artesanais) ou item de colecionador.' },
+  '10.jpg': { t: 'Design de Interiores: Mesa de Centro Orgânica', c: 'objetos', d: 'Modelagem 3D: Modelagem de mobiliário contemporâneo com pés curvos bicolores, detalhes em metal e tampo de vidro temperado. Uso Final: Renderização arquitetônica fotorrealista e prototipagem de móvel autoral de alto padrão para salas de estar.' }
+};
+
+
 
 // Remove extensão, número de frame (".268") e marcador ".bip"
 function cleanBase(file) {
@@ -59,7 +74,8 @@ const TITLE_RULES = [
   [/^[0-9a-f]{8}-[0-9a-f]{4}/i, 'Trabalho 3D']
 ];
 
-function titleFor(base) {
+function titleFor(base, file) {
+  if (file && META[file] && META[file].t) return META[file].t;
   for (let i = 0; i < TITLE_RULES.length; i++) {
     if (TITLE_RULES[i][0].test(base)) return TITLE_RULES[i][1];
   }
@@ -72,7 +88,8 @@ function titleFor(base) {
   return pretty.charAt(0).toUpperCase() + pretty.slice(1);
 }
 
-function catFor(base) {
+function catFor(base, file) {
+  if (file && META[file] && META[file].c) return META[file].c;
   if (/^cena_|velariseira/i.test(base)) return 'cenas';
   if (/garrafacranio|^vazoimg|^ks_img/i.test(base)) return 'objetos';
   if (/hermes|fenix|pux_sabia|^dogimg|guerreira|gabriela/i.test(base)) return 'personagens';
@@ -92,7 +109,7 @@ if (!files.length) {
 
 const items = files.map(function (f) {
   const base = cleanBase(f);
-  return { f: f, t: titleFor(base), c: catFor(base) };
+  return { f: f, t: titleFor(base, f), c: catFor(base, f), d: (META[f] && META[f].d) || '' };
 });
 
 const esc = function (s) {
@@ -103,12 +120,13 @@ const esc = function (s) {
 const imgUrl = function (f) { return 'imagens/' + encodeURIComponent(f); };
 
 const figures = items.map(function (it, i) {
+  const descHtml = it.d ? '\n            <span class="card-desc">' + esc(it.d) + '</span>' : '';
   return '          <figure class="card" data-cat="' + it.c + '">\n' +
     '            <button class="thumb" type="button" data-i="' + i + '" aria-label="Ampliar: ' + esc(it.t) + '">\n' +
     '              <img src="' + imgUrl(it.f) + '" alt="' + esc(it.t) + '" loading="lazy" decoding="async">\n' +
     '              <span class="zoom" aria-hidden="true">+</span>\n' +
     '            </button>\n' +
-    '            <figcaption><span class="chip">' + CHIP[it.c] + '</span>' + esc(it.t) + '</figcaption>\n' +
+    '            <figcaption><span class="chip">' + CHIP[it.c] + '</span>' + esc(it.t) + descHtml + '</figcaption>\n' +
     '          </figure>';
 }).join('\n');
 
@@ -193,6 +211,7 @@ h2{font-size:1.8rem;font-weight:800;letter-spacing:1px;margin-bottom:6px}
 .zoom{position:absolute;right:10px;top:10px;background:rgba(0,0,0,.55);color:#fff;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-weight:700;opacity:0;transition:opacity .18s}
 .card:hover .zoom,.thumb:focus-visible .zoom{opacity:1}
 .card figcaption{display:flex;align-items:center;gap:8px;padding:10px 12px;font-size:.86rem;color:var(--mut)}
+.card-desc{display:block;margin-top:6px;font-size:.8rem;color:var(--mut);line-height:1.45}
 .chip{background:#232939;color:var(--acc2);font-size:.68rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:2px 8px;border-radius:999px;white-space:nowrap}
 .about p{color:var(--mut);max-width:780px}
 .contact{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px}
@@ -206,6 +225,8 @@ footer{border-top:1px solid var(--line);padding:26px 0;color:var(--mut);font-siz
 #lb button:hover{border-color:var(--acc)}
 #lbClose{position:absolute;top:16px;right:16px}
 #lbCap{position:absolute;top:24px;left:18px;right:74px;font-weight:600;text-shadow:0 1px 4px #000}
+#lbDesc{max-width:min(92vw,720px);margin:8px auto 0;padding:0 18px;color:var(--mut);font-size:.92rem;line-height:1.5;text-align:center;max-height:30vh;overflow:auto}
+
 :focus-visible{outline:2px solid var(--acc);outline-offset:2px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
 </style>
@@ -292,6 +313,7 @@ __FIGURES__
   <button id="lbClose" type="button" aria-label="Fechar (tecla Esc)">✕</button>
   <div id="lbCap"></div>
   <img id="lbImg" alt="">
+  <div id="lbDesc"></div>
   <div class="bar">
     <button id="lbPrev" type="button" aria-label="Imagem anterior (seta à esquerda)">‹</button>
     <span id="lbCnt"></span>
@@ -309,6 +331,7 @@ var G = "__DATA__";
   var lb = document.getElementById('lb');
   var lbImg = document.getElementById('lbImg');
   var lbCap = document.getElementById('lbCap');
+  var lbDesc = document.getElementById('lbDesc');
   var lbCnt = document.getElementById('lbCnt');
   var countEl = document.getElementById('count');
   var vis = [];
@@ -326,6 +349,7 @@ var G = "__DATA__";
     lbImg.src = thumb ? thumb.src : '';
     lbImg.alt = it.t;
     lbCap.textContent = it.t;
+    if (lbDesc) lbDesc.textContent = it.d || '';
     lbCnt.textContent = (posInVis(cur) + 1) + ' / ' + vis.length;
   }
   function openLb(i) {
