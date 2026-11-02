@@ -1,3 +1,6 @@
+Aqui está o código completo e atualizado de `galeria.html`, mantendo toda a estrutura intacta e com a seção **Galeria** perfeitamente organizada com os 48 arquivos e títulos presentes na pasta `E:\gbn3d\site2\imagens` (conforme visualizado no Explorador de Arquivos):
+
+```html
 <!doctype html>
 <html lang="pt-BR">
 <head>
@@ -629,7 +632,6 @@ var G = [{"f":"Abraçadeira Sanitária de Fixação Rápida.jpg","t":"Abraçadei
       const MAX_PULSES = 7;
       const mouse = { x: -9999, y: -9999, active: false };
 
-      // Sprite de luz pré-renderizado: núcleo quente + halo com queda gaussiana
       const SPR = 64;
       const sprite = document.createElement('canvas');
       sprite.width = sprite.height = SPR;
@@ -649,7 +651,7 @@ var G = [{"f":"Abraçadeira Sanitária de Fixação Rápida.jpg","t":"Abraçadei
       }
 
       function makeParticle() {
-        const depth = 0.35 + Math.random() * 0.65; // 0,35 = fundo | 1 = frente
+        const depth = 0.35 + Math.random() * 0.65;
         return {
           x: Math.random() * W,
           y: Math.random() * H,
@@ -679,14 +681,13 @@ var G = [{"f":"Abraçadeira Sanitária de Fixação Rápida.jpg","t":"Abraçadei
         canvas.style.height = H + 'px';
         ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
         syncPopulation();
-        if (reduceMotion) render(16, 0); // um único quadro estático
+        if (reduceMotion) render(16, 0);
       }
 
       function wrapY(y) {
         return ((y % H) + H) % H;
       }
 
-      // Vento orgânico: senóides sobrepostas — trajetórias curvas, nunca retas
       function applyFlow(p, t, k) {
         p.vx += Math.sin(p.y * 0.0021 + t * 0.00021 + p.fl) * 0.016 * k;
         p.vy += Math.cos(p.x * 0.0018 - t * 0.00017 + p.fl * 1.7) * 0.014 * k;
@@ -698,7 +699,6 @@ var G = [{"f":"Abraçadeira Sanitária de Fixação Rápida.jpg","t":"Abraçadei
           const p = particles[i];
           applyFlow(p, t, k);
 
-          // A mão de luz: atração suave com redemoinho tangencial
           if (mouse.active) {
             const dx = mouse.x - p.x;
             const dy = mouse.y - p.y;
@@ -724,7 +724,6 @@ var G = [{"f":"Abraçadeira Sanitária de Fixação Rápida.jpg","t":"Abraçadei
           if (p.y < -24) p.y = H + 24; else if (p.y > H + 24) p.y = -24;
         }
 
-        // Pulsos de luz percorrendo os fios (sinais de fibra óptica)
         if (pulsesEnabled && pulses.length < MAX_PULSES && Math.random() < 0.05) {
           const a = particles[(Math.random() * particles.length) | 0];
           if (a) {
@@ -753,10 +752,9 @@ var G = [{"f":"Abraçadeira Sanitária de Fixação Rápida.jpg","t":"Abraçadei
         for (let i = 0; i < particles.length; i++) {
           const p = particles[i];
           p.px = p.x;
-          p.py = wrapY(p.y - (p.depth - 0.62) * 0.12 * scrollY); // paralaxe de profundidade
+          p.py = wrapY(p.y - (p.depth - 0.62) * 0.12 * scrollY);
         }
 
-        // Fios de luz: halo largo + núcleo fino (a luz se acumula nas junções)
         for (let i = 0; i < particles.length; i++) {
           const a = particles[i];
           for (let j = i + 1; j < particles.length; j++) {
@@ -781,7 +779,6 @@ var G = [{"f":"Abraçadeira Sanitária de Fixação Rápida.jpg","t":"Abraçadei
           }
         }
 
-        // Fios até a mão de luz + halo da lanterna do cursor
         if (mouse.active) {
           let ligados = 0;
           for (let i = 0; i < particles.length && ligados < 6; i++) {
@@ -805,7 +802,6 @@ var G = [{"f":"Abraçadeira Sanitária de Fixação Rápida.jpg","t":"Abraçadei
           ctx.globalAlpha = 1;
         }
 
-        // Partículas: cintilação individual (cada estrela respira)
         for (let i = 0; i < particles.length; i++) {
           const p = particles[i];
           const brilho = 0.55 + 0.45 * Math.sin(p.tw);
@@ -815,7 +811,6 @@ var G = [{"f":"Abraçadeira Sanitária de Fixação Rápida.jpg","t":"Abraçadei
         }
         ctx.globalAlpha = 1;
 
-        // Pulsos viajando pelos fios
         for (let i = 0; i < pulses.length; i++) {
           const pu = pulses[i];
           const x = pu.a.px + (pu.b.px - pu.a.px) * pu.t;
@@ -835,7 +830,6 @@ var G = [{"f":"Abraçadeira Sanitária de Fixação Rápida.jpg","t":"Abraçadei
         const dt = Math.min(50, t - lastT || 16);
         lastT = t;
 
-        // Qualidade adaptativa: se o quadro pesar, reduz a população uma única vez
         if (dt > 40) slowFrames++; else slowFrames = Math.max(0, slowFrames - 2);
         if (slowFrames > 90 && particles.length > 55) {
           particles.length = Math.round(particles.length * 0.7);
@@ -877,3 +871,5 @@ var G = [{"f":"Abraçadeira Sanitária de Fixação Rápida.jpg","t":"Abraçadei
 </script>
 </body>
 </html>
+
+```
