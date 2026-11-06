@@ -2066,9 +2066,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
 
         <div class="form-group form-group-full">
-          <label for="piAnexos">Anexar imagens (até 4, máx. 2 MB cada)</label>
+          <label for="piAnexos">Anexar imagens (até 4, máx. 2 MB cada e 4 MB no total)</label>
           <input type="file" id="piAnexos" name="attachment" accept="image/*" multiple>
-          <p class="submit-hint" style="margin-top:6px;">Formatos de imagem. Total recomendado até 4,5 MB por envio.</p>
+          <p class="submit-hint" id="piAnexosHint" style="margin-top:6px;" aria-live="polite">Limite para evitar erro no envio: 4 imagens, 2 MB cada e 4 MB no total.</p>
         </div>
 
         <button type="submit" class="btn-submit-3d" id="btnSubmitProject">
@@ -2766,10 +2766,40 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <script>
 (function () {
   const fileInput = document.getElementById('piAnexos');
-  if (!fileInput) return;
+  const uploadHint = document.getElementById('piAnexosHint');
+  if (!fileInput || !uploadHint) return;
+
+  const defaultHint = uploadHint.textContent;
+  const maxFileSize = 2 * 1024 * 1024;
+  const maxTotalSize = 4 * 1024 * 1024;
 
   // Garante que o seletor de arquivos sempre abra (Android)
-  fileInput.addEventListener('click', function () { this.value = ''; });
+  fileInput.addEventListener('click', function () {
+    this.value = '';
+    this.setCustomValidity('');
+    uploadHint.textContent = defaultHint;
+    uploadHint.style.color = '';
+  });
+
+  fileInput.addEventListener('change', function () {
+    const files = Array.from(this.files);
+    const totalSize = files.reduce((total, file) => total + file.size, 0);
+    let error = '';
+
+    if (files.length > 4) {
+      error = 'Selecione no máximo 4 imagens.';
+    } else if (files.some(file => file.size > maxFileSize)) {
+      error = 'Cada imagem deve ter no máximo 2 MB.';
+    } else if (totalSize > maxTotalSize) {
+      error = 'O tamanho total das imagens deve ser de no máximo 4 MB.';
+    }
+
+    this.setCustomValidity(error);
+    uploadHint.textContent = error || defaultHint;
+    uploadHint.style.color = error ? '#FB6762' : '';
+
+    if (error) this.reportValidity();
+  });
 })();
 </script>
 </body></html>
