@@ -2765,75 +2765,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </script>
 <script>
 (function () {
-  const form = document.getElementById('projectForm');
   const fileInput = document.getElementById('piAnexos');
-  const btnSubmit = document.getElementById('btnSubmitProject');
-  const btnLabel = document.getElementById('btnLabel');
-  if (!form || !fileInput || !btnSubmit || !btnLabel) return;
+  if (!fileInput) return;
 
   // Garante que o seletor de arquivos sempre abra (Android)
   fileInput.addEventListener('click', function () { this.value = ''; });
-
-  // Cria elemento de feedback visual (sem alterar CSS existente)
-  let feedbackEl = document.getElementById('formFeedback');
-  if (!feedbackEl) {
-    feedbackEl = document.createElement('p');
-    feedbackEl.id = 'formFeedback';
-    feedbackEl.className = 'submit-hint';
-    feedbackEl.style.marginTop = '10px';
-    form.appendChild(feedbackEl);
-  }
-
-  function showFeedback(message, type) {
-    feedbackEl.textContent = message;
-    feedbackEl.className = 'submit-hint';
-    if (type === 'success') feedbackEl.style.color = '#54A468';
-    else if (type === 'error') feedbackEl.style.color = '#FB6762';
-    else feedbackEl.style.color = '';
-  }
-
-  form.addEventListener('submit', async function (e) {
-    e.preventDefault();
-
-    const files = fileInput.files;
-    if (files.length > 4) {
-      showFeedback('Selecione no máximo 4 imagens.', 'error');
-      return;
-    }
-    for (let i = 0; i < files.length; i++) {
-      if (files[i].size > 2 * 1024 * 1024) {
-        showFeedback('Cada imagem deve ter no máximo 2 MB.', 'error');
-        return;
-      }
-    }
-
-    // Feedback visual de envio
-    const originalLabel = btnLabel.textContent;
-    btnLabel.textContent = 'Enviando...';
-    btnSubmit.disabled = true;
-    showFeedback('Enviando sua mensagem, aguarde...', '');
-
-    try {
-      const formData = new FormData(form);
-      const response = await fetch(form.action, {
-        method: 'POST',
-        body: formData,
-      });
-
-      if (response.ok) {
-        showFeedback('Mensagem enviada com sucesso! Entraremos em contato em breve.', 'success');
-        form.reset();
-        if (fileInput) fileInput.value = '';
-      } else {
-        throw new Error('Erro ' + response.status + ': ' + response.statusText);
-      }
-    } catch (err) {
-      showFeedback('Erro ao enviar: ' + err.message, 'error');
-    } finally {
-      btnLabel.textContent = originalLabel;
-      btnSubmit.disabled = false;
-    }
-  });
 })();
 </script>
 </body></html>
