@@ -2802,4 +2802,145 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   });
 })();
 </script>
+<script>
+  // Form submission handler with success screen
+  (function() {
+    const form = document.getElementById('projectForm');
+    const formCard = document.getElementById('projectFormCard');
+    const successScreen = document.getElementById('formSuccessScreen');
+    
+    if (!form) return;
+    
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Gather form data
+      const formData = new FormData(form);
+      
+      // Submit via fetch to FormSubmit
+      fetch(form.getAttribute('action'), {
+        method: form.getAttribute('method'),
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => {
+        if (response.ok) {
+          // Show success screen
+          if (!successScreen) {
+            // Create success screen
+            successScreen = document.createElement('div');
+            successScreen.id = 'formSuccessScreen';
+            successScreen.innerHTML = `
+              <div class="success-overlay">
+                <div class="success-content">
+                  <img src="imgform/thanks.jpg" alt="Obrigado" class="success-image">
+                  <h2>Obrigado pelo contato!</h2>
+                  <p>Entramos em contato em breve para conversarmos sobre o seu projeto.</p>
+                  <button class="btn-voltar" id="btnVoltar">Voltar ao Site</button>
+                </div>
+              </div>
+            `;
+            // Style the success screen
+            const style = document.createElement('style');
+            style.textContent = `
+              .success-overlay {
+                position: fixed;
+                top: 0; left: 0; right: 0; bottom: 0;
+                background: rgba(0,0,0,0.8);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 9999;
+                backdrop-filter: blur(4px);
+              }
+              .success-content {
+                background: var(--panel);
+                padding: 40px;
+                border-radius: 14px;
+                text-align: center;
+                position: relative;
+                max-width: 500px;
+                width: 90%;
+              }
+              .success-image {
+                width: 150px;
+                height: 150px;
+                object-fit: cover;
+                border-radius: 50%;
+                margin: 0 auto 24px;
+                border: 4px solid var(--acc);
+              }
+              .success-content h2 {
+                color: var(--mut);
+                font-size: 1.8rem;
+                margin-bottom: 12px;
+              }
+              .success-content p {
+                color: var(--mut);
+                font-size: 1rem;
+                margin-bottom: 32px;
+              }
+              .btn-voltar {
+                background: var(--acc);
+                color: #fff;
+                border: none;
+                padding: 12px 24px;
+                border-radius: 4px;
+                font-size: 0.9rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 1.5px;
+                cursor: pointer;
+                transition: background 0.3s;
+              }
+              .btn-voltar:hover {
+                background: var(--mut);
+              }
+            `;
+            document.head.appendChild(style);
+            document.body.appendChild(successScreen);
+          }
+          
+          // Hide form card and show success screen
+          formCard.style.display = 'none';
+          successScreen.style.display = 'flex';
+          
+          // Handle "Voltar ao Site" button
+          const btnVoltar = successScreen.querySelector('#btnVoltar');
+          if (btnVoltar) {
+            btnVoltar.onclick = function() {
+              successScreen.style.display = 'none';
+              formCard.style.display = 'block';
+              form.reset();
+              // Optional: reload page or redirect
+              // window.location.href = 'index.html';
+            };
+          }
+          
+          // Also handle Esc key to close
+          document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && successScreen.style.display === 'flex') {
+              successScreen.style.display = 'none';
+              formCard.style.display = 'block';
+              form.reset();
+            }
+          });
+          
+          // Remove any existing error messages
+          const existingError = document.querySelector('.form-error');
+          if (existingError) existingError.remove();
+          
+        } else {
+          // Show error
+          console.error('Form submission failed');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+    });
+  })();
+</script>
 </body></html>
