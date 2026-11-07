@@ -1,1 +1,2963 @@
 ﻿
+<!DOCTYPE html>
+<html lang="pt-BR"><head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-P3WLP2FN');</script>
+<!-- End Google Tag Manager -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GBN3D | Glauber Barbarrossa</title>
+  <meta name="description" content="GBN3D — Glauber Barbarrossa: modelagem e escultura 3D, personagens, objetos e emblemas. Portfólio de trabalhos em modelagem 3D.">
+  <link rel="icon" type="image/png" href="logo/logocircularpng2.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+  <link href="./index_files/css2.css" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    html {
+      background-color: #0d0d0d;
+    }
+
+    body {
+      color: #ffffff;
+      line-height: 1.5;
+      padding: 0 4%;
+    }
+
+    /* Constelação luminosa — luz atrás do conteúdo */
+    .luz-canvas {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      opacity: 0.9;
+    }
+
+    /* Header reestruturado */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid #1a1a1a;
+    }
+
+    .brand-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .brand-logo {
+      width: 70px;
+      height: 70px;
+      object-fit: contain;
+      background-color: #000000;
+      padding: 4px;
+      border-radius: 4px;
+    }
+
+    .brand-name {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: #ffffff;
+      text-transform: uppercase;
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: #a0a0a0;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      transition: color 0.3s;
+    }
+
+    nav a:hover, nav a.active {
+      color: #ffffff;
+    }
+
+    /* Hero Section ajustado */
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      padding: 4rem 0 3rem 0;
+      gap: 3rem;
+    }
+
+    .hero-text h1 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.5px;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      color: #ffffff;
+    }
+
+    .hero-text h1 span {
+      color: #888888;
+      font-weight: 700;
+    }
+
+    .btn-explore {
+      display: inline-block;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border-bottom: 2px solid #ffffff;
+      padding-bottom: 4px;
+    }
+
+    .hero-image {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: transparent; /* transparente para a constelação luminosa aparecer através do slide */
+    }
+
+    .hero-slides,
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+    }
+
+    .hero-slide {
+      opacity: 0;
+      transition: opacity 0.9s ease;
+    }
+
+    .hero-slide.is-active {
+      opacity: 1;
+    }
+
+    .hero-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      opacity: 0.5; /* 50% transparente — a constelação luminosa atravessa o slide */
+    }
+
+    .hero-video-bg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+      border: none;
+      outline: none;
+      border-radius: 0;
+      opacity: 0.5;
+    }
+
+    .hero-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 38px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.45);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 50%;
+      font-size: 1rem;
+      line-height: 1;
+      cursor: pointer;
+      z-index: 2;
+      transition: background 0.3s, border-color 0.3s;
+    }
+
+    .hero-nav:hover {
+      background: rgba(0, 0, 0, 0.75);
+      border-color: #ffffff;
+    }
+
+    .hero-prev { left: 12px; }
+    .hero-next { right: 12px; }
+
+    .hero-dots {
+      position: absolute;
+      bottom: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      z-index: 2;
+    }
+
+    .hero-dot {
+      width: 9px;
+      height: 9px;
+      padding: 0;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      background: transparent;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .hero-dot.is-active {
+      background: #ffffff;
+      transform: scale(1.15);
+    }
+
+    /* Galeria & Filtros */
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 3rem 0 1.5rem 0;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .filter-buttons {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .filter-btn {
+      background: #141414;
+      border: 1px solid #222;
+      color: #888;
+      padding: 0.5rem 1.2rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      background: #ffffff;
+      color: #000000;
+      border-color: #ffffff;
+    }
+
+    .folder-loader-box {
+      background: #111111;
+      border: 1px dashed #262626;
+      padding: 0.8rem 1.2rem;
+      border-radius: 6px;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .folder-loader-box p {
+      font-size: 0.8rem;
+      color: #777777;
+    }
+
+    .folder-loader-box code {
+      color: #e5a93c;
+    }
+
+    .folder-loader-box input {
+      display: none;
+    }
+
+    .folder-btn {
+      background: #1f1f1f;
+      color: #fff;
+      border: 1px solid #333;
+      padding: 0.4rem 0.8rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .card {
+      background-color: #141414;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid #1f1f1f;
+      cursor: pointer;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: #333333;
+    }
+
+    .card-img-wrapper {
+      position: relative;
+      width: 100%;
+      height: 220px;
+      background-color: #1a1a1a;
+      overflow: hidden;
+    }
+
+    /* Numeração progressiva do portfólio */
+    .card-num {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 2;
+      background: rgba(0, 0, 0, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 3px 8px;
+      border-radius: 3px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Thumbnails em Tons de Cinza (Preto e Branco com Contraste) */
+    .card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(100%) contrast(110%) brightness(95%);
+      transition: filter 0.3s ease, transform 0.3s ease;
+    }
+
+    /* Ao passar o mouse, a imagem volta à cor original */
+    .card:hover .card-img {
+      filter: grayscale(0%) contrast(100%) brightness(100%);
+      transform: scale(1.03);
+    }
+
+    .card-info {
+      padding: 0.8rem;
+    }
+
+    .card-category {
+      font-size: 0.65rem;
+      color: #666;
+      text-transform: uppercase;
+    }
+
+    .card-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .card-desc {
+      font-size: 0.72rem;
+      color: #777;
+      line-height: 1.55;
+      margin-top: 0.4rem;
+    }
+
+    .portfolio-sub {
+      color: #777;
+      font-size: 0.82rem;
+      letter-spacing: 0.3px;
+      margin: 0 0 1.4rem;
+    }
+
+    .lightbox-desc {
+      font-size: 0.78rem;
+      color: #999;
+      max-width: 62ch;
+      margin: 0.4rem auto 0;
+    }
+
+    /* Lightbox Modal */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox-content {
+      max-width: 85%;
+      max-height: 80vh;
+      border-radius: 6px;
+      object-fit: contain;
+    }
+
+    .lightbox-caption {
+      margin-top: 1rem;
+      text-align: center;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 2rem;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      width: 95%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+
+    .lightbox-btn {
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      padding: 0.8rem 1.2rem;
+      border-radius: 50%;
+      cursor: pointer;
+      pointer-events: auto;
+    }
+
+    /* About Section — cartão suspenso */
+    .about {
+      position: relative;
+      display: flex;
+      gap: 2.5rem;
+      align-items: center;
+      margin: 5rem 0;
+      padding: 3rem;
+      background: linear-gradient(160deg, #161616 0%, #111111 55%, #0e0e0e 100%);
+      border-radius: 14px;
+      border: 1px solid #222222;
+      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.55), 0 0 40px rgba(255, 255, 255, 0.03);
+      transform-style: preserve-3d;
+      transition: transform 0.15s ease-out, box-shadow 0.4s ease, border-color 0.4s ease;
+    }
+
+    .about:hover {
+      transform: translateY(-6px);
+      border-color: #333333;
+      box-shadow: 0 34px 70px rgba(0, 0, 0, 0.7), 0 0 55px rgba(255, 255, 255, 0.06);
+    }
+
+    .about-avatar {
+      width: clamp(200px, 26vw, 300px);
+      height: auto;
+      aspect-ratio: 3 / 4;
+      border-radius: 12px;
+      object-fit: cover;
+      border: 1px solid #2f2f2f;
+      flex-shrink: 0;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
+      transition: border-color 0.4s ease, transform 0.4s ease;
+    }
+
+    .about:hover .about-avatar {
+      border-color: #4a4a4a;
+      transform: scale(1.015);
+    }
+
+    .about-kicker {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #ffffff;
+      margin-bottom: 1.4rem;
+    }
+
+    .about-kicker::before {
+      content: '';
+      height: 1px;
+      width: 44px;
+      background: linear-gradient(90deg, transparent, #555555);
+    }
+
+    .about-text {
+      font-size: 1.12rem;
+      line-height: 1.85;
+      color: #c4c4c4;
+      max-width: 74ch;
+      letter-spacing: 0.1px;
+    }
+
+    .about-text p + p {
+      margin-top: 1.15rem;
+    }
+
+    .about-text strong {
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    /* Redes sociais na seção Sobre */
+    .about-social {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1.6rem;
+    }
+
+    .about-social a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.1rem;
+      border: 1px solid #333333;
+      border-radius: 999px;
+      color: #c4c4c4;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+    }
+
+    .about-social a:hover {
+      background: #ffffff;
+      color: #000000;
+      border-color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    .about-social a svg {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+    }
+
+    .about-social-handle {
+      color: #8a8a8a;
+      font-weight: 600;
+      text-transform: none;
+      letter-spacing: 0.2px;
+    }
+
+    .about-social a:hover .about-social-handle {
+      color: #444444;
+    }
+
+    /* Generalista 3D */
+    .generalista {
+      margin: 4rem 0 2rem 0;
+      padding: 2.5rem;
+      background: rgba(17, 17, 17, 0.5); /* 50% transparente — a constelação atravessa a seção */
+      border-radius: 8px;
+      border: 1px solid rgba(31, 31, 31, 0.6);
+    }
+
+    .generalista .section-title {
+      margin-bottom: 1.5rem;
+    }
+
+    .gen-lead {
+      color: #aaa;
+      font-size: 1.1rem;
+      line-height: 1.75;
+      margin-bottom: 1rem;
+      max-width: 75ch;
+    }
+
+    .gen-subtitle {
+      font-size: 1.28rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #ffffff;
+      margin: 2rem 0 0.8rem 0;
+    }
+
+    .gen-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.2rem;
+      margin-top: 1.5rem;
+    }
+
+    .gen-card {
+      background-color: #141414;
+      border: 1px solid #1f1f1f;
+      border-radius: 6px;
+      padding: 1.4rem;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .gen-card:hover {
+      transform: translateY(-4px);
+      border-color: #333333;
+    }
+
+    .gen-card h4 {
+      font-size: 0.98rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.6rem;
+    }
+
+    .gen-card p {
+      font-size: 0.96rem;
+      color: #8d8d8d;
+      line-height: 1.75;
+    }
+
+    /* Slider da seção Generalista */
+    .gen-top {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.75fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .gen-media {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      border-radius: 8px;
+      overflow: hidden;
+      background: transparent; /* transparente — a constelação atravessa o slide */
+      border: 1px solid #1f1f1f;
+    }
+
+    .gen-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 1.6s ease-in-out;
+    }
+
+    .gen-slide.is-active {
+      opacity: 1;
+    }
+
+    .gen-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      opacity: 0.5; /* 50% transparente — como no hero */
+      filter: grayscale(100%) contrast(115%) brightness(92%);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      padding: 2.5rem 0;
+      border-top: 1px solid #1f1f1f;
+      font-size: 0.8rem;
+      color: #666;
+    }
+
+    .footer-links a {
+      color: #aaa;
+      text-decoration: none;
+      margin-right: 1.5rem;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+    }
+
+    @media (max-width: 768px) {
+      header { flex-direction: column; gap: 1rem; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-image { aspect-ratio: 16 / 9; }
+      .about { flex-direction: column; text-align: center; padding: 2rem 1.4rem; }
+      .about-avatar { width: 200px; }
+      .about-text { font-size: 1.04rem; }
+      .about-kicker { justify-content: center; }
+      .about-social { justify-content: center; }
+      .generalista { padding: 1.5rem; margin: 2.5rem 0 1rem 0; }
+      .gen-top { grid-template-columns: 1fr; gap: 1.5rem; }
+      .gen-media { aspect-ratio: 4 / 3; }
+    }
+
+    /* ===== SEÇÃO FORNEÇA INFORMAÇÕES SOBRE SEU PROJETO ===== */
+    .project-info-section {
+      margin: 5rem 0;
+      padding: 3rem 2rem;
+      background: #111111;
+      border-radius: 12px;
+      border: 1px solid #1f1f1f;
+      perspective: 1200px;
+    }
+
+    .project-form-card {
+      background: #141414;
+      border: 1px solid #222222;
+      border-radius: 10px;
+      padding: 2.5rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+      transform-style: flat;
+      transition: box-shadow 0.5s ease, border-color 0.5s ease;
+    }
+
+@media (hover: hover) {
+    .project-form-card:hover {
+      transform: rotateX(1.5deg) rotateY(-1.5deg) translateZ(10px);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 0 0 25px rgba(255, 255, 255, 0.05);
+      border-color: #333333;
+    }
+  }
+
+    .form-grid-2col {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .form-group-full {
+      grid-column: 1 / -1;
+    }
+
+    .form-group label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #a0a0a0;
+      transition: color 0.3s ease;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      background: #0d0d0d;
+      border: 1px solid #222222;
+      border-radius: 6px;
+      padding: 0.9rem 1rem;
+      color: #ffffff;
+      font-size: 1rem;
+      position: relative;
+      z-index: 3;
+      touch-action: manipulation;
+      -webkit-user-select: text;
+      user-select: text;
+      outline: none;
+      transition: border-color 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), background 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: #ffffff;
+      background: #111111;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.15), inset 0 1px 2px rgba(0, 0, 0, 0.8);
+      transform: none; /* evita quebra de foco em mobile (Android) */
+    }
+
+    .form-group input:focus + label,
+    .form-group textarea:focus + label {
+      color: #ffffff;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+
+    /* Garante que o input de arquivo seja clicável/tocável em mobile */
+    .form-group input[type="file"] {
+      width: 100%;
+      padding: 0.75rem;
+      cursor: pointer;
+      transform: none !important;
+    }
+
+
+    /* Área Surrealista de Upload 3D */
+    .upload-dropzone {
+      position: relative;
+      border: 2px dashed #333333;
+      border-radius: 8px;
+      padding: 2rem;
+      text-align: center;
+      background: radial-gradient(circle at center, #1a1a1a 0%, #0d0d0d 100%);
+      cursor: pointer;
+      transition: all 0.4s ease;
+      overflow: hidden;
+      transform-style: preserve-3d;
+    }
+
+    .upload-dropzone:hover {
+      border-color: #ffffff;
+      transform: translateZ(12px) scale(1.01);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 0 0 20px rgba(255, 255, 255, 0.1);
+    }
+
+    .upload-icon-3d {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+      display: inline-block;
+      transition: transform 0.5s ease;
+    }
+
+    .upload-dropzone:hover .upload-icon-3d {
+      transform: translateZ(20px) scale(1.2) rotate(-5deg);
+    }
+
+    .upload-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #ffffff;
+    }
+
+    .upload-sub {
+      font-size: 0.75rem;
+      color: #777777;
+      margin-top: 0.3rem;
+    }
+
+    .upload-dropzone input[type="file"] {
+      display: none;
+    }
+
+    /* Previsualização de Imagens com Efeito 3D Card */
+    .file-preview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+      gap: 0.8rem;
+      margin-top: 1rem;
+      perspective: 600px;
+    }
+
+    .file-preview-item {
+      position: relative;
+      aspect-ratio: 1;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid #333333;
+      background: #000;
+      transform-style: preserve-3d;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .file-preview-item:hover {
+      transform: rotateY(15deg) rotateX(10deg) translateZ(15px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
+      border-color: #ffffff;
+    }
+
+    .file-preview-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Botão Enviar com Elevação Tridimensional */
+    .btn-submit-3d {
+      width: 100%;
+      margin-top: 2rem;
+      padding: 1.2rem;
+      background: #ffffff;
+      color: #000000;
+      border: none;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      cursor: pointer;
+      position: relative;
+      box-shadow: 0 6px 0 #888888, 0 12px 20px rgba(0, 0, 0, 0.5);
+      transition: all 0.2s ease;
+    }
+
+    .btn-submit-3d:hover {
+      background: #f0f0f0;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 0 #888888, 0 16px 25px rgba(0, 0, 0, 0.6);
+    }
+
+    .btn-submit-3d:active {
+      transform: translateY(4px);
+      box-shadow: 0 2px 0 #888888, 0 4px 10px rgba(0, 0, 0, 0.4);
+    }
+
+    @media (max-width: 768px) {
+      .form-grid-2col {
+        grid-template-columns: 1fr;
+      }
+  .project-info-section::before { display: none; }
+  .project-info-section { overflow: visible; isolation: auto; }
+  /* Garante interação com formulário em mobile (Android) */
+  .project-form-card { touch-action: manipulation; }
+  .project-info-section { perspective: none; }
+  .project-form-card { transform: none !important; transform-style: flat; }
+  .project-form-card:hover { transform: none !important; }
+  .form-grid-2col, .form-group { transform-style: flat; }
+  .form-group input, .form-group textarea { transform: none !important; }
+  .form-group input:focus, .form-group textarea:focus { transform: none !important; }
+  .project-form-card, .form-group input, .form-group textarea, .form-group input[type="file"] { pointer-events: auto; touch-action: manipulation; }
+  .project-form-card::after { display: none; }
+  .project-info-section .doc-flight { display: none; }
+    }
+
+    /* ===== EFEITOS 3D SURREALISTAS — CAMADA DE APRIMORAMENTO ===== */
+    .project-info-section {
+      position: relative;
+      overflow: visible;
+      isolation: isolate;
+    }
+
+    .project-info-section > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Campo de partículas + nebulosa em profundidade */
+    .project-info-section::before {
+      content: '';
+      position: absolute;
+      inset: -40%;
+      z-index: 0;
+      background:
+        radial-gradient(1.5px 1.5px at 12% 22%, rgba(255, 255, 255, 0.5) 50%, transparent 51%),
+        radial-gradient(1px 1px at 34% 68%, rgba(255, 255, 255, 0.4) 50%, transparent 51%),
+        radial-gradient(1.5px 1.5px at 58% 34%, rgba(255, 255, 255, 0.35) 50%, transparent 51%),
+        radial-gradient(1px 1px at 76% 78%, rgba(255, 255, 255, 0.45) 50%, transparent 51%),
+        radial-gradient(1px 1px at 88% 16%, rgba(255, 255, 255, 0.4) 50%, transparent 51%),
+        radial-gradient(2px 2px at 45% 88%, rgba(255, 255, 255, 0.3) 50%, transparent 51%),
+        radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.06), transparent 40%),
+        radial-gradient(circle at 85% 20%, rgba(255, 255, 255, 0.05), transparent 45%);
+      animation: projectStarDrift 26s linear infinite alternate;
+      pointer-events: none;
+    }
+
+    @keyframes projectStarDrift {
+      from { transform: translate3d(0, 0, 0) rotate(0deg); }
+      to { transform: translate3d(2.5%, -2%, 0) rotate(1.2deg); }
+    }
+
+    /* Título com profundidade extrudada */
+    .project-section-title {
+      text-align: center;
+      font-size: clamp(1.25rem, 2.4vw, 1.9rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 0.6rem;
+      animation: projectTitleRise 0.9s cubic-bezier(0.23, 1, 0.32, 1) backwards;
+      text-shadow: 0 1px 0 #cfcfcf, 0 2px 0 #a8a8a8, 0 3px 0 #7d7d7d, 0 4px 0 #565656, 0 5px 0 #333333, 0 10px 22px rgba(0, 0, 0, 0.85);
+    }
+
+    @keyframes projectTitleRise {
+      from { opacity: 0; transform: perspective(900px) rotateX(35deg) translateZ(-60px); }
+      to { opacity: 1; transform: perspective(900px) rotateX(0deg) translateZ(0); }
+    }
+
+    .project-section-sub {
+      text-align: center;
+      color: #888888;
+      font-size: 0.85rem;
+      letter-spacing: 0.4px;
+      margin-bottom: 2.2rem;
+    }
+
+    /* Profundidade real dentro do cartão (a perspective da seção alcança os campos) */
+    .form-grid-2col,
+    .form-group {
+      transform-style: flat;
+    }
+
+    /* Tilt 3D dinâmico do cartão (variáveis alimentadas pelo cursor) */
+    .project-form-card {
+      transition: box-shadow 0.5s ease, border-color 0.5s ease;
+    }
+
+@media (hover: hover) {
+    .project-form-card:hover {
+      transform: rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) translateZ(18px);
+    }
+  }
+
+    /* Foco realça o rótulo acima do campo */
+    .form-group:focus-within label {
+      color: #ffffff;
+    }
+
+    /* Ícone do dropzone flutuando no espaço */
+    .upload-icon-3d {
+      animation: iconFloat 3.8s ease-in-out infinite;
+    }
+
+    @keyframes iconFloat {
+      0%, 100% { transform: translateY(0) translateZ(0); }
+      50% { transform: translateY(-5px) translateZ(12px); }
+    }
+
+    .upload-dropzone:hover .upload-icon-3d,
+    .upload-dropzone:focus-visible .upload-icon-3d,
+    .upload-dropzone.is-dragover .upload-icon-3d {
+      animation: none;
+    }
+
+    /* Estado de arraste: giro 3D + brilho */
+    .upload-dropzone.is-dragover {
+      border-style: solid;
+      border-color: #ffffff;
+      background: radial-gradient(circle at center, #232323 0%, #101010 100%);
+      transform: translateZ(22px) rotateX(7deg) scale(1.02);
+      box-shadow: 0 22px 45px rgba(0, 0, 0, 0.8), 0 0 34px rgba(255, 255, 255, 0.14);
+    }
+
+    .upload-dropzone.is-dragover .upload-icon-3d {
+      transform: translateZ(30px) scale(1.35) rotate(8deg);
+    }
+
+    /* Contador de imagens */
+    .upload-counter {
+      position: absolute;
+      top: 12px;
+      right: 14px;
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: #0d0d0d;
+      background: #ffffff;
+      padding: 3px 9px;
+      border-radius: 999px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+      transform: translateZ(6px);
+    }
+
+    .upload-counter.is-full {
+      background: #666666;
+      color: #ffffff;
+    }
+
+    /* Entrada escalonada das prévias em 3D */
+    .file-preview-item {
+      animation: previewPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+      animation-delay: calc(var(--i, 0) * 70ms);
+    }
+
+    @keyframes previewPop {
+      from { opacity: 0; transform: perspective(600px) rotateX(-28deg) translateZ(-40px) scale(0.8); }
+      to { opacity: 1; transform: none; }
+    }
+
+    /* Legenda com nome e tamanho ao passar o mouse */
+    .file-preview-meta {
+      position: absolute;
+      inset: auto 0 0 0;
+      padding: 4px 6px;
+      font-size: 0.58rem;
+      line-height: 1.35;
+      color: #ffffff;
+      background: rgba(0, 0, 0, 0.72);
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      word-break: break-all;
+    }
+
+    .file-preview-item:hover .file-preview-meta {
+      opacity: 1;
+    }
+
+    .file-preview-remove {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      width: 20px;
+      height: 20px;
+      line-height: 17px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.8);
+      color: #ffffff;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .file-preview-remove:hover {
+      background: #ffffff;
+      color: #000000;
+      transform: scale(1.15);
+    }
+
+    /* Contador de caracteres e validação */
+    .char-counter {
+      font-size: 0.68rem;
+      color: #666666;
+      text-align: right;
+      letter-spacing: 0.5px;
+    }
+
+    .form-group input.is-invalid,
+    .form-group textarea.is-invalid {
+      border-color: #e05252;
+      box-shadow: 0 0 12px rgba(224, 82, 82, 0.25), inset 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Brilho varrendo o botão */
+    .btn-submit-3d {
+      overflow: hidden;
+    }
+
+    .btn-submit-3d::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -80%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.9), transparent);
+      transform: skewX(-20deg);
+      transition: left 0.6s ease;
+    }
+
+    .btn-submit-3d:hover::after {
+      left: 130%;
+    }
+
+    .btn-submit-3d:disabled {
+      opacity: 0.7;
+      cursor: wait;
+    }
+
+    .submit-hint {
+      margin-top: 0.8rem;
+      font-size: 0.72rem;
+      color: #666666;
+      text-align: center;
+      letter-spacing: 0.3px;
+    }
+
+    /* Toast com flip 3D */
+    .form-toast {
+      position: fixed;
+      left: 50%;
+      bottom: 28px;
+      z-index: 2000;
+      max-width: min(90vw, 460px);
+      padding: 0.9rem 1.3rem;
+      background: #141414;
+      border: 1px solid #333333;
+      border-radius: 8px;
+      color: #ffffff;
+      font-size: 0.8rem;
+      letter-spacing: 0.3px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.75);
+      opacity: 0;
+      pointer-events: none;
+      transform: perspective(700px) rotateX(-70deg) translate(-50%, 40px);
+      transform-origin: top center;
+      transition: opacity 0.3s ease, transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .form-toast.is-visible {
+      opacity: 1;
+      transform: perspective(700px) rotateX(0deg) translate(-50%, 0);
+    }
+
+    .form-toast.is-error {
+      border-color: #e05252;
+      color: #ffb3b3;
+    }
+
+    @media (max-width: 768px) {
+      .project-info-section {
+        padding: 2rem 1.2rem;
+      }
+
+      .project-form-card {
+        padding: 1.6rem;
+      }
+
+      .project-section-title {
+        letter-spacing: 1.5px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .project-info-section::before,
+      .project-section-title,
+      .upload-icon-3d,
+      .file-preview-item {
+        animation: none !important;
+      }
+
+      .project-form-card:hover,
+      .upload-dropzone:hover,
+      .upload-dropzone.is-dragover,
+      .file-preview-item:hover {
+        transform: none;
+      }
+    }
+
+    /* Desativa efeitos 3D de hover em dispositivos touch (evita travamento/inputs inacessíveis) */
+    @media (hover: none) {
+      .project-form-card { transform: none !important; transform-style: flat; }
+      .project-form-card:hover { transform: none !important; }
+      .project-form-card::after { display: none; }
+      .form-grid-2col, .form-group { transform-style: flat; }
+      .project-info-section .doc-flight { display: none; }
+      .project-info-section { perspective: none; }
+  .project-info-section { overflow: visible; isolation: auto; }
+  .project-info-section::before { display: none; }
+  .luz-canvas { display: none; }
+  .project-form-card, .project-form-card * { transform: none !important; }
+    }
+
+
+    /* ===== PORTFÓLIO — SLIDE CENTRAL FUTURISTA ===== */
+    .pf-stage {
+      margin: 0 auto;
+      max-width: 1100px;
+      perspective: 1400px;
+    }
+
+    .pf-slider {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #0a0a0a;
+      border: 1px solid #262626;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7), 0 0 50px rgba(255, 255, 255, 0.05);
+      transform-style: preserve-3d;
+      transition: transform 0.2s ease-out;
+      cursor: zoom-in;
+      will-change: transform;
+    }
+
+    /* Brilho futurista varrendo a moldura */
+    .pf-slider::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      pointer-events: none;
+      background: linear-gradient(115deg, transparent 30%, rgba(255, 255, 255, 0.07) 48%, transparent 62%);
+      transform: translateX(-120%);
+      animation: pfSheen 7s ease-in-out infinite;
+    }
+
+    @keyframes pfSheen {
+      0%, 55% { transform: translateX(-120%); }
+      75%, 100% { transform: translateX(120%); }
+    }
+
+    /* Cantos estilo HUD */
+    .pf-slider::after {
+      content: '';
+      position: absolute;
+      inset: 12px;
+      z-index: 3;
+      pointer-events: none;
+      background:
+        linear-gradient(#ffffff, #ffffff) top left / 24px 1px,
+        linear-gradient(#ffffff, #ffffff) top left / 1px 24px,
+        linear-gradient(#ffffff, #ffffff) top right / 24px 1px,
+        linear-gradient(#ffffff, #ffffff) top right / 1px 24px,
+        linear-gradient(#ffffff, #ffffff) bottom left / 24px 1px,
+        linear-gradient(#ffffff, #ffffff) bottom left / 1px 24px,
+        linear-gradient(#ffffff, #ffffff) bottom right / 24px 1px,
+        linear-gradient(#ffffff, #ffffff) bottom right / 1px 24px;
+      background-repeat: no-repeat;
+      opacity: 0.35;
+    }
+
+    .pf-slides,
+    .pf-slide {
+      position: absolute;
+      inset: 0;
+    }
+
+    .pf-slide {
+      opacity: 0;
+      transform: scale(1.06);
+      transition: opacity 1.1s ease, transform 7s linear;
+      pointer-events: none;
+    }
+
+    .pf-slide.is-active {
+      opacity: 1;
+      transform: scale(1);
+      pointer-events: auto;
+    }
+
+    .pf-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      background: radial-gradient(circle at center, #101010 0%, #050505 100%);
+    }
+
+    /* Legenda em vidro */
+    .pf-caption {
+      position: absolute;
+      left: 18px;
+      bottom: 18px;
+      z-index: 4;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: rgba(10, 10, 10, 0.72);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .pf-caption-tag {
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: #ffffff;
+    }
+
+    .pf-caption-sep {
+      width: 1px;
+      height: 12px;
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    .pf-caption-view {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: #9a9a9a;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Setas de navegação */
+    .pf-nav {
+      position: absolute;
+      top: 50%;
+      z-index: 4;
+      transform: translateY(-50%);
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      background: rgba(10, 10, 10, 0.55);
+      color: #ffffff;
+      font-size: 1.05rem;
+      line-height: 1;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .pf-prev { left: 14px; }
+    .pf-next { right: 14px; }
+
+    .pf-nav:hover {
+      background: #ffffff;
+      color: #000000;
+      border-color: #ffffff;
+      transform: translateY(-50%) scale(1.08);
+    }
+
+    /* Barra de progresso do ciclo automático */
+    .pf-progress {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 3px;
+      background: rgba(255, 255, 255, 0.08);
+      z-index: 4;
+    }
+
+    .pf-progress span {
+      display: block;
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, #555555, #ffffff);
+    }
+
+    .pf-slider.is-running .pf-progress span {
+      animation: pfProgress 6s linear forwards;
+    }
+
+    .pf-slider.is-paused .pf-progress span {
+      animation-play-state: paused;
+    }
+
+    @keyframes pfProgress {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    /* Indicadores */
+    .pf-dots {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 1.1rem;
+    }
+
+    .pf-dot {
+      width: 34px;
+      height: 4px;
+      border-radius: 999px;
+      border: none;
+      background: #2a2a2a;
+      cursor: pointer;
+      padding: 0;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .pf-dot.is-active {
+      background: #ffffff;
+      transform: scaleY(1.5);
+    }
+
+    /* Descrição moderna e legível */
+    .pf-desc {
+      max-width: 80ch;
+      margin: 2.6rem auto 0;
+      text-align: center;
+      padding: 0 1rem;
+    }
+
+    .pf-desc-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #ffffff;
+      margin-bottom: 1.1rem;
+    }
+
+    .pf-desc-title::before,
+    .pf-desc-title::after {
+      content: '';
+      height: 1px;
+      width: 56px;
+      background: linear-gradient(90deg, transparent, #555555);
+    }
+
+    .pf-desc-title::after {
+      background: linear-gradient(90deg, #555555, transparent);
+    }
+
+    .pf-desc p {
+      font-size: 1rem;
+      line-height: 1.9;
+      color: #b9b9b9;
+      letter-spacing: 0.2px;
+      font-weight: 400;
+    }
+
+    @media (max-width: 768px) {
+      .pf-slider { aspect-ratio: 4 / 3; border-radius: 10px; }
+      .pf-nav { width: 36px; height: 36px; font-size: 0.95rem; }
+      .pf-prev { left: 10px; }
+      .pf-next { right: 10px; }
+      .pf-caption { left: 10px; bottom: 10px; }
+      .pf-desc p { font-size: 0.92rem; line-height: 1.8; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .pf-slider::before { animation: none; }
+      .pf-slide { transition: opacity 0.3s ease; transform: none; }
+      .pf-slider.is-running .pf-progress span { animation: none; width: 100%; opacity: 0.3; }
+      .pf-slider { transform: none !important; }
+    }
+
+    /* ===== NEON VIVO — cintilação realista de tubos de luz ===== */
+    @keyframes neonBuzzA {
+      0%, 100% { opacity: 1; }
+      3% { opacity: 0.94; } 3.6% { opacity: 1; }
+      9% { opacity: 0.97; } 9.5% { opacity: 0.9; } 10% { opacity: 1; }
+      21% { opacity: 1; } 21.3% { opacity: 0.55; } 21.7% { opacity: 1; } 22.1% { opacity: 0.72; } 22.6% { opacity: 1; }
+      37% { opacity: 0.96; } 37.4% { opacity: 0.88; } 38% { opacity: 1; }
+      52% { opacity: 1; } 52.2% { opacity: 0.45; } 52.5% { opacity: 0.92; } 52.8% { opacity: 0.4; } 53.3% { opacity: 0.97; } 54% { opacity: 1; }
+      68% { opacity: 0.95; } 68.5% { opacity: 0.88; } 69% { opacity: 0.98; }
+      84% { opacity: 1; } 84.3% { opacity: 0.62; } 84.8% { opacity: 1; }
+    }
+
+    @keyframes neonBuzzB {
+      0%, 100% { opacity: 1; }
+      6% { opacity: 0.93; } 6.5% { opacity: 1; }
+      14% { opacity: 1; } 14.3% { opacity: 0.6; } 14.7% { opacity: 1; } 15% { opacity: 0.75; } 15.5% { opacity: 1; }
+      28% { opacity: 0.95; } 28.5% { opacity: 0.85; } 29% { opacity: 1; }
+      41% { opacity: 1; } 41.2% { opacity: 0.35; } 41.5% { opacity: 0.9; } 41.8% { opacity: 0.3; } 42.3% { opacity: 1; }
+      57% { opacity: 0.96; } 57.4% { opacity: 0.9; } 58% { opacity: 1; }
+      73% { opacity: 1; } 73.4% { opacity: 0.55; } 73.9% { opacity: 1; }
+      88% { opacity: 0.94; } 88.5% { opacity: 1; }
+    }
+
+    @keyframes neonBuzzC {
+      0%, 100% { opacity: 1; }
+      4% { opacity: 0.95; } 4.4% { opacity: 1; }
+      12% { opacity: 1; } 12.2% { opacity: 0.5; } 12.5% { opacity: 0.94; } 12.8% { opacity: 0.42; } 13.3% { opacity: 1; }
+      26% { opacity: 0.97; } 26.4% { opacity: 0.9; } 27% { opacity: 1; }
+      39% { opacity: 1; } 39.3% { opacity: 0.65; } 39.7% { opacity: 1; } 40% { opacity: 0.7; } 40.5% { opacity: 1; }
+      55% { opacity: 1; } 55.2% { opacity: 0.3; } 55.6% { opacity: 0.85; } 55.9% { opacity: 0.25; } 56.4% { opacity: 0.9; } 57% { opacity: 1; }
+      71% { opacity: 0.95; } 71.5% { opacity: 1; }
+      86% { opacity: 1; } 86.3% { opacity: 0.58; } 86.8% { opacity: 1; }
+    }
+
+    /* Tubos das bordas: fracos em repouso, com engasgos e falhas reais */
+    @keyframes neonTubeA {
+      0%, 100% { opacity: 0.36; }
+      5% { opacity: 0.3; } 5.5% { opacity: 0.42; }
+      18% { opacity: 0.36; } 18.3% { opacity: 0.12; } 18.7% { opacity: 0.44; } 19% { opacity: 0.2; } 19.5% { opacity: 0.38; }
+      34% { opacity: 0.4; } 34.4% { opacity: 0.3; } 35% { opacity: 0.38; }
+      49% { opacity: 0.36; } 49.3% { opacity: 0.62; } 50.2% { opacity: 0.34; }
+      63% { opacity: 0.38; } 63.3% { opacity: 0.08; } 63.7% { opacity: 0.34; } 64% { opacity: 0.14; } 64.5% { opacity: 0.38; }
+      81% { opacity: 0.34; } 81.4% { opacity: 0.44; } 82% { opacity: 0.36; }
+    }
+
+    @keyframes neonTubeB {
+      0%, 100% { opacity: 0.34; }
+      7% { opacity: 0.28; } 7.5% { opacity: 0.4; }
+      22% { opacity: 0.34; } 22.4% { opacity: 0.55; } 23.1% { opacity: 0.32; }
+      36% { opacity: 0.36; } 36.3% { opacity: 0.1; } 36.7% { opacity: 0.38; } 37% { opacity: 0.16; } 37.5% { opacity: 0.34; }
+      51% { opacity: 0.3; } 51.5% { opacity: 0.42; }
+      66% { opacity: 0.34; } 66.3% { opacity: 0.06; } 66.7% { opacity: 0.4; } 67% { opacity: 0.12; } 67.5% { opacity: 0.36; }
+      84% { opacity: 0.32; } 84.4% { opacity: 0.46; } 85% { opacity: 0.34; }
+    }
+
+    @keyframes neonTubeC {
+      0%, 100% { opacity: 0.38; }
+      6% { opacity: 0.32; } 6.5% { opacity: 0.44; }
+      19% { opacity: 0.38; } 19.3% { opacity: 0.6; } 20% { opacity: 0.36; }
+      33% { opacity: 0.4; } 33.3% { opacity: 0.14; } 33.7% { opacity: 0.42; } 34% { opacity: 0.18; } 34.5% { opacity: 0.4; }
+      47% { opacity: 0.36; } 47.4% { opacity: 0.46; } 48% { opacity: 0.38; }
+      61% { opacity: 0.38; } 61.3% { opacity: 0.08; } 61.7% { opacity: 0.36; } 62% { opacity: 0.12; } 62.5% { opacity: 0.4; }
+      78% { opacity: 0.34; } 78.4% { opacity: 0.48; } 79% { opacity: 0.38; }
+      91% { opacity: 0.36; } 91.4% { opacity: 0.44; } 92% { opacity: 0.38; }
+    }
+
+    /* --- Tubos nos títulos --- */
+    .brand-name,
+    .hero-text h1,
+    .section-title {
+      text-shadow:
+        0 0 4px rgba(255, 255, 255, 0.35),
+        0 0 13px rgba(255, 255, 255, 0.2),
+        0 0 34px rgba(255, 255, 255, 0.1);
+    }
+
+    .brand-name { animation: neonBuzzB 7.9s linear infinite; animation-delay: -1.7s; }
+    .hero-text h1 { animation: neonBuzzA 11.3s linear infinite; animation-delay: -3.1s; }
+    .section-title { animation: neonBuzzC 9.1s linear infinite; animation-delay: -5.3s; }
+
+    .brand-name:hover,
+    .hero-text h1:hover,
+    .section-title:hover {
+      text-shadow:
+        0 0 5px rgba(255, 255, 255, 0.7),
+        0 0 18px rgba(255, 255, 255, 0.4),
+        0 0 46px rgba(255, 255, 255, 0.22),
+        0 0 84px rgba(255, 255, 255, 0.12);
+      transition: text-shadow 0.35s ease;
+    }
+
+    /* --- Tubos nas bordas dos cartões --- */
+    .gen-card,
+    .project-form-card {
+      position: relative;
+    }
+
+    .gen-card::after,
+    .project-form-card::after,
+    .about::after {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      box-shadow:
+        0 0 10px rgba(255, 255, 255, 0.22),
+        0 0 26px rgba(255, 255, 255, 0.08),
+        inset 0 0 10px rgba(255, 255, 255, 0.12);
+      opacity: 0.34;
+      pointer-events: none;
+      z-index: 2;
+      will-change: opacity;
+    }
+
+    .gen-card::after { animation: neonTubeA 8.1s linear infinite; animation-delay: -2.2s; }
+    .gen-card:nth-of-type(2n)::after { animation-delay: -5.4s; }
+    .gen-card:nth-of-type(3n)::after { animation-delay: -7.1s; }
+    .project-form-card::after { animation: neonTubeB 9.7s linear infinite; animation-delay: -4.4s; }
+    .about::after { animation: neonTubeC 11.3s linear infinite; animation-delay: -6.2s; }
+
+    /* Tocar no tubo o acende: hover vence a animação e acende por completo */
+    .gen-card:hover::after,
+    .project-form-card:hover::after,
+    .about:hover::after {
+      opacity: 0.95 !important;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .brand-name,
+      .hero-text h1,
+      .section-title,
+      .gen-card::after,
+      .project-form-card::after,
+      .about::after {
+        animation: none !important;
+      }
+
+      .gen-card::after,
+      .project-form-card::after,
+      .about::after {
+        opacity: 0.4;
+      }
+    }
+
+    /* ===== Botão ENVIAR — malha 3D (cubo wireframe) girando ===== */
+    .btn-submit-3d {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.9rem;
+    }
+
+    .cube-wrap {
+      perspective: 90px;
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+
+    .cube3d {
+      position: relative;
+      width: 22px;
+      height: 22px;
+      transform-style: preserve-3d;
+      animation: cubeGira 5.5s linear infinite;
+    }
+
+    .cube3d .cf {
+      position: absolute;
+      inset: 0;
+      border: 1.5px solid rgba(0, 0, 0, 0.8);
+      background: rgba(0, 0, 0, 0.05);
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.12);
+    }
+
+    .cf.f1 { transform: rotateY(0deg) translateZ(11px); }
+    .cf.f2 { transform: rotateY(90deg) translateZ(11px); }
+    .cf.f3 { transform: rotateY(180deg) translateZ(11px); }
+    .cf.f4 { transform: rotateY(270deg) translateZ(11px); }
+    .cf.f5 { transform: rotateX(90deg) translateZ(11px); }
+    .cf.f6 { transform: rotateX(-90deg) translateZ(11px); }
+
+    @keyframes cubeGira {
+      from { transform: rotateX(-22deg) rotateY(0deg); }
+      to { transform: rotateX(-22deg) rotateY(360deg); }
+    }
+
+    .btn-submit-3d:hover .cube-wrap { transform: scale(1.15) rotate(8deg); }
+    .btn-submit-3d:hover .cf { border-color: #000000; background: rgba(0, 0, 0, 0.09); }
+    .btn-submit-3d:active .cube-wrap { transform: scale(0.92); }
+    .btn-submit-3d:disabled .cube3d { animation-play-state: paused; }
+    .btn-submit-3d .btn-label { letter-spacing: 2px; }
+
+    /* ===== Descrição dinâmica do portfólio ===== */
+    .pf-desc {
+      transition: opacity 0.22s ease, transform 0.22s ease;
+    }
+
+    .pf-desc.is-trocando {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+
+    .pf-desc-body p {
+      font-size: 1rem;
+      line-height: 1.9;
+      color: #b9b9b9;
+      letter-spacing: 0.2px;
+      font-weight: 400;
+    }
+
+    .pf-desc-body p + p {
+      margin-top: 0.9rem;
+    }
+
+    .pf-desc-body strong {
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .cube3d { animation: none; }
+      .pf-desc { transition: none; }
+    }
+
+    /* ===== Botão ENVIAR — placa 3D interativa (tilt + especular + profundidade) ===== */
+    .btn-submit-3d {
+      overflow: visible;
+      transform-style: preserve-3d;
+      transform: perspective(700px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateZ(var(--tz, 0px));
+      will-change: transform;
+    }
+
+    /* o brilho em varredura dá lugar ao especular que segue o cursor */
+    .btn-submit-3d::after { content: none; }
+
+    .btn-submit-3d::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(150px 110px at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0) 70%);
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .btn-submit-3d:hover::before { opacity: 1; }
+
+    .btn-submit-3d:hover {
+      background: #ececec;
+      transform: perspective(700px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateZ(10px);
+      box-shadow: 0 8px 0 #8a8a8a, 0 20px 34px rgba(0, 0, 0, 0.55);
+    }
+
+    .btn-submit-3d:active {
+      transform: perspective(700px) rotateX(0deg) rotateY(0deg) translateY(5px);
+      box-shadow: 0 2px 0 #8a8a8a, 0 6px 12px rgba(0, 0, 0, 0.45);
+    }
+
+    /* rótulo e cubo flutuam em profundidades diferentes (paralaxe 3D real) */
+    .btn-submit-3d .cube-wrap { transform: translateZ(26px); }
+    .btn-submit-3d:hover .cube-wrap { transform: translateZ(42px) scale(1.14) rotate(8deg); }
+    .btn-submit-3d .btn-label { transform: translateZ(34px); }
+    .btn-submit-3d:hover .btn-label { transform: translateZ(48px); }
+
+    /* ===== Documento arremessado — animação vetorial 3D (esquerda → direita) ===== */
+    .project-info-section .doc-flight {
+      position: absolute;
+      top: 36px;
+      left: 0;
+      z-index: 3;
+      pointer-events: none;
+      transform-style: preserve-3d;
+      will-change: transform;
+      animation: docFlightX 6.5s linear infinite;
+    }
+
+    .project-info-section .doc-sheet {
+      transform-style: preserve-3d;
+      will-change: transform;
+      animation: docTumbleArc 6.5s linear infinite;
+    }
+
+    /* rastro de velocidade atrás do documento */
+    .project-info-section .doc-trail {
+      position: absolute;
+      top: 52%;
+      right: 54px;
+      left: -130px;
+      height: 2px;
+      border-radius: 2px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.9), transparent);
+      opacity: 0.65;
+      filter: blur(0.5px);
+    }
+
+    @keyframes docFlightX {
+      0%   { transform: translateX(-200px); opacity: 0; }
+      8%   { opacity: 1; }
+      88%  { opacity: 1; }
+      100% { transform: translateX(calc(100vw + 140px)); opacity: 0; }
+    }
+
+    @keyframes docTumbleArc {
+      0%   { transform: perspective(620px) translateY(34px) rotateX(-14deg) rotateY(0deg) rotateZ(-8deg) scale(0.95); }
+      30%  { transform: perspective(620px) translateY(-6px) rotateX(-8deg) rotateY(220deg) rotateZ(-2deg) scale(1.04); }
+      55%  { transform: perspective(620px) translateY(-24px) rotateX(-5deg) rotateY(400deg) rotateZ(5deg) scale(1.07); }
+      78%  { transform: perspective(620px) translateY(-2px) rotateX(-10deg) rotateY(590deg) rotateZ(1deg) scale(1.02); }
+      100% { transform: perspective(620px) translateY(38px) rotateX(-18deg) rotateY(720deg) rotateZ(-10deg) scale(0.94); }
+    }
+
+    @media (max-width: 768px) {
+      .project-info-section .doc-flight { top: 64px; }
+      .project-info-section .doc-sheet svg { width: 56px; height: 70px; }
+      .project-info-section .doc-trail { left: -80px; right: 38px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .project-info-section .doc-flight,
+      .project-info-section .doc-sheet {
+        animation: none !important;
+        transform: none !important;
+      }
+
+      .project-info-section .doc-flight { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="luzCosmica" class="luz-canvas" aria-hidden="true"></canvas>
+
+  <header>
+    <div class="brand-container">
+      <img src="./index_files/logocircularpng2_a1.png" class="brand-logo" alt="GBN3D Logo" onerror="this.style.display='none'">
+      <div class="brand-name">GBN3D</div>
+    </div>
+    <nav>
+      <a href="#" class="active">Home</a>
+      <a href="#portfolio">Prévia</a>
+      <a href="galeria.html">Galeria</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>GLAUBER BARBARROSSA <span> | ARTISTA 3D GENERALISTA. EXPERIÊNCIA IMERSIVA EM ATIVOS 3D </span></h1>
+      <a href="#portfolio" class="btn-explore">Explorar Projetos</a>
+    </div>
+    <div class="hero-image" id="heroSlider">
+      <div class="hero-slides">
+        <div class="hero-slide is-active">
+          <video autoplay muted loop playsinline class="hero-video-bg">
+            <source src="videos/time1.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <button class="hero-nav hero-prev" aria-label="Slide anterior">❮</button>
+      <button class="hero-nav hero-next" aria-label="Próximo slide">❯</button>
+      <div class="hero-dots"></div>
+    </div>
+  </section>
+
+  <section class="generalista" id="generalista">
+    <div class="gen-top">
+      <div class="gen-text">
+        <h2 class="section-title">O QUE É SER UM GENERALISTA 3D?</h2>
+        <p class="gen-lead">Ser um Generalista 3D é abraçar a multidisciplinaridade na arte digital. Em um projeto 3D, existem diversas etapas complexas: criação do modelo tridimensional, abertura de malha, pintura de texturas, configuração de materiais, iluminação, física de simulação e renderização. O generalista 3D domina esse conjunto de habilidades técnicas e artísticas, permitindo acompanhar e executar um projeto do zero até a imagem ou animação final.</p>
+        <p class="gen-lead">Essa visão holística do pipeline garante que a estética do conceito inicial seja preservada do início ao fim, mantendo uma comunicação fluida, agilidade nas decisões criativas e grande capacidade de adaptação às necessidades de cada projeto.</p>
+
+        <h3 class="gen-subtitle">A Generalização e a Liberdade Artística de Modelar Tudo o que Existe</h3>
+        <p class="gen-lead">A maior vantagem de ser um generalista é a absoluta liberdade artística. Não se prender a uma única categoria de objeto, estilo ou linguagem visual abre as portas para criar qualquer coisa imaginável:</p>
+      </div>
+
+      <div class="gen-media" id="genSlider" role="group" aria-roledescription="carrossel" aria-label="Trabalhos 3D do artista — reprodução automática em tons de cinza">
+        <div class="gen-slide is-active"><img src="./index_files/render_caixa_org01.89.jpg" alt="Objeto 3D — caixa com design orgânico"></div>
+        <div class="gen-slide"><img src="./index_files/render_terminator012.66.jpg" alt="Personagem 3D — endoesqueleto robótico" loading="lazy" decoding="async"></div>
+        <div class="gen-slide"><img src="./index_files/weapon11.jpg" alt="Arma 3D — modelagem hard surface" loading="lazy" decoding="async"></div>
+        <div class="gen-slide"><img src="./index_files/banner03.jpg" alt="Composição 3D — banner promocional" loading="lazy" decoding="async"></div>
+        <div class="gen-slide"><img src="./index_files/chav_hhanya01jpg.jpg" alt="Personagem 3D — modelagem de personagem" loading="lazy" decoding="async"></div>
+        <div class="gen-slide"><img src="./index_files/16.jpg" alt="Render 3D — trabalho autoral" loading="lazy" decoding="async"></div>
+        <div class="gen-slide"><img src="./index_files/salatino03.265.jpg" alt="Cenário 3D — ambiente projetado" loading="lazy" decoding="async"></div>
+        <div class="gen-slide"><img src="./index_files/01.jpg" alt="Trabalho 3D — estudo de modelagem" loading="lazy" decoding="async"></div>
+        <div class="gen-slide"><img src="./index_files/render_caixa_org02.90.jpg" alt="Objeto 3D — caixa orgânica, variação" loading="lazy" decoding="async"></div>
+        <div class="gen-slide"><img src="./index_files/weapon09.jpg" alt="Arma 3D — estudo de hard surface" loading="lazy" decoding="async"></div>
+        <div class="gen-slide"><img src="./index_files/17.jpg" alt="Render 3D — trabalho autoral, variação" loading="lazy" decoding="async"></div>
+        <div class="gen-slide"><img src="./index_files/Startup.bip.88.jpg" alt="Cena 3D — ambientação de escritório" loading="lazy" decoding="async"></div>
+        <div class="gen-slide"><img src="./index_files/02.jpg" alt="Trabalho 3D — estudo de modelagem, variação" loading="lazy" decoding="async"></div>
+        <div class="gen-slide"><img src="./index_files/print03.jpg" alt="Peça 3D — preparação para impressão" loading="lazy" decoding="async"></div>
+        <div class="gen-slide"><img src="./index_files/weapon10.jpg" alt="Arma 3D — modelagem hard surface, variação" loading="lazy" decoding="async"></div>
+        <div class="gen-slide"><img src="./index_files/render_terminator_frames01_.58.26.jpg" alt="Personagem 3D — estudos de frames do endoesqueleto" loading="lazy" decoding="async"></div>
+      </div>
+    </div>
+
+    <div class="gen-grid">
+      <article class="gen-card">
+        <h4>Da geometria rígida às formas orgânicas</h4>
+        <p>O domínio do 3D permite navegar sem barreiras entre a precisão da modelagem Hard Surface (veículos, robôs, produtos, arquitetura) e a fluidez da modelagem orgânica (personagens, criaturas, anatomia, vegetação).</p>
+      </article>
+      <article class="gen-card">
+        <h4>Mundos, objetos e conceitos</h4>
+        <p>Essa liberdade significa olhar para o mundo real ou fantástico e ter a autonomia técnica para reproduzi-lo ou recriá-lo. De um pequeno acessório hiper-realista para publicidade a cenários complexos para animações ou games.</p>
+      </article>
+      <article class="gen-card">
+        <h4>Solução sem limites criativos</h4>
+        <p>A habilidade de modelar "tudo o que existe" transforma desafios artísticos em soluções visuais concretas. Não há limitação de escopo—se o conceito exige um carro clássico, uma criatura mística, uma embalagem ou um ambiente futurista, o generalista 3D tem as ferramentas e a percepção espacial necessárias para dar vida à ideia.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="portfolio">
+    <div class="section-header">
+      <h2 class="section-title">PRÉVIA DE PROJETOS EXECUTADOS</h2>
+    </div>
+    <p class="portfolio-sub">Exposição em destaque — obras autorais em modelagem, escultura e renderização 3D.</p>
+
+    <div class="pf-stage">
+      <div class="pf-slider is-running" id="pfSlider" style="transform: none;">
+        <div class="pf-slides">
+          <div class="pf-slide"><img src="./index_files/lefreiredesign1.jpg" alt="Lefreire Design — painel rococó em metal dourado, vista 01"></div>
+          <div class="pf-slide is-active"><img src="./index_files/lefreiredesign2.jpg" alt="Lefreire Design — painel rococó em metal dourado, vista 02" loading="lazy"></div>
+          <div class="pf-slide"><img src="./index_files/lefreiredesign3.jpg" alt="Aldrava Clássica Personalizada — escultura 3D pronta para produção" loading="lazy"></div>
+          <div class="pf-slide"><img src="./index_files/lefreiredesign4.jpg" alt="Modelagem Funcional para Fabricação (Jewelry CAD) — haste estrutural de fixação" loading="lazy"></div>
+          <div class="pf-slide"><img src="./index_files/lefreiredesign5.jpg" alt="Apliques Metálicos Organicos — modelagem 3D e renderização PBR de joalheria" loading="lazy"></div>
+          <div class="pf-slide"><img src="./index_files/lefreiredesign6.jpg" alt="Puxador Pomo Clássico em Ouro Polido — ferragens finas para arquitetura de interiores" loading="lazy"></div>
+        </div>
+
+        <div class="pf-caption">
+          <span class="pf-caption-tag" id="pfCaptionTag">LEFREIRE DESIGN</span>
+          <span class="pf-caption-sep"></span>
+          <span class="pf-caption-view" id="pfCaptionView">Vista 02 / 06</span>
+        </div>
+
+        <button class="pf-nav pf-prev" aria-label="Imagem anterior">❮</button>
+        <button class="pf-nav pf-next" aria-label="Próxima imagem">❯</button>
+
+        <div class="pf-progress"><span></span></div>
+      </div>
+
+      <div class="pf-dots" id="pfDots" aria-label="Selecionar imagem do portfólio"><button class="pf-dot" aria-label="Ir para a imagem 1"></button><button class="pf-dot is-active" aria-label="Ir para a imagem 2"></button><button class="pf-dot" aria-label="Ir para a imagem 3"></button><button class="pf-dot" aria-label="Ir para a imagem 4"></button><button class="pf-dot" aria-label="Ir para a imagem 5"></button><button class="pf-dot" aria-label="Ir para a imagem 6"></button></div>
+    </div>
+
+    <div class="pf-desc" id="pfDesc">
+      <h3 class="pf-desc-title" id="pfDescTitle">Sobre a Obra</h3>
+      <div class="pf-desc-body" id="pfDescText"><p>Esta obra 3D apresenta um painel alongado meticulosamente renderizado em metal dourado de alto polimento. O design central é uma treliça complexa composta por padrões florais repetitivos e simétricos, demonstrando precisão geométrica e orgânica. As extremidades são adornadas com esculturas ornamentais expansivas e fluidas, repletas de detalhes de acanto e folhagem entrelaçada, evocando a sofisticação do estilo Rococó. A renderização de alta qualidade destaca a reflexividade do material e a profundidade das formas esculpidas, demonstrando uma habilidade refinada na modelagem de superfícies complexas e na iluminação de materiais metálicos.</p></div>
+    </div>
+  </section>
+
+  <section class="about" id="sobre" style="transform: none;">
+    <img src="./index_files/imggbn.jpg" class="about-avatar" alt="barrossa">
+    <div class="about-text">
+      <div class="about-kicker">Sobre o Artista</div>
+      <p>Sou <strong>Glauber Barbarrossa</strong>, artista 3D à frente da <strong>GBN Modelagem 3D (GBN3D)</strong>. O que começou como curiosidade — experimentar malhas, materiais e luz no computador — tornou-se linguagem: descobri na escultura digital o lugar onde minha paciência e minha obsessão por detalhes finalmente fazem sentido.</p>
+
+      <p>Modelar é decidir o que merece existir em cada superfície. Na <strong>escultura orgânica</strong>, aprendi a dar intenção aos volumes: um olhar, uma tensão de músculo, o desgaste de uma borda. No <strong>hard surface</strong>, aprendi disciplina — topologia limpa, chanfro no lugar certo, uma precisão que ninguém vê, mas todos sentem. Na <strong>texturização e na iluminação</strong>, entendi que a luz revela, ou esconde, a alma de um trabalho.</p>
+
+      <p>Hoje transformo essa trajetória em <strong>ativos digitais para jogos, cinema e audiovisual</strong>, do conceito ao render final, explorando automações e IA como ferramentas a serviço do olhar humano — nunca no lugar dele. Mais do que modelar objetos, eu esculto histórias que ficam.</p>
+
+      <div class="about-social">
+        <a href="https://www.instagram.com/gbnmodelagem" target="_blank" rel="noopener" aria-label="Instagram do artista @gbnmodelagem">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" fill="none" stroke="currentColor" stroke-width="1.8"></rect><circle cx="12" cy="12" r="4.4" fill="none" stroke="currentColor" stroke-width="1.8"></circle><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"></circle></svg>
+          Instagram <span class="about-social-handle">@gbnmodelagem</span>
+        </a>
+        <a href="https://www.facebook.com/gbnmodelagem3d" target="_blank" rel="noopener" aria-label="Facebook da GBN Modelagem 3D">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.7c0-.9.3-1.6 1.6-1.6h1.7V4.2c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.4H7.4V14h2.7v8h3.4z"></path></svg>
+          Facebook <span class="about-social-handle">/gbnmodelagem3d</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SEÇÃO FORNEÇA INFORMAÇÕES SOBRE SEU PROJETO ===== -->
+  <section class="project-info-section" id="projeto">
+    <h2 class="project-section-title">FORNEÇA INFORMAÇÕES SOBRE SEU PROJETO</h2>
+    <p class="project-section-sub">Conte sua ideia e receba uma proposta sob medida para o seu projeto 3D.</p>
+
+    <!-- Documento arremessado: animação vetorial 3D da esquerda para a direita -->
+    <div class="doc-flight" aria-hidden="true">
+      <span class="doc-trail"></span>
+      <div class="doc-sheet">
+        <svg viewBox="0 0 120 150" width="74" height="92" role="img" aria-label="Documento sendo arremessado">
+          <defs>
+            <lineargradient id="docPaper" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ffffff"></stop>
+              <stop offset="1" stop-color="#e4e4e4"></stop>
+            </lineargradient>
+            <lineargradient id="docEdge" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#c9c9c9"></stop>
+              <stop offset="1" stop-color="#b2b2b2"></stop>
+            </lineargradient>
+            <radialgradient id="docSeal" cx="0.5" cy="0.5" r="0.5">
+              <stop offset="0" stop-color="#54c7ff"></stop>
+              <stop offset="1" stop-color="#1b7fb8"></stop>
+            </radialgradient>
+          </defs>
+          <ellipse class="doc-shadow" cx="60" cy="143" rx="42" ry="10" fill="rgba(0,0,0,0.38)"></ellipse>
+          <!-- espessura da folha (lado direito) -->
+          <path d="M94 18 L106 23 L106 116 L94 112 Z" fill="url(#docEdge)"></path>
+          <!-- folha -->
+          <path d="M18 18 L102 18 L102 102 L60 102 L46 116 L18 116 Z" fill="url(#docPaper)" stroke="#cfcfcf" stroke-width="1"></path>
+          <!-- canto dobrado (abraçadeira do documento) -->
+          <path d="M60 102 L46 116 L60 116 Z" fill="#d6d6d6" stroke="#cfcfcf" stroke-width="0.8"></path>
+          <path d="M60 102 L46 116 L46 102 Z" fill="#f4f4f4"></path>
+          <!-- mancha de texto -->
+          <rect x="28" y="30" width="62" height="8" rx="2.5" fill="#d9d9d9"></rect>
+          <rect x="28" y="44" width="56" height="8" rx="2.5" fill="#e1e1e1"></rect>
+          <rect x="28" y="58" width="48" height="8" rx="2.5" fill="#e1e1e1"></rect>
+          <rect x="28" y="72" width="60" height="8" rx="2.5" fill="#e1e1e1"></rect>
+          <rect x="28" y="86" width="38" height="8" rx="2.5" fill="#e8e8e8"></rect>
+          <!-- selo de envio -->
+          <circle cx="82" cy="97" r="13" fill="url(#docSeal)" opacity="0.9"></circle>
+          <circle cx="82" cy="97" r="9.5" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.75"></circle>
+          <circle cx="82" cy="97" r="3" fill="#ffffff" opacity="0.85"></circle>
+        </svg>
+      </div>
+    </div>
+
+    <div class="project-form-card" id="projectFormCard" style="--tilt-y: 0deg; --tilt-x: 0deg;">
+      <form id="projectForm" action="https://formsubmit.app/f/xcjfrhsu27" method="POST" enctype="multipart/form-data">
+        <!-- Configurações do FormSubmit.app (envio por e-mail com suporte a anexos) -->
+        <input type="hidden" name="_subject" value="Nova mensagem de contato via gbn3d.com">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_redirect" value="https://www.gbn3d.com/obrigado.html">
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+        <div class="form-grid-2col">
+          <div class="form-group">
+            <label for="piNome">Nome *</label>
+            <input type="text" id="piNome" name="name" placeholder="Seu nome completo" autocomplete="name" required>
+          </div>
+          <div class="form-group">
+            <label for="piEmpresa">Empresa</label>
+            <input type="text" id="piEmpresa" name="empresa" placeholder="Nome da sua empresa" autocomplete="organization">
+          </div>
+          <div class="form-group">
+            <label for="piCnpj">CNPJ</label>
+            <input type="text" id="piCnpj" name="cnpj" placeholder="00.000.000/0000-00" inputmode="numeric" maxlength="18">
+          </div>
+          <div class="form-group">
+            <label for="piTelefone">Telefone / WhatsApp *</label>
+            <input type="tel" id="piTelefone" name="telefone" placeholder="(00) 00000-0000" inputmode="tel" autocomplete="tel" required>
+          </div>
+          <div class="form-group form-group-full">
+            <label for="piEmail">E-mail *</label>
+            <input type="email" id="piEmail" name="email" placeholder="seu@email.com" autocomplete="email" required>
+          </div>
+          <div class="form-group form-group-full">
+            <label for="piIdeia">Descreva sua ideia *</label>
+            <textarea id="piIdeia" name="message" placeholder="Conte os detalhes: o que deseja modelar, estilo visual, referências, dimensões, prazo e uso final (impressão 3D, games, animação, publicidade)..." required></textarea>
+            <div class="char-counter" id="piCharCounter">0 caracteres</div>
+          </div>
+        </div>
+
+        <div class="form-group form-group-full">
+          <label for="piAnexos">Anexar imagens (até 4, máx. 2 MB cada e 4 MB no total)</label>
+          <input type="file" id="piAnexos" name="attachment" accept="image/*" multiple>
+          <p class="submit-hint" id="piAnexosHint" style="margin-top:6px;" aria-live="polite">Limite para evitar erro no envio: 4 imagens, 2 MB cada e 4 MB no total.</p>
+        </div>
+
+        <button type="submit" class="btn-submit-3d" id="btnSubmitProject">
+          <span class="cube-wrap" aria-hidden="true">
+            <span class="cube3d"><i class="cf f1"></i><i class="cf f2"></i><i class="cf f3"></i><i class="cf f4"></i><i class="cf f5"></i><i class="cf f6"></i></span>
+          </span>
+          <span class="btn-label" id="btnLabel">ENVIAR PROJETO</span>
+        </button>
+        <p class="submit-hint">As informações do projeto serão enviadas por e-mail. Retornaremos por telefone/WhatsApp para os projetos selecionados.</p>
+      </form>
+    </div>
+  </section>
+
+  <footer id="contato">
+    <div class="footer-links">
+      <a href="mailto:gbnmodelagem3d@yahoo.com">gbnmodelagem3d@yahoo.com</a>
+    </div>
+    <div>© 2026 GBN Modelagem 3D. Todos os direitos reservados.</div>
+  </footer>
+
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" onclick="closeLightbox()" aria-label="Fechar (Esc)">×</span>
+    <div class="lightbox-nav">
+      <button class="lightbox-btn" onclick="prevImage()" aria-label="Imagem anterior (seta à esquerda)">❮</button>
+      <button class="lightbox-btn" onclick="nextImage()" aria-label="Próxima imagem (seta à direita)">❯</button>
+    </div>
+    <img class="lightbox-content" id="lightboxImg" src="" alt="Zoom Render">
+    <div class="lightbox-caption">
+      <div class="card-category" id="lightboxCat"></div>
+      <div class="card-title" id="lightboxTitle"></div>
+      <div class="lightbox-desc" id="lightboxDesc"></div>
+    </div>
+  </div>
+
+  <script>
+
+    // ===== Obras do slide central do Portfólio =====
+    const portfolioSlides = [
+      {
+        id: 1,
+        title: "Lefreire Design — Vista 01",
+        category: "Obra 3D",
+        tag: "LEFREIRE DESIGN",
+        src: "imagensportfolio/lefreiredesign1.jpg",
+        desc: "Painel alongado em metal dourado de alto polimento: treliça floral simétrica e extremidades ornamentadas no espírito Rococó.",
+        descTitle: "Sobre a Obra",
+        descHTML: "<p>Esta obra 3D apresenta um painel alongado meticulosamente renderizado em metal dourado de alto polimento. O design central é uma treliça complexa composta por padrões florais repetitivos e simétricos, demonstrando precisão geométrica e orgânica. As extremidades são adornadas com esculturas ornamentais expansivas e fluidas, repletas de detalhes de acanto e folhagem entrelaçada, evocando a sofisticação do estilo Rococó. A renderização de alta qualidade destaca a reflexividade do material e a profundidade das formas esculpidas, demonstrando uma habilidade refinada na modelagem de superfícies complexas e na iluminação de materiais metálicos.</p>"
+      },
+      {
+        id: 2,
+        title: "Lefreire Design — Vista 02",
+        category: "Obra 3D",
+        tag: "LEFREIRE DESIGN",
+        src: "imagensportfolio/lefreiredesign2.jpg",
+        desc: "Detalhes de acanto e folhagem entrelaçada: reflexividade do material e profundidade das formas esculpidas.",
+        descTitle: "Sobre a Obra",
+        descHTML: "<p>Esta obra 3D apresenta um painel alongado meticulosamente renderizado em metal dourado de alto polimento. O design central é uma treliça complexa composta por padrões florais repetitivos e simétricos, demonstrando precisão geométrica e orgânica. As extremidades são adornadas com esculturas ornamentais expansivas e fluidas, repletas de detalhes de acanto e folhagem entrelaçada, evocando a sofisticação do estilo Rococó. A renderização de alta qualidade destaca a reflexividade do material e a profundidade das formas esculpidas, demonstrando uma habilidade refinada na modelagem de superfícies complexas e na iluminação de materiais metálicos.</p>"
+      },
+      {
+        id: 3,
+        title: "Aldrava Clássica Personalizada",
+        category: "Obra 3D",
+        tag: "ALDRAVA CLÁSSICA",
+        src: "imagensportfolio/lefreiredesign3.jpg",
+        desc: "Aldrava clássica personalizada: modelagem adaptável, produção em CNC ou fundição lost-wax e documentação técnica completa.",
+        descTitle: "Aldrava Clássica Personalizada",
+        descHTML: "<p><strong>Modelagem 3D Adaptável:</strong> Topologia limpa e ajustável permite alterações no tamanho, ângulo de inclinação ou detalhes da escultura (como adição de iniciais ou brasões) antes da produção.</p><p><strong>Produção Sob Demanda:</strong> Fabricada via usinagem CNC de alta precisão ou fundição em lost-wax, conforme a complexidade do design personalizado, com opções de banhos metálicos adicionais (ouro rosa, níquel negro) para harmonizar com outros elementos do hall de entrada.</p><p><strong>Documentação Técnica Inclusa:</strong> Entrega acompanha arquivo 3D editável, manual de instalação personalizado e certificado de autenticidade da peça única.</p>"
+      },
+      {
+        id: 4,
+        title: "Modelagem Funcional para Fabricação (Jewelry CAD)",
+        category: "Obra 3D",
+        tag: "JEWELRY CAD",
+        src: "imagensportfolio/lefreiredesign4.jpg",
+        desc: "Desenvolvimento da haste estrutural de fixação (pino/trava) com dimensões e tolerâncias para impressão 3D em resina (SLA/DLP) e fundição em metal.",
+        descTitle: "Modelagem Funcional para Fabricação (Jewelry CAD)",
+        descHTML: "<p><strong>Engenharia para Produção:</strong> A parte posterior recebeu o desenvolvimento da haste estrutural de fixação (pino/trava), com dimensões exatas e tolerâncias dimensionais adequadas para eventual impressão 3D em resina (SLA/DLP) e posterior fundição em metal.</p>"
+      },
+      {
+        id: 5,
+        title: "Desenvolvimento e Modelagem 3D de Apliques Metálicos Organicos",
+        category: "Obra 3D",
+        tag: "APLIQUES ORGÂNICOS",
+        src: "imagensportfolio/lefreiredesign5.jpg",
+        desc: "Série de apliques metálicos orgânicos: volumetria escultural, microtexturização, engenharia de fixação (Jewelry CAD) e renderização PBR do ouro amarelo.",
+        descTitle: "Desenvolvimento e Modelagem 3D de Apliques Metálicos Organicos",
+        descHTML: "<p>Esta série de apliques explora a dualidade entre forma, volume e textura superficial, traduzindo conceitos do design de joalharia para a aplicação em moda e acessórios.</p><p><strong>Volumetria e Escultura Digital:</strong> Criação de formas tridimensionais marcantes (como os motivos florais e os corações anatômico-estilizados), trabalhadas a partir de malhas poligonais de alta densidade para garantir curvas fluidas e transições suaves.</p><p><strong>Mapeamento e Microtexturização:</strong> Aplicação de superfícies dinâmicas que variam entre o escovado sutil com brilho difuso e os relevos intrincados (padrões entrançados e microesferificados), otimizando o jogo de luz e sombra sob qualquer ângulo de visão.</p><p><strong>Engenharia de Produto (Jewelry CAD):</strong> Modelagem funcional da estrutura posterior dos apliques (bases e hastes de fixação), desenvolvida com tolerâncias dimensionais precisas para garantir perfeita viabilidade de produção via impressão 3D em resina (SLA/DLP) e posterior fundição em metais nobres.</p><p><strong>Renderização PBR de Alta Fidelidade:</strong> Configuração de materiais Physically Based Rendering (PBR) com parâmetros ajustados de Roughness e Metalness, simulando com exatidão a física do ouro amarelo, suas propriedades de reflexão e a sofisticação do produto acabado.</p>"
+      },
+      {
+        id: 6,
+        title: "Desenvolvimento e Modelagem 3D: Puxador Pomo Clássico em Ouro Polido",
+        category: "Obra 3D",
+        tag: "PUXADOR POMO",
+        src: "imagensportfolio/lefreiredesign6.jpg",
+        desc: "Puxador pomo clássico em ouro polido: ornamentação neoclássica, molduras torsade, engenharia de fixação (Hardware CAD) e renderização PBR sobre madeira nobre.",
+        descTitle: "Desenvolvimento e Modelagem 3D: Puxador Pomo Clássico em Ouro Polido",
+        descHTML: "<p>Esta peça destaca a aplicação das técnicas de modelagem CAD e escultura 3D voltadas para a arquitetura de interiores, ferragens finas e decoração de luxo.</p><p><strong>Design e Ornamentação Neoclássica:</strong> Criação de um padrão radial intrincado na roseta frontal com pétalas e folhagens gravadas em alto-relevo, convergindo para um centro pontilhado com esferas ornamentais.</p><p><strong>Modelagem de Molduras e Bordas Trabalhadas:</strong> A base conta com múltiplos níveis de moldura frisada e serrilhada estilo “torsade” (cordão trançado), garantindo transições de luz dinâmicas e profundidade estrutural ao redor do suporte.</p><p><strong>Engenharia de Produto (Hardware CAD):</strong> Desenvolvimento da estrutura interna e traseira do pomo focado no encaixe preciso de roscas, suportando as forças de tração e torque necessárias para a usinagem em latão/bronze ou fundição de precisão.</p><p><strong>Renderização PBR e Estudo de Iluminação:</strong> Configuração de material metálico ouro brilhante (High-Gloss Gold) com alto grau de reflexão (Specular) e baixo Roughness. A cena foi ambientada sobre uma superfície de madeira nobre escura, simulando a aplicação real do puxador em portas e mobiliários de alto padrão.</p>"
+      }
+    ];
+
+    let currentImageIndex = 0;
+
+    function openLightbox(index) {
+      currentImageIndex = index;
+      const item = portfolioSlides[currentImageIndex];
+      document.getElementById('lightboxImg').src = item.src;
+      document.getElementById('lightboxTitle').innerText = item.title;
+      document.getElementById('lightboxDesc').innerText = item.desc || '';
+      document.getElementById('lightboxCat').innerText = item.category || 'Obra 3D';
+      document.getElementById('lightbox').classList.add('active');
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+      document.getElementById('lightboxImg').src = '';
+    }
+
+    function nextImage() {
+      currentImageIndex = (currentImageIndex + 1) % portfolioSlides.length;
+      openLightbox(currentImageIndex);
+    }
+
+    function prevImage() {
+      currentImageIndex = (currentImageIndex - 1 + portfolioSlides.length) % portfolioSlides.length;
+      openLightbox(currentImageIndex);
+    }
+
+    // Fechar ao clicar fora da imagem
+    document.getElementById('lightbox').addEventListener('click', function (e) {
+      if (e.target === this) closeLightbox();
+    });
+
+    // Navegação por teclado: Esc fecha, setas navegam
+    document.addEventListener('keydown', function (e) {
+      const lb = document.getElementById('lightbox');
+      if (!lb.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      else if (e.key === 'ArrowRight') nextImage();
+      else if (e.key === 'ArrowLeft') prevImage();
+    });
+
+    // ===== Tilt 3D da seção Sobre =====
+    (function () {
+      const about = document.querySelector('.about');
+      if (!about) return;
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const finePointer = window.matchMedia('(pointer: fine)').matches;
+      if (!finePointer || reduceMotion) return;
+
+      about.addEventListener('mousemove', (e) => {
+        const r = about.getBoundingClientRect();
+        const px = (e.clientX - r.left) / r.width - 0.5;
+        const py = (e.clientY - r.top) / r.height - 0.5;
+        about.style.transform = 'perspective(1200px) translateY(-6px) rotateX(' + (-py * 1.6).toFixed(2) + 'deg) rotateY(' + (px * 2).toFixed(2) + 'deg)';
+      });
+
+      about.addEventListener('mouseleave', () => { about.style.transform = 'none'; });
+    })();
+
+    // ===== Constelação Luminosa — luz volumétrica em canvas (atrás do conteúdo) =====
+    (function () {
+      const canvas = document.getElementById('luzCosmica');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      let W = 0, H = 0, DPR = 1;
+      let particles = [];
+      let pulses = [];
+      let pulsesEnabled = true;
+      let running = false;
+      let lastT = 0;
+      let slowFrames = 0;
+      const LINK_DIST = 150;
+      const CURSOR_DIST = 190;
+      const MAX_PULSES = 7;
+      const mouse = { x: -9999, y: -9999, active: false };
+
+      // Sprite de luz pré-renderizado: núcleo quente + halo com queda gaussiana
+      const SPR = 64;
+      const sprite = document.createElement('canvas');
+      sprite.width = sprite.height = SPR;
+      (function () {
+        const s = sprite.getContext('2d');
+        const g = s.createRadialGradient(SPR / 2, SPR / 2, 0, SPR / 2, SPR / 2, SPR / 2);
+        g.addColorStop(0, 'rgba(255,255,255,1)');
+        g.addColorStop(0.22, 'rgba(255,255,255,0.6)');
+        g.addColorStop(0.55, 'rgba(255,255,255,0.14)');
+        g.addColorStop(1, 'rgba(255,255,255,0)');
+        s.fillStyle = g;
+        s.fillRect(0, 0, SPR, SPR);
+      })();
+
+      function targetCount() {
+        return Math.max(45, Math.min(110, Math.round((W * H) / 15500)));
+      }
+
+      function makeParticle() {
+        const depth = 0.35 + Math.random() * 0.65; // 0,35 = fundo | 1 = frente
+        return {
+          x: Math.random() * W,
+          y: Math.random() * H,
+          vx: (Math.random() - 0.5) * 0.14,
+          vy: (Math.random() - 0.5) * 0.14,
+          r: 0.7 + depth * 1.5,
+          depth: depth,
+          tw: Math.random() * Math.PI * 2,
+          ts: 0.5 + Math.random() * 1.1,
+          fl: Math.random() * Math.PI * 2
+        };
+      }
+
+      function syncPopulation() {
+        const alvo = targetCount();
+        while (particles.length < alvo) particles.push(makeParticle());
+        if (particles.length > alvo) particles.length = alvo;
+      }
+
+      function resize() {
+        DPR = Math.min(window.devicePixelRatio || 1, 1.75);
+        W = window.innerWidth;
+        H = window.innerHeight;
+        canvas.width = Math.round(W * DPR);
+        canvas.height = Math.round(H * DPR);
+        canvas.style.width = W + 'px';
+        canvas.style.height = H + 'px';
+        ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+        syncPopulation();
+        if (reduceMotion) render(16, 0); // um único quadro estático
+      }
+
+      function wrapY(y) {
+        return ((y % H) + H) % H;
+      }
+
+      // Vento orgânico: senóides sobrepostas — trajetórias curvas, nunca retas
+      function applyFlow(p, t, k) {
+        p.vx += Math.sin(p.y * 0.0021 + t * 0.00021 + p.fl) * 0.016 * k;
+        p.vy += Math.cos(p.x * 0.0018 - t * 0.00017 + p.fl * 1.7) * 0.014 * k;
+      }
+
+      function update(dt, t) {
+        const k = dt / 16.66;
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i];
+          applyFlow(p, t, k);
+
+          // A mão de luz: atração suave com redemoinho tangencial
+          if (mouse.active) {
+            const dx = mouse.x - p.x;
+            const dy = mouse.y - p.y;
+            const d2 = dx * dx + dy * dy;
+            if (d2 < CURSOR_DIST * CURSOR_DIST) {
+              const d = Math.sqrt(d2) || 1;
+              const f = (1 - d / CURSOR_DIST) * 0.011 * p.depth * k;
+              p.vx += (dx / d) * f - (dy / d) * f * 0.7;
+              p.vy += (dy / d) * f + (dx / d) * f * 0.7;
+            }
+          }
+
+          p.vx *= 0.986;
+          p.vy *= 0.986;
+          const sp = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
+          if (sp > 0.85) { p.vx = (p.vx / sp) * 0.85; p.vy = (p.vy / sp) * 0.85; }
+
+          p.x += p.vx * k;
+          p.y += p.vy * k;
+          p.tw += 0.02 * p.ts * k;
+
+          if (p.x < -24) p.x = W + 24; else if (p.x > W + 24) p.x = -24;
+          if (p.y < -24) p.y = H + 24; else if (p.y > H + 24) p.y = -24;
+        }
+
+        // Pulsos de luz percorrendo os fios (sinais de fibra óptica)
+        if (pulsesEnabled && pulses.length < MAX_PULSES && Math.random() < 0.05) {
+          const a = particles[(Math.random() * particles.length) | 0];
+          if (a) {
+            let melhor = null, melhorD = LINK_DIST * LINK_DIST;
+            for (let j = 0; j < particles.length; j++) {
+              const b = particles[j];
+              if (b === a) continue;
+              const dx = b.x - a.x, dy = b.y - a.y;
+              const d2 = dx * dx + dy * dy;
+              if (d2 < melhorD) { melhorD = d2; melhor = b; }
+            }
+            if (melhor) pulses.push({ a: a, b: melhor, t: 0, v: 0.009 + Math.random() * 0.008 });
+          }
+        }
+        for (let i = pulses.length - 1; i >= 0; i--) {
+          pulses[i].t += pulses[i].v * k;
+          if (pulses[i].t >= 1) pulses.splice(i, 1);
+        }
+      }
+
+      function render(dt, t) {
+        ctx.clearRect(0, 0, W, H);
+        ctx.globalCompositeOperation = 'lighter';
+
+        const scrollY = window.scrollY;
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i];
+          p.px = p.x;
+          p.py = wrapY(p.y - (p.depth - 0.62) * 0.12 * scrollY); // paralaxe de profundidade
+        }
+
+        // Fios de luz: halo largo + núcleo fino (a luz se acumula nas junções)
+        for (let i = 0; i < particles.length; i++) {
+          const a = particles[i];
+          for (let j = i + 1; j < particles.length; j++) {
+            const b = particles[j];
+            const dx = b.px - a.px, dy = b.py - a.py;
+            if (dx > LINK_DIST || dx < -LINK_DIST || dy > LINK_DIST || dy < -LINK_DIST) continue;
+            const d = Math.sqrt(dx * dx + dy * dy);
+            if (d >= LINK_DIST) continue;
+            const alfa = (1 - d / LINK_DIST) * Math.min(a.depth, b.depth) * 0.55;
+            ctx.strokeStyle = 'rgba(255,255,255,' + (alfa * 0.28).toFixed(3) + ')';
+            ctx.lineWidth = 2.8;
+            ctx.beginPath();
+            ctx.moveTo(a.px, a.py);
+            ctx.lineTo(b.px, b.py);
+            ctx.stroke();
+            ctx.strokeStyle = 'rgba(255,255,255,' + alfa.toFixed(3) + ')';
+            ctx.lineWidth = 0.75;
+            ctx.beginPath();
+            ctx.moveTo(a.px, a.py);
+            ctx.lineTo(b.px, b.py);
+            ctx.stroke();
+          }
+        }
+
+        // Fios até a mão de luz + halo da lanterna do cursor
+        if (mouse.active) {
+          let ligados = 0;
+          for (let i = 0; i < particles.length && ligados < 6; i++) {
+            const p = particles[i];
+            const dx = mouse.x - p.px, dy = mouse.y - p.py;
+            const d = Math.sqrt(dx * dx + dy * dy);
+            if (d < CURSOR_DIST) {
+              ligados++;
+              ctx.strokeStyle = 'rgba(255,255,255,' + ((1 - d / CURSOR_DIST) * 0.4).toFixed(3) + ')';
+              ctx.lineWidth = 0.8;
+              ctx.beginPath();
+              ctx.moveTo(p.px, p.py);
+              ctx.lineTo(mouse.x, mouse.y);
+              ctx.stroke();
+            }
+          }
+          ctx.globalAlpha = 0.05;
+          ctx.drawImage(sprite, mouse.x - 130, mouse.y - 130, 260, 260);
+          ctx.globalAlpha = 0.14;
+          ctx.drawImage(sprite, mouse.x - 45, mouse.y - 45, 90, 90);
+          ctx.globalAlpha = 1;
+        }
+
+        // Partículas: cintilação individual (cada estrela respira)
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i];
+          const brilho = 0.55 + 0.45 * Math.sin(p.tw);
+          const s = p.r * 9 * (0.75 + 0.45 * brilho);
+          ctx.globalAlpha = Math.min(1, brilho * (0.35 + 0.65 * p.depth));
+          ctx.drawImage(sprite, p.px - s / 2, p.py - s / 2, s, s);
+        }
+        ctx.globalAlpha = 1;
+
+        // Pulsos viajando pelos fios
+        for (let i = 0; i < pulses.length; i++) {
+          const pu = pulses[i];
+          const x = pu.a.px + (pu.b.px - pu.a.px) * pu.t;
+          const y = pu.a.py + (pu.b.py - pu.a.py) * pu.t;
+          ctx.globalAlpha = 0.5;
+          ctx.drawImage(sprite, x - 11, y - 11, 22, 22);
+          ctx.globalAlpha = 0.95;
+          ctx.drawImage(sprite, x - 5, y - 5, 10, 10);
+          ctx.globalAlpha = 1;
+        }
+
+        ctx.globalCompositeOperation = 'source-over';
+      }
+
+      function loop(t) {
+        if (!running) return;
+        const dt = Math.min(50, t - lastT || 16);
+        lastT = t;
+
+        // Qualidade adaptativa: se o quadro pesar, reduz a população uma única vez
+        if (dt > 40) slowFrames++; else slowFrames = Math.max(0, slowFrames - 2);
+        if (slowFrames > 90 && particles.length > 55) {
+          particles.length = Math.round(particles.length * 0.7);
+          pulsesEnabled = false;
+          slowFrames = 0;
+        }
+
+        update(dt, t);
+        render(dt, t);
+        requestAnimationFrame(loop);
+      }
+
+      function start() {
+        if (running || reduceMotion) return;
+        running = true;
+        lastT = 0;
+        requestAnimationFrame(loop);
+      }
+
+      function stop() { running = false; }
+
+      window.addEventListener('pointermove', function (e) {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+        mouse.active = true;
+      }, { passive: true });
+      window.addEventListener('pointerdown', function (e) {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+        mouse.active = true;
+      }, { passive: true });
+      document.documentElement.addEventListener('pointerleave', function () { mouse.active = false; });
+      document.addEventListener('visibilitychange', function () { if (document.hidden) stop(); else start(); });
+      window.addEventListener('resize', resize);
+
+      resize();
+      start();
+    })();
+
+    // ===== Slider central do Portfólio (troca automática) =====
+    (function () {
+      const slider = document.getElementById('pfSlider');
+      if (!slider) return;
+      const slides = slider.querySelectorAll('.pf-slide');
+      const dotsWrap = document.getElementById('pfDots');
+      const captionView = document.getElementById('pfCaptionView');
+      const captionTag = document.getElementById('pfCaptionTag');
+      const descBox = document.getElementById('pfDesc');
+      const descTitle = document.getElementById('pfDescTitle');
+      const descText = document.getElementById('pfDescText');
+      let descTimer = null;
+      const INTERVAL = 6000;
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const finePointer = window.matchMedia('(pointer: fine)').matches;
+      let index = 0;
+      let timer = null;
+
+      const pad = (n) => String(n).padStart(2, '0');
+
+      slides.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'pf-dot' + (i === 0 ? ' is-active' : '');
+        dot.setAttribute('aria-label', 'Ir para a imagem ' + (i + 1));
+        dot.addEventListener('click', () => { manual(i); });
+        dotsWrap.appendChild(dot);
+      });
+      const dots = dotsWrap.querySelectorAll('.pf-dot');
+
+      function goTo(n) {
+        index = (n + slides.length) % slides.length;
+        slides.forEach((s, i) => s.classList.toggle('is-active', i === index));
+        dots.forEach((d, i) => d.classList.toggle('is-active', i === index));
+        captionView.textContent = 'Vista ' + pad(index + 1) + ' / ' + pad(slides.length);
+
+        // Título e descrição da obra ativa, com transição suave
+        const obra = portfolioSlides[index];
+        if (captionTag) captionTag.textContent = (obra && obra.tag) || 'GBN3D';
+        if (descBox && descTitle && descText) {
+          if (descTimer) clearTimeout(descTimer);
+          descBox.classList.add('is-trocando');
+          descTimer = setTimeout(() => {
+            descTitle.textContent = (obra && obra.descTitle) || '';
+            descText.innerHTML = (obra && obra.descHTML) || '';
+            descBox.classList.remove('is-trocando');
+          }, 220);
+        }
+
+        slider.classList.remove('is-running');
+        void slider.offsetWidth; // reinicia a barra de progresso
+        if (!reduceMotion) slider.classList.add('is-running');
+      }
+
+      function start() {
+        if (reduceMotion || timer) return;
+        slider.classList.add('is-running');
+        timer = setInterval(() => goTo(index + 1), INTERVAL);
+      }
+
+      function stop() {
+        if (timer) { clearInterval(timer); timer = null; }
+      }
+
+      function manual(n) { stop(); goTo(n); start(); }
+
+      slider.querySelector('.pf-next').addEventListener('click', (e) => { e.stopPropagation(); manual(index + 1); });
+      slider.querySelector('.pf-prev').addEventListener('click', (e) => { e.stopPropagation(); manual(index - 1); });
+
+      // Pausa com o mouse sobre o slide e quando a aba está inativa
+      slider.addEventListener('mouseenter', () => { slider.classList.add('is-paused'); stop(); });
+      slider.addEventListener('mouseleave', () => { slider.classList.remove('is-paused'); manual(index); });
+      document.addEventListener('visibilitychange', () => (document.hidden ? stop() : manual(index)));
+
+      // Tilt 3D sutil da moldura acompanhando o cursor
+      if (finePointer && !reduceMotion) {
+        slider.addEventListener('mousemove', (e) => {
+          const r = slider.getBoundingClientRect();
+          const px = (e.clientX - r.left) / r.width - 0.5;
+          const py = (e.clientY - r.top) / r.height - 0.5;
+          slider.style.transform = 'rotateY(' + (px * 3).toFixed(2) + 'deg) rotateX(' + (-py * 2.4).toFixed(2) + 'deg)';
+        });
+        slider.addEventListener('mouseleave', () => { slider.style.transform = 'none'; });
+      }
+
+      // Clique abre o zoom no lightbox
+      slider.addEventListener('click', () => openLightbox(index));
+
+      goTo(0);
+      start();
+    })();
+
+    // ===== Slider do Hero =====
+    (function () {
+      const slider = document.getElementById('heroSlider');
+      if (!slider) return;
+      const slides = slider.querySelectorAll('.hero-slide');
+      const dotsWrap = slider.querySelector('.hero-dots');
+      const INTERVAL = 5000;
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let index = 0;
+      let timer = null;
+
+      // Cria os pontos de navegação dinamicamente
+      slides.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'hero-dot' + (i === 0 ? ' is-active' : '');
+        dot.setAttribute('aria-label', 'Ir para o slide ' + (i + 1));
+        dot.addEventListener('click', () => { goTo(i); restart(); });
+        dotsWrap.appendChild(dot);
+      });
+      const dots = dotsWrap.querySelectorAll('.hero-dot');
+
+      function goTo(i) {
+        slides[index].classList.remove('is-active');
+        dots[index].classList.remove('is-active');
+        index = (i + slides.length) % slides.length;
+        slides[index].classList.add('is-active');
+        dots[index].classList.add('is-active');
+      }
+
+      function next() { goTo(index + 1); }
+      function prev() { goTo(index - 1); }
+
+      function start() { if (!reduceMotion) timer = setInterval(next, INTERVAL); }
+      function stop() { clearInterval(timer); }
+      function restart() { stop(); start(); }
+
+      slider.querySelector('.hero-next').addEventListener('click', () => { next(); restart(); });
+      slider.querySelector('.hero-prev').addEventListener('click', () => { prev(); restart(); });
+
+      // Pausa com o mouse sobre o slide e quando a aba está inativa
+      slider.addEventListener('mouseenter', stop);
+      slider.addEventListener('mouseleave', start);
+      document.addEventListener('visibilitychange', () => (document.hidden ? stop() : restart()));
+
+      start();
+    })();
+
+    // ===== Slider da seção Generalista (autoplay com crossfade) =====
+    (function () {
+      const slider = document.getElementById('genSlider');
+      if (!slider) return;
+      const slides = slider.querySelectorAll('.gen-slide');
+      if (!slides.length) return;
+      const INTERVAL = 4000;
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let idx = 0;
+      let timer = null;
+
+      function show(n) {
+        idx = ((n % slides.length) + slides.length) % slides.length;
+        slides.forEach((s, i) => s.classList.toggle('is-active', i === idx));
+      }
+      function start() { if (!reduceMotion && !timer) timer = setInterval(() => show(idx + 1), INTERVAL); }
+      function stop() { if (timer) { clearInterval(timer); timer = null; } }
+
+      // Pausa com o mouse sobre o slide e quando a aba está inativa
+      slider.addEventListener('mouseenter', stop);
+      slider.addEventListener('mouseleave', start);
+      document.addEventListener('visibilitychange', () => (document.hidden ? stop() : start()));
+
+      // Pré-carrega as próximas imagens após o carregamento inicial
+      setTimeout(() => {
+        slides.forEach((s) => {
+          const im = s.querySelector('img');
+          if (im && !im.complete) { const p = new Image(); p.src = im.src; }
+        });
+      }, 1200);
+
+      show(0);
+      start();
+    })();
+
+    // ===== Seção "Forneça informações sobre seu projeto" =====
+    (function () {
+      const form = document.getElementById('projectForm');
+      const card = document.getElementById('projectFormCard');
+      const charCounter = document.getElementById('piCharCounter');
+      const btnSubmit = document.getElementById('btnSubmitProject');
+      const btnLabel = document.getElementById('btnLabel');
+      const ideiaField = document.getElementById('piIdeia');
+      const telefoneField = document.getElementById('piTelefone');
+      const cnpjField = document.getElementById('piCnpj');
+      const emailField = document.getElementById('piEmail');
+      const nomeField = document.getElementById('piNome');
+
+      if (!form || !card) return;
+
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const finePointer = window.matchMedia('(pointer: fine)').matches;
+
+      if (finePointer && !reduceMotion) {
+        card.addEventListener('mousemove', (e) => {
+          const r = card.getBoundingClientRect();
+          const px = (e.clientX - r.left) / r.width - 0.5;
+          const py = (e.clientY - r.top) / r.height - 0.5;
+          card.style.setProperty('--tilt-y', (px * 8).toFixed(2) + 'deg');
+          card.style.setProperty('--tilt-x', (-py * 6).toFixed(2) + 'deg');
+        });
+        card.addEventListener('mouseleave', () => {
+          card.style.setProperty('--tilt-x', '0deg');
+          card.style.setProperty('--tilt-y', '0deg');
+        });
+        btnSubmit.addEventListener('pointermove', (e) => {
+          const r = btnSubmit.getBoundingClientRect();
+          const px = (e.clientX - r.left) / r.width;
+          const py = (e.clientY - r.top) / r.height;
+          btnSubmit.style.setProperty('--rx', ((0.5 - py) * 14).toFixed(2) + 'deg');
+          btnSubmit.style.setProperty('--ry', ((px - 0.5) * 18).toFixed(2) + 'deg');
+          btnSubmit.style.setProperty('--mx', (px * 100).toFixed(1) + '%');
+          btnSubmit.style.setProperty('--my', (py * 100).toFixed(1) + '%');
+        });
+        btnSubmit.addEventListener('pointerleave', () => {
+          btnSubmit.style.setProperty('--rx', '0deg');
+          btnSubmit.style.setProperty('--ry', '0deg');
+        });
+      }
+
+      telefoneField.addEventListener('input', () => {
+        const d = telefoneField.value.replace(/\D/g, '').slice(0, 11);
+        let v = d;
+        if (d.length > 2) v = '(' + d.slice(0, 2) + ') ' + d.slice(2);
+        if (d.length > 6 && d.length <= 10) v = '(' + d.slice(0, 2) + ') ' + d.slice(2, 6) + '-' + d.slice(6);
+        if (d.length > 10) v = '(' + d.slice(0, 2) + ') ' + d.slice(2, 7) + '-' + d.slice(7);
+        telefoneField.value = v;
+      });
+
+      cnpjField.addEventListener('input', () => {
+        const d = cnpjField.value.replace(/\D/g, '').slice(0, 14);
+        let v = d;
+        if (d.length > 2) v = d.slice(0, 2) + '.' + d.slice(2);
+        if (d.length > 5) v = d.slice(0, 2) + '.' + d.slice(2, 5) + '.' + d.slice(5);
+        if (d.length > 8) v = d.slice(0, 2) + '.' + d.slice(2, 5) + '.' + d.slice(5, 8) + '/' + d.slice(8);
+        if (d.length > 12) v = d.slice(0, 2) + '.' + d.slice(2, 5) + '.' + d.slice(5, 8) + '/' + d.slice(8, 12) + '-' + d.slice(12);
+        cnpjField.value = v;
+      });
+
+      ideiaField.addEventListener('input', () => {
+        const n = ideiaField.value.length;
+        charCounter.textContent = n + (n === 1 ? ' caractere' : ' caracteres');
+      });
+
+      let toastTimer = null;
+      function showToast(message, type) {
+        let toast = document.querySelector('.form-toast');
+        if (!toast) {
+          toast = document.createElement('div');
+          toast.className = 'form-toast';
+          document.body.appendChild(toast);
+        }
+        toast.textContent = message;
+        toast.classList.remove('is-visible', 'is-error');
+        void toast.offsetWidth;
+        if (type === 'error') toast.classList.add('is-error');
+        toast.classList.add('is-visible');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => toast.classList.remove('is-visible'), 4500);
+      }
+
+      if (new URLSearchParams(location.search).has('enviado')) {
+        showToast('Projeto enviado com sucesso!', 'success');
+        history.replaceState(null, '', location.pathname + location.hash);
+      }
+
+      form.querySelectorAll('input, textarea').forEach(f =>
+        f.addEventListener('input', () => f.classList.remove('is-invalid')));
+
+    })();
+
+  </script>
+<script>
+(function () {
+  const fileInput = document.getElementById('piAnexos');
+  const uploadHint = document.getElementById('piAnexosHint');
+  if (!fileInput || !uploadHint) return;
+
+  const defaultHint = uploadHint.textContent;
+  const maxFileSize = 2 * 1024 * 1024;
+  const maxTotalSize = 4 * 1024 * 1024;
+
+  // Garante que o seletor de arquivos sempre abra (Android)
+  fileInput.addEventListener('click', function () {
+    this.value = '';
+    this.setCustomValidity('');
+    uploadHint.textContent = defaultHint;
+    uploadHint.style.color = '';
+  });
+
+  fileInput.addEventListener('change', function () {
+    const files = Array.from(this.files);
+    const totalSize = files.reduce((total, file) => total + file.size, 0);
+    let error = '';
+
+    if (files.length > 4) {
+      error = 'Selecione no máximo 4 imagens.';
+    } else if (files.some(file => file.size > maxFileSize)) {
+      error = 'Cada imagem deve ter no máximo 2 MB.';
+    } else if (totalSize > maxTotalSize) {
+      error = 'O tamanho total das imagens deve ser de no máximo 4 MB.';
+    }
+
+    this.setCustomValidity(error);
+    uploadHint.textContent = error || defaultHint;
+    uploadHint.style.color = error ? '#FB6762' : '';
+
+    if (error) this.reportValidity();
+  });
+})();
+</script>
+<script>
+  // Form submission handler with success screen
+  (function() {
+    const form = document.getElementById('projectForm');
+    const formCard = document.getElementById('projectFormCard');
+    const successScreen = document.getElementById('formSuccessScreen');
+    
+    if (!form) return;
+    
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Gather form data
+      const formData = new FormData(form);
+      
+      // Submit via fetch to FormSubmit
+      fetch(form.getAttribute('action'), {
+        method: form.getAttribute('method'),
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => {
+        if (response.ok) {
+          // Show success screen
+          if (!successScreen) {
+            // Create success screen
+            successScreen = document.createElement('div');
+            successScreen.id = 'formSuccessScreen';
+            successScreen.innerHTML = `
+              <div class="success-overlay">
+                <div class="success-content">
+                  <img src="imgform/thanks.jpg" alt="Obrigado" class="success-image">
+                  <h2>Obrigado pelo contato!</h2>
+                  <p>Entramos em contato em breve para conversarmos sobre o seu projeto.</p>
+                  <button class="btn-voltar" id="btnVoltar">Voltar ao Site</button>
+                </div>
+              </div>
+            `;
+            // Style the success screen
+            const style = document.createElement('style');
+            style.textContent = `
+              .success-overlay {
+                position: fixed;
+                top: 0; left: 0; right: 0; bottom: 0;
+                background: rgba(0,0,0,0.8);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 9999;
+                backdrop-filter: blur(4px);
+              }
+              .success-content {
+                background: var(--panel);
+                padding: 40px;
+                border-radius: 14px;
+                text-align: center;
+                position: relative;
+                max-width: 500px;
+                width: 90%;
+              }
+              .success-image {
+                width: 150px;
+                height: 150px;
+                object-fit: cover;
+                border-radius: 50%;
+                margin: 0 auto 24px;
+                border: 4px solid var(--acc);
+              }
+              .success-content h2 {
+                color: var(--mut);
+                font-size: 1.8rem;
+                margin-bottom: 12px;
+              }
+              .success-content p {
+                color: var(--mut);
+                font-size: 1rem;
+                margin-bottom: 32px;
+              }
+              .btn-voltar {
+                background: var(--acc);
+                color: #fff;
+                border: none;
+                padding: 12px 24px;
+                border-radius: 4px;
+                font-size: 0.9rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 1.5px;
+                cursor: pointer;
+                transition: background 0.3s;
+              }
+              .btn-voltar:hover {
+                background: var(--mut);
+              }
+            `;
+            document.head.appendChild(style);
+            document.body.appendChild(successScreen);
+          }
+          
+          // Hide form card and show success screen
+          formCard.style.display = 'none';
+          successScreen.style.display = 'flex';
+          
+          // Handle "Voltar ao Site" button
+          const btnVoltar = successScreen.querySelector('#btnVoltar');
+          if (btnVoltar) {
+            btnVoltar.onclick = function() {
+              successScreen.style.display = 'none';
+              formCard.style.display = 'block';
+              form.reset();
+              // Optional: reload page or redirect
+              // window.location.href = 'index.html';
+            };
+          }
+          
+          // Also handle Esc key to close
+          document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && successScreen.style.display === 'flex') {
+              successScreen.style.display = 'none';
+              formCard.style.display = 'block';
+              form.reset();
+            }
+          });
+          
+          // Remove any existing error messages
+          const existingError = document.querySelector('.form-error');
+          if (existingError) existingError.remove();
+          
+        } else {
+          // Show error
+          console.error('Form submission failed');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+    });
+  })();
+</script>
+</body></html>
